@@ -1,0 +1,28 @@
+{
+  "cSpell.words": [
+    "autocorrect",
+    "autovalidate",
+    "dartz",
+    "dotenv",
+    "Inapp",
+    "keygen",
+    "reorderable",
+    "riverpod",
+    "signup",
+    "unfocus"
+  ],
+  "files.exclude": {
+    "**/*.freezed.dart": true,
+    "**/*.g.dart": false
+  },
+
+  "dart.flutterSdkPath": ".fvm/flutter_sdk",
+  // Remove .fvm files from search
+  "search.exclude": {
+    "**/.fvm": true
+  },
+  // Remove from file watching
+  "files.watcherExclude": {
+    "**/.fvm": true
+  }
+}

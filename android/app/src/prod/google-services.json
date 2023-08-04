@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "920413736023",
+    "project_id": "agriapp-c2b55",
+    "storage_bucket": "agriapp-c2b55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920413736023:android:9e2e7ec75de48d50aa6712",
+        "android_client_info": {
+          "package_name": "com.example.agri_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920413736023-13dprck7hv9kn7558nqd6drt4c6b80fh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXxZw-DVEzlzTVGC9WA1Qc-ez9H8TRtvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920413736023-13dprck7hv9kn7558nqd6drt4c6b80fh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "920413736023-20bfjjg1gj6684u60i71cjs3qhk9esoq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.agriApp.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920413736023:android:4703bcb6a5037b8daa6712",
+        "android_client_info": {
+          "package_name": "com.khuaho.agri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920413736023-13dprck7hv9kn7558nqd6drt4c6b80fh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXxZw-DVEzlzTVGC9WA1Qc-ez9H8TRtvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920413736023-13dprck7hv9kn7558nqd6drt4c6b80fh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "920413736023-20bfjjg1gj6684u60i71cjs3qhk9esoq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.agriApp.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
