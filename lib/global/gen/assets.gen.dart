@@ -33,11 +33,22 @@ class $AssetsI18nGen {
   List<String> get values => [stringsI18n, stringsViI18n];
 }
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [logo];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsAppIconsGen appIcons = $AssetsAppIconsGen();
   static const $AssetsI18nGen i18n = $AssetsI18nGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {
