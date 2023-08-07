@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 4 (2 per locale)
+/// Strings: 14 (7 per locale)
 ///
-/// Built on 2023-08-03 at 10:14 UTC
+/// Built on 2023-08-07 at 03:35 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -151,17 +151,26 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 
 	// Translations
 	String get appName => 'Agriculture App';
-	late final _StringsSplashEn splash = _StringsSplashEn._(_root);
+	late final _StringsOnboardingEn onboarding = _StringsOnboardingEn._(_root);
 }
 
-// Path: splash
-class _StringsSplashEn {
-	_StringsSplashEn._(this._root);
+// Path: onboarding
+class _StringsOnboardingEn {
+	_StringsOnboardingEn._(this._root);
 
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get description => 'Hello';
+	List<String> get title => [
+		'Agriculture Guide',
+		'Sharing and Exchanging experiences',
+		'Miniature Farming Store',
+	];
+	List<String> get description => [
+		'Converges many topics on farming and animal husbandry for you to learn.',
+		'Create conditions for farmers to interact with each other on problems encountered in agriculture.',
+		'Here, farmers will be suggested and made purchases and sales of items such as fertilizer, tools, ... for his work.',
+	];
 }
 
 // Path: <root>
@@ -190,17 +199,26 @@ class _StringsVi implements _StringsEn {
 
 	// Translations
 	@override String get appName => 'Agriculture App';
-	@override late final _StringsSplashVi splash = _StringsSplashVi._(_root);
+	@override late final _StringsOnboardingVi onboarding = _StringsOnboardingVi._(_root);
 }
 
-// Path: splash
-class _StringsSplashVi implements _StringsSplashEn {
-	_StringsSplashVi._(this._root);
+// Path: onboarding
+class _StringsOnboardingVi implements _StringsOnboardingEn {
+	_StringsOnboardingVi._(this._root);
 
 	@override final _StringsVi _root; // ignore: unused_field
 
 	// Translations
-	@override String get description => 'Xin chào';
+	@override List<String> get title => [
+		'Hướng dẫn nông nghiệp',
+		'Chia sẻ và Trao đổi kinh nghiệm',
+		'Cửa hàng nông nghiệp thu nhỏ',
+	];
+	@override List<String> get description => [
+		'Hội tụ nhiều chủ đề về trồng trọt, chăn nuôi để bạn tìm hiểu.',
+		'Tạo điều kiện cho nông dân có thể tương tác với nhau về các vấn đề gặp phải trong nông nghiệp.',
+		'Tại đây, nông dân sẽ được gợi ý và thực hiện mua bán các mặt hàng như phân bón, dụng cụ, ... cho công việc của mình.',
+	];
 }
 
 /// Flat map(s) containing all translations.
@@ -210,7 +228,12 @@ extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'appName': return 'Agriculture App';
-			case 'splash.description': return 'Hello';
+			case 'onboarding.title.0': return 'Agriculture Guide';
+			case 'onboarding.title.1': return 'Sharing and Exchanging experiences';
+			case 'onboarding.title.2': return 'Miniature Farming Store';
+			case 'onboarding.description.0': return 'Converges many topics on farming and animal husbandry for you to learn.';
+			case 'onboarding.description.1': return 'Create conditions for farmers to interact with each other on problems encountered in agriculture.';
+			case 'onboarding.description.2': return 'Here, farmers will be suggested and made purchases and sales of items such as fertilizer, tools, ... for his work.';
 			default: return null;
 		}
 	}
@@ -220,7 +243,12 @@ extension on _StringsVi {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'appName': return 'Agriculture App';
-			case 'splash.description': return 'Xin chào';
+			case 'onboarding.title.0': return 'Hướng dẫn nông nghiệp';
+			case 'onboarding.title.1': return 'Chia sẻ và Trao đổi kinh nghiệm';
+			case 'onboarding.title.2': return 'Cửa hàng nông nghiệp thu nhỏ';
+			case 'onboarding.description.0': return 'Hội tụ nhiều chủ đề về trồng trọt, chăn nuôi để bạn tìm hiểu.';
+			case 'onboarding.description.1': return 'Tạo điều kiện cho nông dân có thể tương tác với nhau về các vấn đề gặp phải trong nông nghiệp.';
+			case 'onboarding.description.2': return 'Tại đây, nông dân sẽ được gợi ý và thực hiện mua bán các mặt hàng như phân bón, dụng cụ, ... cho công việc của mình.';
 			default: return null;
 		}
 	}

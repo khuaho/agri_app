@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../global/app_router/app_router.dart';
+import '../../global/gen/assets.gen.dart';
+import '../../global/gen/strings.g.dart';
 import '../../global/themes/app_colors.dart';
 
 @RoutePage()
@@ -16,20 +19,42 @@ class OnboardingPage extends ConsumerStatefulWidget {
 class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   final pageController = PageController();
   bool isLastPage = false;
+  int currentPage = 0;
 
-  //  List<AssetGenImage> onboardImages = [
-  //   Assets.images.intro1,
-  //   Assets.images.intro2,
-  // ];
+  List<AssetGenImage> onboardImages = [
+    Assets.images.onboarding1,
+    Assets.images.onboarding2,
+    Assets.images.onboarding3,
+  ];
 
   void onPageViewChange(int page) {
-    // setState(() {
-    //   isLastPage = page == onboardImages.length - 1;
-    // });
+    setState(() {
+      currentPage = page;
+      isLastPage = page == onboardImages.length - 1;
+    });
   }
+
+  void nextPageChange() {
+    if (!isLastPage) {
+      pageController.animateToPage(
+        currentPage + 1,
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      print('last page');
+      context.router.replaceAll(
+        [const HomeRoute()],
+      );
+      // if (!mounted) return;
+      // ref.watch(appSettingProvider.notifier).update(
+      //       (state) => state.copyWith(isFirstLaunch: false),
+      //     );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    // final t = Translations.of(context);
     return Scaffold(
       body: Column(
         children: [
@@ -39,13 +64,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
               controller: pageController,
               onPageChanged: onPageViewChange,
               children: List.generate(
-                3,
-                (index) => page(index),
+                onboardImages.length,
+                (index) => page(context, index),
               ),
-              // children: List.generate(
-              //   onboardImages.length,
-              //   (index) => page(i18n, index),
-              // ),
             ),
           ),
           Padding(
@@ -58,8 +79,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
               children: [
                 SmoothPageIndicator(
                   controller: pageController,
-                  count: 3,
-                  // count: onboardImages.length,
+                  count: onboardImages.length,
                   effect: const ExpandingDotsEffect(
                     activeDotColor: AppColors.primary,
                     dotColor: Colors.black26,
@@ -68,7 +88,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: nextPageChange,
                   style: ElevatedButton.styleFrom(
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(14),
@@ -83,31 +103,38 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     );
   }
 
-  Widget page(int index) {
+  Widget page(BuildContext context, int index) {
+    final transl = Translations.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Expanded(
-          child: Container(
-            color: AppColors.primary,
+        Container(
+          height: 600,
+          alignment: Alignment.center,
+          color: AppColors.primary,
+          child: onboardImages[index].image(
+            fit: BoxFit.contain,
+            height: 300,
           ),
         ),
         const SizedBox(height: 20),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            'Shop and Earn points',
-            style: TextStyle(
+            transl.onboarding.title[index],
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
             ),
           ),
         ),
         const SizedBox(height: 6),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            'Earn points by following a link and purchasing online or by registering your payment card and choosing in store offers',
+            transl.onboarding.description[index],
           ),
         )
       ],

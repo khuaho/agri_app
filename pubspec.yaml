@@ -10,6 +10,7 @@ environment:
 
 scripts:
   gen: "flutter pub run build_runner watch --delete-conflicting-outputs"
+  slang: "dart run slang"
 
 dependencies:
   flutter:
@@ -36,6 +37,7 @@ dependencies:
   flutter_localization: ^0.1.13
   path_provider: ^2.0.15
   smooth_page_indicator: ^1.1.0
+  geolocator: ^9.0.2
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,15 @@
 {
   "appName": "Agriculture App",
-  "splash": {
-    "description": "Xin chào"
+  "onboarding": {
+    "title": [
+      "Hướng dẫn nông nghiệp",
+      "Chia sẻ và Trao đổi kinh nghiệm",
+      "Cửa hàng nông nghiệp thu nhỏ"
+    ],
+    "description": [
+      "Hội tụ nhiều chủ đề về trồng trọt, chăn nuôi để bạn tìm hiểu.",
+      "Tạo điều kiện cho nông dân có thể tương tác với nhau về các vấn đề gặp phải trong nông nghiệp.",
+      "Tại đây, nông dân sẽ được gợi ý và thực hiện mua bán các mặt hàng như phân bón, dụng cụ, ... cho công việc của mình."
+    ]
   }
 }
