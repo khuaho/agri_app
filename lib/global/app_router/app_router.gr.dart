@@ -27,6 +27,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const RegisterPage(),
       );
     },
+    CropDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<CropDetailRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CropDetailPage(
+          key: args.key,
+          id: args.id,
+        ),
+      );
+    },
     MainRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -45,6 +55,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HomePage(),
       );
     },
+    CropsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CropsPage(),
+      );
+    },
     LoginRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -55,12 +71,6 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const OnboardingPage(),
-      );
-    },
-    CropsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const CropsPage(),
       );
     },
   };
@@ -92,6 +102,44 @@ class RegisterRoute extends PageRouteInfo<void> {
   static const String name = 'RegisterRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CropDetailPage]
+class CropDetailRoute extends PageRouteInfo<CropDetailRouteArgs> {
+  CropDetailRoute({
+    Key? key,
+    required String id,
+    List<PageRouteInfo>? children,
+  }) : super(
+          CropDetailRoute.name,
+          args: CropDetailRouteArgs(
+            key: key,
+            id: id,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'CropDetailRoute';
+
+  static const PageInfo<CropDetailRouteArgs> page =
+      PageInfo<CropDetailRouteArgs>(name);
+}
+
+class CropDetailRouteArgs {
+  const CropDetailRouteArgs({
+    this.key,
+    required this.id,
+  });
+
+  final Key? key;
+
+  final String id;
+
+  @override
+  String toString() {
+    return 'CropDetailRouteArgs{key: $key, id: $id}';
+  }
 }
 
 /// generated route for
@@ -137,6 +185,20 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [CropsPage]
+class CropsRoute extends PageRouteInfo<void> {
+  const CropsRoute({List<PageRouteInfo>? children})
+      : super(
+          CropsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CropsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [LoginPage]
 class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute({List<PageRouteInfo>? children})
@@ -160,20 +222,6 @@ class OnboardingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'OnboardingRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [CropsPage]
-class CropsRoute extends PageRouteInfo<void> {
-  const CropsRoute({List<PageRouteInfo>? children})
-      : super(
-          CropsRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'CropsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

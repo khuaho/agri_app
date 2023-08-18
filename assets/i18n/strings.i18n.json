@@ -1,5 +1,12 @@
 {
   "appName": "Agriculture App",
+  "common": {
+    "filter": "Filter",
+    "button": {
+      "reset": "Reset",
+      "apply": "Apply"
+    }
+  },
   "onboarding": {
     "title": [
       "Agriculture Guide",
@@ -34,5 +41,11 @@
       "label": "WindSpeed",
       "value": "${value}m/s"
     }
+  },
+  "crops": {
+    "title": "Crops",
+    "searchCrop": "Search crop by name",
+    "cropTypes": "Crop types",
+    "selectCropType": "Select crop type"
   }
 }

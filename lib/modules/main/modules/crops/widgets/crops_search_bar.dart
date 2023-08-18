@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
 import '../../../../../global/widgets/filter/filter_text_field.dart';
 import '../model/crop_filter_data.dart';
@@ -27,12 +28,14 @@ class _CropsSearchBarState extends State<CropsSearchBar> {
 
   @override
   Widget build(BuildContext context) {
+    final transl = Translations.of(context);
+
     return Row(
       children: [
         Expanded(
           flex: 1,
           child: FilterTextField(
-            hintText: 'Search crop by name',
+            hintText: transl.crops.searchCrop,
             onTextChange: (text) => handleFilter(
               filter.copyWith(keyword: text),
             ),
@@ -60,7 +63,7 @@ class _CropsSearchBarState extends State<CropsSearchBar> {
                 ),
               );
 
-              // if (newFilter is RemoteFilterData) {
+              // if (newFilter is CropFilterData) {
               //   handleFilter(newFilter);
               // }
             },

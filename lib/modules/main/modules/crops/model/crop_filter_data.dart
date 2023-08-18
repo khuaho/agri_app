@@ -6,5 +6,6 @@ part 'crop_filter_data.freezed.dart';
 class CropFilterData with _$CropFilterData {
   const factory CropFilterData([
     String? keyword,
+    String? cropType,
   ]) = _CropFilterData;
 }

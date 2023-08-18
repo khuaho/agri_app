@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CropFilterData {
   String? get keyword => throw _privateConstructorUsedError;
+  String? get cropType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CropFilterDataCopyWith<CropFilterData> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $CropFilterDataCopyWith<$Res> {
           CropFilterData value, $Res Function(CropFilterData) then) =
       _$CropFilterDataCopyWithImpl<$Res, CropFilterData>;
   @useResult
-  $Res call({String? keyword});
+  $Res call({String? keyword, String? cropType});
 }
 
 /// @nodoc
@@ -46,11 +47,16 @@ class _$CropFilterDataCopyWithImpl<$Res, $Val extends CropFilterData>
   @override
   $Res call({
     Object? keyword = freezed,
+    Object? cropType = freezed,
   }) {
     return _then(_value.copyWith(
       keyword: freezed == keyword
           ? _value.keyword
           : keyword // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cropType: freezed == cropType
+          ? _value.cropType
+          : cropType // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -64,7 +70,7 @@ abstract class _$$_CropFilterDataCopyWith<$Res>
       __$$_CropFilterDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? keyword});
+  $Res call({String? keyword, String? cropType});
 }
 
 /// @nodoc
@@ -79,11 +85,16 @@ class __$$_CropFilterDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? keyword = freezed,
+    Object? cropType = freezed,
   }) {
     return _then(_$_CropFilterData(
       freezed == keyword
           ? _value.keyword
           : keyword // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == cropType
+          ? _value.cropType
+          : cropType // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -92,14 +103,16 @@ class __$$_CropFilterDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CropFilterData implements _CropFilterData {
-  const _$_CropFilterData([this.keyword]);
+  const _$_CropFilterData([this.keyword, this.cropType]);
 
   @override
   final String? keyword;
+  @override
+  final String? cropType;
 
   @override
   String toString() {
-    return 'CropFilterData(keyword: $keyword)';
+    return 'CropFilterData(keyword: $keyword, cropType: $cropType)';
   }
 
   @override
@@ -107,11 +120,13 @@ class _$_CropFilterData implements _CropFilterData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CropFilterData &&
-            (identical(other.keyword, keyword) || other.keyword == keyword));
+            (identical(other.keyword, keyword) || other.keyword == keyword) &&
+            (identical(other.cropType, cropType) ||
+                other.cropType == cropType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, keyword);
+  int get hashCode => Object.hash(runtimeType, keyword, cropType);
 
   @JsonKey(ignore: true)
   @override
@@ -121,10 +136,13 @@ class _$_CropFilterData implements _CropFilterData {
 }
 
 abstract class _CropFilterData implements CropFilterData {
-  const factory _CropFilterData([final String? keyword]) = _$_CropFilterData;
+  const factory _CropFilterData(
+      [final String? keyword, final String? cropType]) = _$_CropFilterData;
 
   @override
   String? get keyword;
+  @override
+  String? get cropType;
   @override
   @JsonKey(ignore: true)
   _$$_CropFilterDataCopyWith<_$_CropFilterData> get copyWith =>

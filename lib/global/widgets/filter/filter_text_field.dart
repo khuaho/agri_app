@@ -47,7 +47,6 @@ class _FilterTextFieldState extends State<FilterTextField> {
             onPressed: () => widget.onTextChange(textController.text),
             icon: const Icon(
               Icons.search,
-              // AppIcons.filled_search,
               color: AppColors.secondaryDefault,
             ),
             hoverColor: AppColors.neutral09,

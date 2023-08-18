@@ -1,5 +1,12 @@
 {
   "appName": "Agriculture App",
+  "common": {
+    "filter": "Bộ lọc",
+    "button": {
+      "reset": "Đặt lại",
+      "apply": "Áp dụng"
+    }
+  },
   "onboarding": {
     "title": [
       "Hướng dẫn nông nghiệp",
@@ -34,5 +41,11 @@
       "label": "Tốc độ gió",
       "value": "${value}m/s"
     }
+  },
+  "crops": {
+    "title": "Cây trồng",
+    "searchCrop": "Tìm kiếm tên cây trồng ...",
+    "cropTypes": "Các loại cây trồng",
+    "selectCropType": "Chọn loại cây trồng"
   }
 }

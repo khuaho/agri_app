@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 36 (18 per locale)
+/// Strings: 50 (25 per locale)
 ///
-/// Built on 2023-08-17 at 07:20 UTC
+/// Built on 2023-08-18 at 08:12 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -151,8 +151,21 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 
 	// Translations
 	String get appName => 'Agriculture App';
+	late final _StringsCommonEn common = _StringsCommonEn._(_root);
 	late final _StringsOnboardingEn onboarding = _StringsOnboardingEn._(_root);
 	late final _StringsHomeEn home = _StringsHomeEn._(_root);
+	late final _StringsCropsEn crops = _StringsCropsEn._(_root);
+}
+
+// Path: common
+class _StringsCommonEn {
+	_StringsCommonEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get filter => 'Filter';
+	late final _StringsCommonButtonEn button = _StringsCommonButtonEn._(_root);
 }
 
 // Path: onboarding
@@ -187,6 +200,30 @@ class _StringsHomeEn {
 	late final _StringsHomeHumidityEn humidity = _StringsHomeHumidityEn._(_root);
 	late final _StringsHomeRainfallEn rainfall = _StringsHomeRainfallEn._(_root);
 	late final _StringsHomeWindSpeedEn windSpeed = _StringsHomeWindSpeedEn._(_root);
+}
+
+// Path: crops
+class _StringsCropsEn {
+	_StringsCropsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Crops';
+	String get searchCrop => 'Search crop by name';
+	String get cropTypes => 'Crop types';
+	String get selectCropType => 'Select crop type';
+}
+
+// Path: common.button
+class _StringsCommonButtonEn {
+	_StringsCommonButtonEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get reset => 'Reset';
+	String get apply => 'Apply';
 }
 
 // Path: home.hello
@@ -270,8 +307,21 @@ class _StringsVi implements _StringsEn {
 
 	// Translations
 	@override String get appName => 'Agriculture App';
+	@override late final _StringsCommonVi common = _StringsCommonVi._(_root);
 	@override late final _StringsOnboardingVi onboarding = _StringsOnboardingVi._(_root);
 	@override late final _StringsHomeVi home = _StringsHomeVi._(_root);
+	@override late final _StringsCropsVi crops = _StringsCropsVi._(_root);
+}
+
+// Path: common
+class _StringsCommonVi implements _StringsCommonEn {
+	_StringsCommonVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get filter => 'Bộ lọc';
+	@override late final _StringsCommonButtonVi button = _StringsCommonButtonVi._(_root);
 }
 
 // Path: onboarding
@@ -306,6 +356,30 @@ class _StringsHomeVi implements _StringsHomeEn {
 	@override late final _StringsHomeHumidityVi humidity = _StringsHomeHumidityVi._(_root);
 	@override late final _StringsHomeRainfallVi rainfall = _StringsHomeRainfallVi._(_root);
 	@override late final _StringsHomeWindSpeedVi windSpeed = _StringsHomeWindSpeedVi._(_root);
+}
+
+// Path: crops
+class _StringsCropsVi implements _StringsCropsEn {
+	_StringsCropsVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Cây trồng';
+	@override String get searchCrop => 'Tìm kiếm tên cây trồng ...';
+	@override String get cropTypes => 'Các loại cây trồng';
+	@override String get selectCropType => 'Chọn loại cây trồng';
+}
+
+// Path: common.button
+class _StringsCommonButtonVi implements _StringsCommonButtonEn {
+	_StringsCommonButtonVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get reset => 'Đặt lại';
+	@override String get apply => 'Áp dụng';
 }
 
 // Path: home.hello
@@ -370,6 +444,9 @@ extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'appName': return 'Agriculture App';
+			case 'common.filter': return 'Filter';
+			case 'common.button.reset': return 'Reset';
+			case 'common.button.apply': return 'Apply';
 			case 'onboarding.title.0': return 'Agriculture Guide';
 			case 'onboarding.title.1': return 'Sharing and Exchanging experiences';
 			case 'onboarding.title.2': return 'Miniature Farming Store';
@@ -387,6 +464,10 @@ extension on _StringsEn {
 			case 'home.rainfall.value': return ({required Object value}) => '${value}mm';
 			case 'home.windSpeed.label': return 'WindSpeed';
 			case 'home.windSpeed.value': return ({required Object value}) => '${value}m/s';
+			case 'crops.title': return 'Crops';
+			case 'crops.searchCrop': return 'Search crop by name';
+			case 'crops.cropTypes': return 'Crop types';
+			case 'crops.selectCropType': return 'Select crop type';
 			default: return null;
 		}
 	}
@@ -396,6 +477,9 @@ extension on _StringsVi {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'appName': return 'Agriculture App';
+			case 'common.filter': return 'Bộ lọc';
+			case 'common.button.reset': return 'Đặt lại';
+			case 'common.button.apply': return 'Áp dụng';
 			case 'onboarding.title.0': return 'Hướng dẫn nông nghiệp';
 			case 'onboarding.title.1': return 'Chia sẻ và Trao đổi kinh nghiệm';
 			case 'onboarding.title.2': return 'Cửa hàng nông nghiệp thu nhỏ';
@@ -413,6 +497,10 @@ extension on _StringsVi {
 			case 'home.rainfall.value': return ({required Object value}) => '${value}mm';
 			case 'home.windSpeed.label': return 'Tốc độ gió';
 			case 'home.windSpeed.value': return ({required Object value}) => '${value}m/s';
+			case 'crops.title': return 'Cây trồng';
+			case 'crops.searchCrop': return 'Tìm kiếm tên cây trồng ...';
+			case 'crops.cropTypes': return 'Các loại cây trồng';
+			case 'crops.selectCropType': return 'Chọn loại cây trồng';
 			default: return null;
 		}
 	}
