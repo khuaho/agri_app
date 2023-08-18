@@ -38,7 +38,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     if (!isLastPage) {
       pageController.animateToPage(
         currentPage + 1,
-        duration: const Duration(seconds: 1),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
       );
     } else {

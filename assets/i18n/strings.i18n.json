@@ -11,5 +11,28 @@
       "Create conditions for farmers to interact with each other on problems encountered in agriculture.",
       "Here, farmers will be suggested and made purchases and sales of items such as fertilizer, tools, ... for his work."
     ]
+  },
+  "home": {
+    "hello": {
+      "you": "Hello you",
+      "username": "Hello, $name"
+    },
+    "weatherDes": "It's ${value} today",
+    "temperature": {
+      "label": "Temperature",
+      "value": "${value}° F"
+    },
+    "humidity": {
+      "label": "Humidity",
+      "value": "${value}%"
+    },
+    "rainfall": {
+      "label": "Rainfall",
+      "value": "${value}mm"
+    },
+    "windSpeed": {
+      "label": "WindSpeed",
+      "value": "${value}m/s"
+    }
   }
 }

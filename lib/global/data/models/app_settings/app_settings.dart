@@ -13,6 +13,8 @@ class AppSettings with _$AppSettings {
     // @Default(AppLocale.auto) AppLocale locale,
     // @Default(AppTheme.auto) AppTheme theme,
     @Default(true) bool isFirstLaunch,
+    @Default(0) double lat,
+    @Default(0) double lon,
   ]) = _AppSettings;
 
   factory AppSettings.fromJson(Map<String, dynamic> json) =>

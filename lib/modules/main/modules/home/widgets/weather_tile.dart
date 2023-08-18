@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../global/themes/app_colors.dart';
+import '../../../../../global/themes/app_colors.dart';
 
 class WeatherTile extends StatelessWidget {
   const WeatherTile({
@@ -36,24 +36,27 @@ class WeatherTile extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 10),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-            ),
-            Text(
-              subTitle,
-              style: textTheme.bodySmall?.copyWith(
-                color: AppColors.neutral03,
-                fontWeight: FontWeight.w500,
+              Text(
+                subTitle,
+                style: textTheme.bodySmall?.copyWith(
+                  color: AppColors.neutral03,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );

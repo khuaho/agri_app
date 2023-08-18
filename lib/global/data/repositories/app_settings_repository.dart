@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:hive_flutter/adapters.dart';
 
 import '../../utils/constants.dart';
@@ -21,6 +22,11 @@ abstract class AppSettingsRepository {
   Future<Either<Failure, AppSettings>> save(AppSettings appSettings);
 
   Future<Either<Failure, AppSettings>> reset();
+
+  Future<Either<Failure, AppSettings>> saveCurrentPosition(
+    AppSettings appSettings,
+    Position position,
+  );
 }
 
 class _AppSettingRepositoryImpl extends BaseRepository
@@ -60,6 +66,25 @@ class _AppSettingRepositoryImpl extends BaseRepository
         key,
         jsonEncode(
           appSettings.toJson(),
+        ),
+      );
+      return appSettings;
+    });
+  }
+
+  @override
+  Future<Either<Failure, AppSettings>> saveCurrentPosition(
+    AppSettings appSettings,
+    Position position,
+  ) {
+    return guardFuture(() async {
+      await box.put(
+        key,
+        jsonEncode(
+          appSettings.copyWith(
+            lat: position.latitude,
+            lon: position.longitude,
+          ),
         ),
       );
       return appSettings;

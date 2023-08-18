@@ -11,5 +11,28 @@
       "Tạo điều kiện cho nông dân có thể tương tác với nhau về các vấn đề gặp phải trong nông nghiệp.",
       "Tại đây, nông dân sẽ được gợi ý và thực hiện mua bán các mặt hàng như phân bón, dụng cụ, ... cho công việc của mình."
     ]
+  },
+  "home": {
+    "hello": {
+      "you": "Xin chào bạn",
+      "username": "Xin chào, $name"
+    },
+    "weatherDes": "Hôm nay ${value}",
+    "temperature": {
+      "label": "Nhiệt độ",
+      "value": "${value}° F"
+    },
+    "humidity": {
+      "label": "Độ ẩm",
+      "value": "${value}%"
+    },
+    "rainfall": {
+      "label": "Lượng mưa",
+      "value": "${value}mm"
+    },
+    "windSpeed": {
+      "label": "Tốc độ gió",
+      "value": "${value}m/s"
+    }
   }
 }

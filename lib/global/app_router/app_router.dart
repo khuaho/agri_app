@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 
-import '../../modules/home/home_page.dart';
+import '../../modules/main/modules/home/home_page.dart';
+import '../../modules/main/modules/settings/settings_page.dart';
+import '../../modules/main/modules/crops/crops_page.dart';
+import '../../modules/main/main_page.dart';
 import '../../modules/login/login_page.dart';
 import '../../modules/onboarding/onboarding_page.dart';
 import '../../modules/register/register_page.dart';
@@ -23,6 +26,14 @@ class AppRouter extends _$AppRouter {
         AutoRoute(path: '/onboarding', page: OnboardingRoute.page),
         AutoRoute(path: '/register', page: RegisterRoute.page),
         AutoRoute(path: '/login', page: LoginRoute.page),
-        AutoRoute(path: '/home', page: HomeRoute.page),
+        AutoRoute(
+          path: '/main',
+          page: MainRoute.page,
+          children: [
+            AutoRoute(path: 'home', page: HomeRoute.page),
+            AutoRoute(path: 'crops', page: CropsRoute.page),
+            AutoRoute(path: 'settings', page: SettingsRoute.page),
+          ],
+        ),
       ];
 }

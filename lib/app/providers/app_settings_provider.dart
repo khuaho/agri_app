@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:geolocator/geolocator.dart';
 
 import '../../global/data/models/app_settings/app_settings.dart';
 import '../../global/data/repositories/app_settings_repository.dart';
@@ -34,6 +35,25 @@ class AppSettingsProvider extends StateNotifier<AppSettings> {
   //       );
   //   I18n.locale = locale.toLocale();
   // }
+
+  AppSettings getAppSettings() {
+    return _hiveService.getAppSettings().fold(
+          (l) => const AppSettings(),
+          (r) => r,
+        );
+  }
+
+  Future<void> saveCurrentPosition(
+    Position position,
+  ) async {
+    final appSettings = getAppSettings();
+    await _hiveService.saveCurrentPosition(appSettings, position).then(
+          (either) => either.fold(
+            (l) => null,
+            (r) => state = r,
+          ),
+        );
+  }
 
   void reset() async {
     await _hiveService.reset().then(

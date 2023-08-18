@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 14 (7 per locale)
+/// Strings: 36 (18 per locale)
 ///
-/// Built on 2023-08-07 at 03:35 UTC
+/// Built on 2023-08-17 at 07:20 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -152,6 +152,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	// Translations
 	String get appName => 'Agriculture App';
 	late final _StringsOnboardingEn onboarding = _StringsOnboardingEn._(_root);
+	late final _StringsHomeEn home = _StringsHomeEn._(_root);
 }
 
 // Path: onboarding
@@ -171,6 +172,76 @@ class _StringsOnboardingEn {
 		'Create conditions for farmers to interact with each other on problems encountered in agriculture.',
 		'Here, farmers will be suggested and made purchases and sales of items such as fertilizer, tools, ... for his work.',
 	];
+}
+
+// Path: home
+class _StringsHomeEn {
+	_StringsHomeEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	late final _StringsHomeHelloEn hello = _StringsHomeHelloEn._(_root);
+	String weatherDes({required Object value}) => 'It\'s ${value} today';
+	late final _StringsHomeTemperatureEn temperature = _StringsHomeTemperatureEn._(_root);
+	late final _StringsHomeHumidityEn humidity = _StringsHomeHumidityEn._(_root);
+	late final _StringsHomeRainfallEn rainfall = _StringsHomeRainfallEn._(_root);
+	late final _StringsHomeWindSpeedEn windSpeed = _StringsHomeWindSpeedEn._(_root);
+}
+
+// Path: home.hello
+class _StringsHomeHelloEn {
+	_StringsHomeHelloEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get you => 'Hello you';
+	String username({required Object name}) => 'Hello, ${name}';
+}
+
+// Path: home.temperature
+class _StringsHomeTemperatureEn {
+	_StringsHomeTemperatureEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Temperature';
+	String value({required Object value}) => '${value}° F';
+}
+
+// Path: home.humidity
+class _StringsHomeHumidityEn {
+	_StringsHomeHumidityEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Humidity';
+	String value({required Object value}) => '${value}%';
+}
+
+// Path: home.rainfall
+class _StringsHomeRainfallEn {
+	_StringsHomeRainfallEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Rainfall';
+	String value({required Object value}) => '${value}mm';
+}
+
+// Path: home.windSpeed
+class _StringsHomeWindSpeedEn {
+	_StringsHomeWindSpeedEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'WindSpeed';
+	String value({required Object value}) => '${value}m/s';
 }
 
 // Path: <root>
@@ -200,6 +271,7 @@ class _StringsVi implements _StringsEn {
 	// Translations
 	@override String get appName => 'Agriculture App';
 	@override late final _StringsOnboardingVi onboarding = _StringsOnboardingVi._(_root);
+	@override late final _StringsHomeVi home = _StringsHomeVi._(_root);
 }
 
 // Path: onboarding
@@ -221,6 +293,76 @@ class _StringsOnboardingVi implements _StringsOnboardingEn {
 	];
 }
 
+// Path: home
+class _StringsHomeVi implements _StringsHomeEn {
+	_StringsHomeVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeHelloVi hello = _StringsHomeHelloVi._(_root);
+	@override String weatherDes({required Object value}) => 'Hôm nay ${value}';
+	@override late final _StringsHomeTemperatureVi temperature = _StringsHomeTemperatureVi._(_root);
+	@override late final _StringsHomeHumidityVi humidity = _StringsHomeHumidityVi._(_root);
+	@override late final _StringsHomeRainfallVi rainfall = _StringsHomeRainfallVi._(_root);
+	@override late final _StringsHomeWindSpeedVi windSpeed = _StringsHomeWindSpeedVi._(_root);
+}
+
+// Path: home.hello
+class _StringsHomeHelloVi implements _StringsHomeHelloEn {
+	_StringsHomeHelloVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get you => 'Xin chào bạn';
+	@override String username({required Object name}) => 'Xin chào, ${name}';
+}
+
+// Path: home.temperature
+class _StringsHomeTemperatureVi implements _StringsHomeTemperatureEn {
+	_StringsHomeTemperatureVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Nhiệt độ';
+	@override String value({required Object value}) => '${value}° F';
+}
+
+// Path: home.humidity
+class _StringsHomeHumidityVi implements _StringsHomeHumidityEn {
+	_StringsHomeHumidityVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Độ ẩm';
+	@override String value({required Object value}) => '${value}%';
+}
+
+// Path: home.rainfall
+class _StringsHomeRainfallVi implements _StringsHomeRainfallEn {
+	_StringsHomeRainfallVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Lượng mưa';
+	@override String value({required Object value}) => '${value}mm';
+}
+
+// Path: home.windSpeed
+class _StringsHomeWindSpeedVi implements _StringsHomeWindSpeedEn {
+	_StringsHomeWindSpeedVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Tốc độ gió';
+	@override String value({required Object value}) => '${value}m/s';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -234,6 +376,17 @@ extension on _StringsEn {
 			case 'onboarding.description.0': return 'Converges many topics on farming and animal husbandry for you to learn.';
 			case 'onboarding.description.1': return 'Create conditions for farmers to interact with each other on problems encountered in agriculture.';
 			case 'onboarding.description.2': return 'Here, farmers will be suggested and made purchases and sales of items such as fertilizer, tools, ... for his work.';
+			case 'home.hello.you': return 'Hello you';
+			case 'home.hello.username': return ({required Object name}) => 'Hello, ${name}';
+			case 'home.weatherDes': return ({required Object value}) => 'It\'s ${value} today';
+			case 'home.temperature.label': return 'Temperature';
+			case 'home.temperature.value': return ({required Object value}) => '${value}° F';
+			case 'home.humidity.label': return 'Humidity';
+			case 'home.humidity.value': return ({required Object value}) => '${value}%';
+			case 'home.rainfall.label': return 'Rainfall';
+			case 'home.rainfall.value': return ({required Object value}) => '${value}mm';
+			case 'home.windSpeed.label': return 'WindSpeed';
+			case 'home.windSpeed.value': return ({required Object value}) => '${value}m/s';
 			default: return null;
 		}
 	}
@@ -249,6 +402,17 @@ extension on _StringsVi {
 			case 'onboarding.description.0': return 'Hội tụ nhiều chủ đề về trồng trọt, chăn nuôi để bạn tìm hiểu.';
 			case 'onboarding.description.1': return 'Tạo điều kiện cho nông dân có thể tương tác với nhau về các vấn đề gặp phải trong nông nghiệp.';
 			case 'onboarding.description.2': return 'Tại đây, nông dân sẽ được gợi ý và thực hiện mua bán các mặt hàng như phân bón, dụng cụ, ... cho công việc của mình.';
+			case 'home.hello.you': return 'Xin chào bạn';
+			case 'home.hello.username': return ({required Object name}) => 'Xin chào, ${name}';
+			case 'home.weatherDes': return ({required Object value}) => 'Hôm nay ${value}';
+			case 'home.temperature.label': return 'Nhiệt độ';
+			case 'home.temperature.value': return ({required Object value}) => '${value}° F';
+			case 'home.humidity.label': return 'Độ ẩm';
+			case 'home.humidity.value': return ({required Object value}) => '${value}%';
+			case 'home.rainfall.label': return 'Lượng mưa';
+			case 'home.rainfall.value': return ({required Object value}) => '${value}mm';
+			case 'home.windSpeed.label': return 'Tốc độ gió';
+			case 'home.windSpeed.value': return ({required Object value}) => '${value}m/s';
 			default: return null;
 		}
 	}

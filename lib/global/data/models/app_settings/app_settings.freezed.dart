@@ -23,6 +23,8 @@ mixin _$AppSettings {
 // @Default(AppLocale.auto) AppLocale locale,
 // @Default(AppTheme.auto) AppTheme theme,
   bool get isFirstLaunch => throw _privateConstructorUsedError;
+  double get lat => throw _privateConstructorUsedError;
+  double get lon => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +38,7 @@ abstract class $AppSettingsCopyWith<$Res> {
           AppSettings value, $Res Function(AppSettings) then) =
       _$AppSettingsCopyWithImpl<$Res, AppSettings>;
   @useResult
-  $Res call({bool isFirstLaunch});
+  $Res call({bool isFirstLaunch, double lat, double lon});
 }
 
 /// @nodoc
@@ -53,12 +55,22 @@ class _$AppSettingsCopyWithImpl<$Res, $Val extends AppSettings>
   @override
   $Res call({
     Object? isFirstLaunch = null,
+    Object? lat = null,
+    Object? lon = null,
   }) {
     return _then(_value.copyWith(
       isFirstLaunch: null == isFirstLaunch
           ? _value.isFirstLaunch
           : isFirstLaunch // ignore: cast_nullable_to_non_nullable
               as bool,
+      lat: null == lat
+          ? _value.lat
+          : lat // ignore: cast_nullable_to_non_nullable
+              as double,
+      lon: null == lon
+          ? _value.lon
+          : lon // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -71,7 +83,7 @@ abstract class _$$_AppSettingsCopyWith<$Res>
       __$$_AppSettingsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isFirstLaunch});
+  $Res call({bool isFirstLaunch, double lat, double lon});
 }
 
 /// @nodoc
@@ -86,12 +98,22 @@ class __$$_AppSettingsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isFirstLaunch = null,
+    Object? lat = null,
+    Object? lon = null,
   }) {
     return _then(_$_AppSettings(
       null == isFirstLaunch
           ? _value.isFirstLaunch
           : isFirstLaunch // ignore: cast_nullable_to_non_nullable
               as bool,
+      null == lat
+          ? _value.lat
+          : lat // ignore: cast_nullable_to_non_nullable
+              as double,
+      null == lon
+          ? _value.lon
+          : lon // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -99,7 +121,7 @@ class __$$_AppSettingsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AppSettings implements _AppSettings {
-  const _$_AppSettings([this.isFirstLaunch = true]);
+  const _$_AppSettings([this.isFirstLaunch = true, this.lat = 0, this.lon = 0]);
 
   factory _$_AppSettings.fromJson(Map<String, dynamic> json) =>
       _$$_AppSettingsFromJson(json);
@@ -109,10 +131,16 @@ class _$_AppSettings implements _AppSettings {
   @override
   @JsonKey()
   final bool isFirstLaunch;
+  @override
+  @JsonKey()
+  final double lat;
+  @override
+  @JsonKey()
+  final double lon;
 
   @override
   String toString() {
-    return 'AppSettings(isFirstLaunch: $isFirstLaunch)';
+    return 'AppSettings(isFirstLaunch: $isFirstLaunch, lat: $lat, lon: $lon)';
   }
 
   @override
@@ -121,12 +149,14 @@ class _$_AppSettings implements _AppSettings {
         (other.runtimeType == runtimeType &&
             other is _$_AppSettings &&
             (identical(other.isFirstLaunch, isFirstLaunch) ||
-                other.isFirstLaunch == isFirstLaunch));
+                other.isFirstLaunch == isFirstLaunch) &&
+            (identical(other.lat, lat) || other.lat == lat) &&
+            (identical(other.lon, lon) || other.lon == lon));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isFirstLaunch);
+  int get hashCode => Object.hash(runtimeType, isFirstLaunch, lat, lon);
 
   @JsonKey(ignore: true)
   @override
@@ -143,7 +173,10 @@ class _$_AppSettings implements _AppSettings {
 }
 
 abstract class _AppSettings implements AppSettings {
-  const factory _AppSettings([final bool isFirstLaunch]) = _$_AppSettings;
+  const factory _AppSettings(
+      [final bool isFirstLaunch,
+      final double lat,
+      final double lon]) = _$_AppSettings;
 
   factory _AppSettings.fromJson(Map<String, dynamic> json) =
       _$_AppSettings.fromJson;
@@ -151,6 +184,10 @@ abstract class _AppSettings implements AppSettings {
   @override // @Default(AppLocale.auto) AppLocale locale,
 // @Default(AppTheme.auto) AppTheme theme,
   bool get isFirstLaunch;
+  @override
+  double get lat;
+  @override
+  double get lon;
   @override
   @JsonKey(ignore: true)
   _$$_AppSettingsCopyWith<_$_AppSettings> get copyWith =>
