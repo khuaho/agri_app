@@ -5,7 +5,8 @@
     "button": {
       "reset": "Đặt lại",
       "apply": "Áp dụng"
-    }
+    },
+    "dataNotFound": "Dữ liệu không được tìm thấy"
   },
   "onboarding": {
     "title": [
@@ -47,5 +48,20 @@
     "searchCrop": "Tìm kiếm tên cây trồng ...",
     "cropTypes": "Các loại cây trồng",
     "selectCropType": "Chọn loại cây trồng"
+  },
+  "detailCrop": {
+    "title": "Chi tiết cây trồng",
+    "plantingGuide": "Hướng dẫn trồng",
+    "discuss": "Thảo luận",
+    "plantingSeason": "Mùa vụ trồng",
+    "prepareSupplies": "Chuẩn bị vật tư",
+    "landForPlanting": "Đất trồng",
+    "plantingPot": "Chậu trồng",
+    "seedIncubation": "Ươm hạt giống",
+    "howToGrow": "Cách trồng",
+    "plantCare": "Chăm sóc cây trồng",
+    "watering": "Tưới nước",
+    "manure": "Bón phân",
+    "weeding": "Làm cỏ"
   }
 }

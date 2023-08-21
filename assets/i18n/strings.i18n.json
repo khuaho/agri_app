@@ -5,7 +5,8 @@
     "button": {
       "reset": "Reset",
       "apply": "Apply"
-    }
+    },
+    "dataNotFound": "Data not found"
   },
   "onboarding": {
     "title": [
@@ -47,5 +48,20 @@
     "searchCrop": "Search crop by name",
     "cropTypes": "Crop types",
     "selectCropType": "Select crop type"
+  },
+  "detailCrop": {
+    "title": "Detail crop",
+    "plantingGuide": "Planting guide",
+    "discuss": "Discuss",
+    "plantingSeason": "Planing season",
+    "prepareSupplies": "Prepare supplies",
+    "landForPlanting": "Land for planting",
+    "plantingPot": "Planting pot",
+    "seedIncubation": "Seed incubation",
+    "howToGrow": "How to grow",
+    "plantCare": "Plant care",
+    "watering": "Watering",
+    "manure": "Manure",
+    "weeding": "Weeding"
   }
 }

@@ -4,9 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../global/gen/strings.g.dart';
 import 'model/crop_filter_data.dart';
-import 'providers/crop_provider.dart';
-import 'widgets/crop_tile.dart';
+import 'providers/search_crop_provider.dart';
+import 'widgets/crop_list.dart';
 import 'widgets/crops_search_bar.dart';
+import 'widgets/crops_search_result.dart';
 
 @RoutePage()
 class CropsPage extends ConsumerStatefulWidget {
@@ -17,14 +18,15 @@ class CropsPage extends ConsumerStatefulWidget {
 }
 
 class _CropsPageState extends ConsumerState<CropsPage> {
+  late final keywordProvider = ref.read(searchKeywordProvider.notifier);
   final initialFilter = const CropFilterData();
-  void handleFilterChange(String value) {}
+  void handleFilterChange(String value) {
+    keywordProvider.update((state) => value);
+  }
 
   @override
   Widget build(BuildContext context) {
     final transl = Translations.of(context);
-    // final textTheme = Theme.of(context).textTheme;
-    final crops = ref.watch(cropProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -39,28 +41,9 @@ class _CropsPageState extends ConsumerState<CropsPage> {
               onChanged: handleFilterChange,
             ),
             const SizedBox(height: 12),
-            Expanded(
-              child: crops.when(
-                data: (crops) {
-                  return ListView.builder(
-                    itemCount: crops.length,
-                    itemBuilder: (_, index) {
-                      final crop = crops[index];
-                      return CropTile(crop: crop);
-                    },
-                  );
-                },
-                error: (err, stack) => Center(child: Text('Error: $err')),
-                loading: () {
-                  return ListView.builder(
-                    itemCount: 3,
-                    itemBuilder: (_, __) {
-                      return const ShimmerCropTile();
-                    },
-                  );
-                },
-              ),
-            )
+            ref.watch(searchKeywordProvider).isNotEmpty
+                ? const CropSearchResult()
+                : const CropList()
           ],
         ),
       ),

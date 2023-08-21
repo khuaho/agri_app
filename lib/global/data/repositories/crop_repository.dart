@@ -14,6 +14,8 @@ abstract class CropRepository {
   Future<Either<Failure, List<Crop>>> getCrops();
 
   Future<Either<Failure, Crop?>> getCrop(String? id);
+
+  Future<Either<Failure, List<Crop>>> searchCropByName(String keyword);
 }
 
 class _CropRepositoryImpl extends BaseRepository implements CropRepository {
@@ -32,16 +34,37 @@ class _CropRepositoryImpl extends BaseRepository implements CropRepository {
 
   @override
   Future<Either<Failure, Crop?>> getCrop(String? id) {
-    print('id: $id');
     return guardFuture(() async {
       await Future.delayed(const Duration(seconds: 1));
 
-      final res = await cropRef.doc('7GHpqTvnr77djcXu1IQV').get();
+      final res = await cropRef.doc(id).get();
       if (res.exists) {
         return res.data()!;
       }
-      print('res: ${res.data()}');
+
       return null;
+    });
+  }
+
+  @override
+  Future<Either<Failure, List<Crop>>> searchCropByName(String keyword) {
+    return guardFuture(() async {
+      await Future.delayed(const Duration(seconds: 1));
+
+      final docSnapShot =
+          await cropRef.where('nameVi', isGreaterThanOrEqualTo: keyword).get();
+
+      if (docSnapShot.docs.isEmpty) {
+        final docSnapshot2 = await cropRef
+            .where('nameEn', isGreaterThanOrEqualTo: keyword)
+            .get();
+
+        final data = docSnapshot2.docs.map((e) => e.data()).toList();
+        return data;
+      }
+
+      final data = docSnapShot.docs.map((e) => e.data()).toList();
+      return data;
     });
   }
 }

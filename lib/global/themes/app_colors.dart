@@ -47,4 +47,5 @@ class AppColors {
   static const pendingSoft = Color(0xFFF4E7FF);
   static const pendingDefault = Color(0xFF9624F0);
   static const heartDefault = Color(0xFFE16486);
+  static const yellow = Color(0xFFFFE17B);
 }

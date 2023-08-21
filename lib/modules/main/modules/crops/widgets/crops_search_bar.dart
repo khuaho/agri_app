@@ -24,6 +24,13 @@ class _CropsSearchBarState extends State<CropsSearchBar> {
   late CropFilterData filter = widget.initialFilter;
   void handleFilter(CropFilterData filterData) {
     filter = filterData;
+    final newFilters = [];
+    // filter by keyboard
+    if (filterData.keyword?.isNotEmpty ?? false) {
+      newFilters.add(filterData.keyword);
+    }
+
+    widget.onChanged(filterData.keyword ?? '');
   }
 
   @override

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 50 (25 per locale)
+/// Strings: 78 (39 per locale)
 ///
-/// Built on 2023-08-18 at 08:12 UTC
+/// Built on 2023-08-21 at 09:54 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -155,6 +155,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsOnboardingEn onboarding = _StringsOnboardingEn._(_root);
 	late final _StringsHomeEn home = _StringsHomeEn._(_root);
 	late final _StringsCropsEn crops = _StringsCropsEn._(_root);
+	late final _StringsDetailCropEn detailCrop = _StringsDetailCropEn._(_root);
 }
 
 // Path: common
@@ -166,6 +167,7 @@ class _StringsCommonEn {
 	// Translations
 	String get filter => 'Filter';
 	late final _StringsCommonButtonEn button = _StringsCommonButtonEn._(_root);
+	String get dataNotFound => 'Data not found';
 }
 
 // Path: onboarding
@@ -213,6 +215,28 @@ class _StringsCropsEn {
 	String get searchCrop => 'Search crop by name';
 	String get cropTypes => 'Crop types';
 	String get selectCropType => 'Select crop type';
+}
+
+// Path: detailCrop
+class _StringsDetailCropEn {
+	_StringsDetailCropEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Detail crop';
+	String get plantingGuide => 'Planting guide';
+	String get discuss => 'Discuss';
+	String get plantingSeason => 'Planing season';
+	String get prepareSupplies => 'Prepare supplies';
+	String get landForPlanting => 'Land for planting';
+	String get plantingPot => 'Planting pot';
+	String get seedIncubation => 'Seed incubation';
+	String get howToGrow => 'How to grow';
+	String get plantCare => 'Plant care';
+	String get watering => 'Watering';
+	String get manure => 'Manure';
+	String get weeding => 'Weeding';
 }
 
 // Path: common.button
@@ -311,6 +335,7 @@ class _StringsVi implements _StringsEn {
 	@override late final _StringsOnboardingVi onboarding = _StringsOnboardingVi._(_root);
 	@override late final _StringsHomeVi home = _StringsHomeVi._(_root);
 	@override late final _StringsCropsVi crops = _StringsCropsVi._(_root);
+	@override late final _StringsDetailCropVi detailCrop = _StringsDetailCropVi._(_root);
 }
 
 // Path: common
@@ -322,6 +347,7 @@ class _StringsCommonVi implements _StringsCommonEn {
 	// Translations
 	@override String get filter => 'Bộ lọc';
 	@override late final _StringsCommonButtonVi button = _StringsCommonButtonVi._(_root);
+	@override String get dataNotFound => 'Dữ liệu không được tìm thấy';
 }
 
 // Path: onboarding
@@ -369,6 +395,28 @@ class _StringsCropsVi implements _StringsCropsEn {
 	@override String get searchCrop => 'Tìm kiếm tên cây trồng ...';
 	@override String get cropTypes => 'Các loại cây trồng';
 	@override String get selectCropType => 'Chọn loại cây trồng';
+}
+
+// Path: detailCrop
+class _StringsDetailCropVi implements _StringsDetailCropEn {
+	_StringsDetailCropVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Chi tiết cây trồng';
+	@override String get plantingGuide => 'Hướng dẫn trồng';
+	@override String get discuss => 'Thảo luận';
+	@override String get plantingSeason => 'Mùa vụ trồng';
+	@override String get prepareSupplies => 'Chuẩn bị vật tư';
+	@override String get landForPlanting => 'Đất trồng';
+	@override String get plantingPot => 'Chậu trồng';
+	@override String get seedIncubation => 'Ươm hạt giống';
+	@override String get howToGrow => 'Cách trồng';
+	@override String get plantCare => 'Chăm sóc cây trồng';
+	@override String get watering => 'Tưới nước';
+	@override String get manure => 'Bón phân';
+	@override String get weeding => 'Làm cỏ';
 }
 
 // Path: common.button
@@ -447,6 +495,7 @@ extension on _StringsEn {
 			case 'common.filter': return 'Filter';
 			case 'common.button.reset': return 'Reset';
 			case 'common.button.apply': return 'Apply';
+			case 'common.dataNotFound': return 'Data not found';
 			case 'onboarding.title.0': return 'Agriculture Guide';
 			case 'onboarding.title.1': return 'Sharing and Exchanging experiences';
 			case 'onboarding.title.2': return 'Miniature Farming Store';
@@ -468,6 +517,19 @@ extension on _StringsEn {
 			case 'crops.searchCrop': return 'Search crop by name';
 			case 'crops.cropTypes': return 'Crop types';
 			case 'crops.selectCropType': return 'Select crop type';
+			case 'detailCrop.title': return 'Detail crop';
+			case 'detailCrop.plantingGuide': return 'Planting guide';
+			case 'detailCrop.discuss': return 'Discuss';
+			case 'detailCrop.plantingSeason': return 'Planing season';
+			case 'detailCrop.prepareSupplies': return 'Prepare supplies';
+			case 'detailCrop.landForPlanting': return 'Land for planting';
+			case 'detailCrop.plantingPot': return 'Planting pot';
+			case 'detailCrop.seedIncubation': return 'Seed incubation';
+			case 'detailCrop.howToGrow': return 'How to grow';
+			case 'detailCrop.plantCare': return 'Plant care';
+			case 'detailCrop.watering': return 'Watering';
+			case 'detailCrop.manure': return 'Manure';
+			case 'detailCrop.weeding': return 'Weeding';
 			default: return null;
 		}
 	}
@@ -480,6 +542,7 @@ extension on _StringsVi {
 			case 'common.filter': return 'Bộ lọc';
 			case 'common.button.reset': return 'Đặt lại';
 			case 'common.button.apply': return 'Áp dụng';
+			case 'common.dataNotFound': return 'Dữ liệu không được tìm thấy';
 			case 'onboarding.title.0': return 'Hướng dẫn nông nghiệp';
 			case 'onboarding.title.1': return 'Chia sẻ và Trao đổi kinh nghiệm';
 			case 'onboarding.title.2': return 'Cửa hàng nông nghiệp thu nhỏ';
@@ -501,6 +564,19 @@ extension on _StringsVi {
 			case 'crops.searchCrop': return 'Tìm kiếm tên cây trồng ...';
 			case 'crops.cropTypes': return 'Các loại cây trồng';
 			case 'crops.selectCropType': return 'Chọn loại cây trồng';
+			case 'detailCrop.title': return 'Chi tiết cây trồng';
+			case 'detailCrop.plantingGuide': return 'Hướng dẫn trồng';
+			case 'detailCrop.discuss': return 'Thảo luận';
+			case 'detailCrop.plantingSeason': return 'Mùa vụ trồng';
+			case 'detailCrop.prepareSupplies': return 'Chuẩn bị vật tư';
+			case 'detailCrop.landForPlanting': return 'Đất trồng';
+			case 'detailCrop.plantingPot': return 'Chậu trồng';
+			case 'detailCrop.seedIncubation': return 'Ươm hạt giống';
+			case 'detailCrop.howToGrow': return 'Cách trồng';
+			case 'detailCrop.plantCare': return 'Chăm sóc cây trồng';
+			case 'detailCrop.watering': return 'Tưới nước';
+			case 'detailCrop.manure': return 'Bón phân';
+			case 'detailCrop.weeding': return 'Làm cỏ';
 			default: return null;
 		}
 	}
