@@ -46,6 +46,7 @@ dependencies:
       url: https://github.com/lvxduck/adaptive_selector.git
       ref: master
   carousel_slider: ^4.2.1
+  flutter_reaction_button: ^2.0.1+2
 
 
 dev_dependencies:

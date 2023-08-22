@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 78 (39 per locale)
+/// Strings: 108 (54 per locale)
 ///
-/// Built on 2023-08-21 at 09:54 UTC
+/// Built on 2023-08-22 at 07:11 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -167,7 +167,9 @@ class _StringsCommonEn {
 	// Translations
 	String get filter => 'Filter';
 	late final _StringsCommonButtonEn button = _StringsCommonButtonEn._(_root);
+	late final _StringsCommonReactionEn reaction = _StringsCommonReactionEn._(_root);
 	String get dataNotFound => 'Data not found';
+	late final _StringsCommonDateTimeEn dateTime = _StringsCommonDateTimeEn._(_root);
 }
 
 // Path: onboarding
@@ -237,6 +239,7 @@ class _StringsDetailCropEn {
 	String get watering => 'Watering';
 	String get manure => 'Manure';
 	String get weeding => 'Weeding';
+	String get writeComment => 'Write comment...';
 }
 
 // Path: common.button
@@ -248,6 +251,38 @@ class _StringsCommonButtonEn {
 	// Translations
 	String get reset => 'Reset';
 	String get apply => 'Apply';
+	String get delete => 'Delete';
+	String get comment => 'Comment';
+}
+
+// Path: common.reaction
+class _StringsCommonReactionEn {
+	_StringsCommonReactionEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get like => 'Like';
+	String get favorite => 'Favorite';
+	String get satisfied => 'Satisfied';
+	String get unsatisfied => 'Unsatisfied';
+}
+
+// Path: common.dateTime
+class _StringsCommonDateTimeEn {
+	_StringsCommonDateTimeEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get year => 'year';
+	String get month => 'month';
+	String get week => 'week';
+	String get today => 'Today';
+	String get ago => 'ago';
+	String get hour => 'hour';
+	String get minute => 'minute';
+	String get justNow => 'just now';
 }
 
 // Path: home.hello
@@ -347,7 +382,9 @@ class _StringsCommonVi implements _StringsCommonEn {
 	// Translations
 	@override String get filter => 'Bộ lọc';
 	@override late final _StringsCommonButtonVi button = _StringsCommonButtonVi._(_root);
+	@override late final _StringsCommonReactionVi reaction = _StringsCommonReactionVi._(_root);
 	@override String get dataNotFound => 'Dữ liệu không được tìm thấy';
+	@override late final _StringsCommonDateTimeVi dateTime = _StringsCommonDateTimeVi._(_root);
 }
 
 // Path: onboarding
@@ -417,6 +454,7 @@ class _StringsDetailCropVi implements _StringsDetailCropEn {
 	@override String get watering => 'Tưới nước';
 	@override String get manure => 'Bón phân';
 	@override String get weeding => 'Làm cỏ';
+	@override String get writeComment => 'Viết bình luận...';
 }
 
 // Path: common.button
@@ -428,6 +466,38 @@ class _StringsCommonButtonVi implements _StringsCommonButtonEn {
 	// Translations
 	@override String get reset => 'Đặt lại';
 	@override String get apply => 'Áp dụng';
+	@override String get delete => 'Xoá';
+	@override String get comment => 'Bình luận';
+}
+
+// Path: common.reaction
+class _StringsCommonReactionVi implements _StringsCommonReactionEn {
+	_StringsCommonReactionVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get like => 'Thích';
+	@override String get favorite => 'Yêu thích';
+	@override String get satisfied => 'Hài lòng';
+	@override String get unsatisfied => 'Không hài lòng';
+}
+
+// Path: common.dateTime
+class _StringsCommonDateTimeVi implements _StringsCommonDateTimeEn {
+	_StringsCommonDateTimeVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get year => 'năm';
+	@override String get month => 'tháng';
+	@override String get week => 'tuần';
+	@override String get today => 'Hôm nay';
+	@override String get ago => 'trước';
+	@override String get hour => 'giờ';
+	@override String get minute => 'phút';
+	@override String get justNow => 'bây giờ';
 }
 
 // Path: home.hello
@@ -495,7 +565,21 @@ extension on _StringsEn {
 			case 'common.filter': return 'Filter';
 			case 'common.button.reset': return 'Reset';
 			case 'common.button.apply': return 'Apply';
+			case 'common.button.delete': return 'Delete';
+			case 'common.button.comment': return 'Comment';
+			case 'common.reaction.like': return 'Like';
+			case 'common.reaction.favorite': return 'Favorite';
+			case 'common.reaction.satisfied': return 'Satisfied';
+			case 'common.reaction.unsatisfied': return 'Unsatisfied';
 			case 'common.dataNotFound': return 'Data not found';
+			case 'common.dateTime.year': return 'year';
+			case 'common.dateTime.month': return 'month';
+			case 'common.dateTime.week': return 'week';
+			case 'common.dateTime.today': return 'Today';
+			case 'common.dateTime.ago': return 'ago';
+			case 'common.dateTime.hour': return 'hour';
+			case 'common.dateTime.minute': return 'minute';
+			case 'common.dateTime.justNow': return 'just now';
 			case 'onboarding.title.0': return 'Agriculture Guide';
 			case 'onboarding.title.1': return 'Sharing and Exchanging experiences';
 			case 'onboarding.title.2': return 'Miniature Farming Store';
@@ -530,6 +614,7 @@ extension on _StringsEn {
 			case 'detailCrop.watering': return 'Watering';
 			case 'detailCrop.manure': return 'Manure';
 			case 'detailCrop.weeding': return 'Weeding';
+			case 'detailCrop.writeComment': return 'Write comment...';
 			default: return null;
 		}
 	}
@@ -542,7 +627,21 @@ extension on _StringsVi {
 			case 'common.filter': return 'Bộ lọc';
 			case 'common.button.reset': return 'Đặt lại';
 			case 'common.button.apply': return 'Áp dụng';
+			case 'common.button.delete': return 'Xoá';
+			case 'common.button.comment': return 'Bình luận';
+			case 'common.reaction.like': return 'Thích';
+			case 'common.reaction.favorite': return 'Yêu thích';
+			case 'common.reaction.satisfied': return 'Hài lòng';
+			case 'common.reaction.unsatisfied': return 'Không hài lòng';
 			case 'common.dataNotFound': return 'Dữ liệu không được tìm thấy';
+			case 'common.dateTime.year': return 'năm';
+			case 'common.dateTime.month': return 'tháng';
+			case 'common.dateTime.week': return 'tuần';
+			case 'common.dateTime.today': return 'Hôm nay';
+			case 'common.dateTime.ago': return 'trước';
+			case 'common.dateTime.hour': return 'giờ';
+			case 'common.dateTime.minute': return 'phút';
+			case 'common.dateTime.justNow': return 'bây giờ';
 			case 'onboarding.title.0': return 'Hướng dẫn nông nghiệp';
 			case 'onboarding.title.1': return 'Chia sẻ và Trao đổi kinh nghiệm';
 			case 'onboarding.title.2': return 'Cửa hàng nông nghiệp thu nhỏ';
@@ -577,6 +676,7 @@ extension on _StringsVi {
 			case 'detailCrop.watering': return 'Tưới nước';
 			case 'detailCrop.manure': return 'Bón phân';
 			case 'detailCrop.weeding': return 'Làm cỏ';
+			case 'detailCrop.writeComment': return 'Viết bình luận...';
 			default: return null;
 		}
 	}

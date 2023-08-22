@@ -4,9 +4,27 @@
     "filter": "Filter",
     "button": {
       "reset": "Reset",
-      "apply": "Apply"
+      "apply": "Apply",
+      "delete": "Delete",
+      "comment": "Comment"
     },
-    "dataNotFound": "Data not found"
+    "reaction": {
+      "like": "Like",
+      "favorite": "Favorite",
+      "satisfied": "Satisfied",
+      "unsatisfied": "Unsatisfied"
+    },
+    "dataNotFound": "Data not found",
+    "dateTime": {
+      "year": "year",
+      "month": "month",
+      "week": "week",
+      "today": "Today",
+      "ago": "ago",
+      "hour": "hour",
+      "minute": "minute",
+      "justNow": "just now"
+    }
   },
   "onboarding": {
     "title": [
@@ -62,6 +80,7 @@
     "plantCare": "Plant care",
     "watering": "Watering",
     "manure": "Manure",
-    "weeding": "Weeding"
+    "weeding": "Weeding",
+    "writeComment": "Write comment..."
   }
 }

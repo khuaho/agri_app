@@ -4,9 +4,27 @@
     "filter": "Bộ lọc",
     "button": {
       "reset": "Đặt lại",
-      "apply": "Áp dụng"
+      "apply": "Áp dụng",
+      "delete": "Xoá",
+      "comment": "Bình luận"
     },
-    "dataNotFound": "Dữ liệu không được tìm thấy"
+    "reaction": {
+      "like": "Thích",
+      "favorite": "Yêu thích",
+      "satisfied": "Hài lòng",
+      "unsatisfied": "Không hài lòng"
+    },
+    "dataNotFound": "Dữ liệu không được tìm thấy",
+    "dateTime": {
+      "year": "năm",
+      "month": "tháng",
+      "week": "tuần",
+      "today": "Hôm nay",
+      "ago": "trước",
+      "hour": "giờ",
+      "minute": "phút",
+      "justNow": "bây giờ"
+    }
   },
   "onboarding": {
     "title": [
@@ -62,6 +80,7 @@
     "plantCare": "Chăm sóc cây trồng",
     "watering": "Tưới nước",
     "manure": "Bón phân",
-    "weeding": "Làm cỏ"
+    "weeding": "Làm cỏ",
+    "writeComment": "Viết bình luận..."
   }
 }

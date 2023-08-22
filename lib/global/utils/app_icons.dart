@@ -20,6 +20,22 @@
 ///         Author:    Daniel Bruce
 ///         License:   SIL (http://scripts.sil.org/OFL)
 ///         Homepage:  http://www.entypo.com
+/// * Font Awesome 4, Copyright (C) 2016 by Dave Gandy
+///         Author:    Dave Gandy
+///         License:   SIL ()
+///         Homepage:  http://fortawesome.github.com/Font-Awesome/
+/// * Material Design Icons, Copyright (C) Google, Inc
+///         Author:    Google
+///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
+///         Homepage:  https://design.google.com/icons/
+/// * Brandico, (C) 2012 by Vitaly Puzrin
+///         Author:    Crowdsourced, for Fontello project
+///         License:   SIL (http://scripts.sil.org/OFL)
+///         Homepage:  
+/// * Font Awesome 5, Copyright (C) 2016 by Dave Gandy
+///         Author:    Dave Gandy
+///         License:   SIL (https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
+///         Homepage:  http://fortawesome.github.com/Font-Awesome/
 ///
 import 'package:flutter/widgets.dart';
 
@@ -33,4 +49,53 @@ class AppIcons {
   static const IconData temperatire = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData cloud_wind = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData droplet = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData thumbs_up = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData favorite = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData favorite_border = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData backup = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData bug_report = IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData check_circle = IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData check = IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData insert_emoticon = IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData local_activity = IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData local_florist = IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData mood_bad = IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData mood = IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData notifications = IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData notifications_none = IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData opacity = IconData(0xe812, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sentiment_neutral = IconData(0xe813, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sentiment_satisfied = IconData(0xe814, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sentiment_very_dissatisfied = IconData(0xe815, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sentiment_very_satisfied = IconData(0xe816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sentiment_dissatisfied = IconData(0xe817, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData bell = IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData tags = IconData(0xe819, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData eye = IconData(0xe81a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData eye_off = IconData(0xe81b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData user = IconData(0xe81c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData star = IconData(0xe81d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData star_empty = IconData(0xe81e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData search = IconData(0xe81f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData users = IconData(0xe820, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData leaf = IconData(0xe821, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fire = IconData(0xe822, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData gift = IconData(0xe823, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData asterisk = IconData(0xe824, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData bell_alt = IconData(0xf0f3, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData smile = IconData(0xf118, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData frown = IconData(0xf119, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData meh = IconData(0xf11a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData apple = IconData(0xf179, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData female = IconData(0xf182, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData male = IconData(0xf183, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData bug = IconData(0xf188, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData google = IconData(0xf1a0, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData language = IconData(0xf1ab, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData tree = IconData(0xf1bb, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData envira = IconData(0xf299, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData icq = IconData(0xf304, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData facebook_squared = IconData(0xf308, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData kiss_wink_heart = IconData(0xf598, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData critical_role = IconData(0xf6c9, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
