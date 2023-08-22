@@ -82,5 +82,24 @@
     "manure": "Manure",
     "weeding": "Weeding",
     "writeComment": "Write comment..."
+  },
+  "auth": {
+    "login": "Login",
+    "email": {
+      "label": "Email",
+      "hint": "Enter email",
+      "required": "Email is required!"
+    },
+    "password": {
+      "label": "Password",
+      "hint": "Enter password",
+      "required": "Password is required!"
+    },
+    "forgotPassword": "Forgot password",
+    "haveNotAnAccount": "Haven't an account? ",
+    "or": "OR",
+    "loginWithGoogle": "Login with Google",
+    "loginWithFacebook": "Login with Facebook",
+    "register": "Register"
   }
 }

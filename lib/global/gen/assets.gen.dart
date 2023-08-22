@@ -16,8 +16,16 @@ class $AssetsAppIconsGen {
   AssetGenImage get appIcon =>
       const AssetGenImage('assets/app_icons/app_icon.png');
 
+  /// File path: assets/app_icons/facebook.png
+  AssetGenImage get facebook =>
+      const AssetGenImage('assets/app_icons/facebook.png');
+
+  /// File path: assets/app_icons/google.png
+  AssetGenImage get google =>
+      const AssetGenImage('assets/app_icons/google.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [appIcon];
+  List<AssetGenImage> get values => [appIcon, facebook, google];
 }
 
 class $AssetsI18nGen {

@@ -82,5 +82,24 @@
     "manure": "Bón phân",
     "weeding": "Làm cỏ",
     "writeComment": "Viết bình luận..."
+  },
+  "auth": {
+    "login": "Đăng nhập",
+    "email": {
+      "label": "Email",
+      "hint": "Nhập email",
+      "required": "Email là bắt buộc!"
+    },
+    "password": {
+      "label": "Mật khẩu",
+      "hint": "Nhập mật khẩu",
+      "required": "Mật khẩu là bắt buộc!"
+    },
+    "forgotPassword": "Quên mật khẩu",
+    "haveNotAnAccount": "Chưa có tài khoản? ",
+    "or": "HOẶC",
+    "loginWithGoogle": "Đăng nhập với Google",
+    "loginWithFacebook": "Đăng nhập với Facebook",
+    "register": "Đăng ký"
   }
 }

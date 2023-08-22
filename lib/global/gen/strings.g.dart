@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 108 (54 per locale)
+/// Strings: 134 (67 per locale)
 ///
-/// Built on 2023-08-22 at 07:11 UTC
+/// Built on 2023-08-22 at 08:27 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -156,6 +156,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsHomeEn home = _StringsHomeEn._(_root);
 	late final _StringsCropsEn crops = _StringsCropsEn._(_root);
 	late final _StringsDetailCropEn detailCrop = _StringsDetailCropEn._(_root);
+	late final _StringsAuthEn auth = _StringsAuthEn._(_root);
 }
 
 // Path: common
@@ -240,6 +241,24 @@ class _StringsDetailCropEn {
 	String get manure => 'Manure';
 	String get weeding => 'Weeding';
 	String get writeComment => 'Write comment...';
+}
+
+// Path: auth
+class _StringsAuthEn {
+	_StringsAuthEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get login => 'Login';
+	late final _StringsAuthEmailEn email = _StringsAuthEmailEn._(_root);
+	late final _StringsAuthPasswordEn password = _StringsAuthPasswordEn._(_root);
+	String get forgotPassword => 'Forgot password';
+	String get haveNotAnAccount => 'Haven\'t an account? ';
+	String get or => 'OR';
+	String get loginWithGoogle => 'Login with Google';
+	String get loginWithFacebook => 'Login with Facebook';
+	String get register => 'Register';
 }
 
 // Path: common.button
@@ -340,6 +359,30 @@ class _StringsHomeWindSpeedEn {
 	String value({required Object value}) => '${value}m/s';
 }
 
+// Path: auth.email
+class _StringsAuthEmailEn {
+	_StringsAuthEmailEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Email';
+	String get hint => 'Enter email';
+	String get required => 'Email is required!';
+}
+
+// Path: auth.password
+class _StringsAuthPasswordEn {
+	_StringsAuthPasswordEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Password';
+	String get hint => 'Enter password';
+	String get required => 'Password is required!';
+}
+
 // Path: <root>
 class _StringsVi implements _StringsEn {
 
@@ -371,6 +414,7 @@ class _StringsVi implements _StringsEn {
 	@override late final _StringsHomeVi home = _StringsHomeVi._(_root);
 	@override late final _StringsCropsVi crops = _StringsCropsVi._(_root);
 	@override late final _StringsDetailCropVi detailCrop = _StringsDetailCropVi._(_root);
+	@override late final _StringsAuthVi auth = _StringsAuthVi._(_root);
 }
 
 // Path: common
@@ -455,6 +499,24 @@ class _StringsDetailCropVi implements _StringsDetailCropEn {
 	@override String get manure => 'Bón phân';
 	@override String get weeding => 'Làm cỏ';
 	@override String get writeComment => 'Viết bình luận...';
+}
+
+// Path: auth
+class _StringsAuthVi implements _StringsAuthEn {
+	_StringsAuthVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get login => 'Đăng nhập';
+	@override late final _StringsAuthEmailVi email = _StringsAuthEmailVi._(_root);
+	@override late final _StringsAuthPasswordVi password = _StringsAuthPasswordVi._(_root);
+	@override String get forgotPassword => 'Quên mật khẩu';
+	@override String get haveNotAnAccount => 'Chưa có tài khoản? ';
+	@override String get or => 'HOẶC';
+	@override String get loginWithGoogle => 'Đăng nhập với Google';
+	@override String get loginWithFacebook => 'Đăng nhập với Facebook';
+	@override String get register => 'Đăng ký';
 }
 
 // Path: common.button
@@ -555,6 +617,30 @@ class _StringsHomeWindSpeedVi implements _StringsHomeWindSpeedEn {
 	@override String value({required Object value}) => '${value}m/s';
 }
 
+// Path: auth.email
+class _StringsAuthEmailVi implements _StringsAuthEmailEn {
+	_StringsAuthEmailVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Email';
+	@override String get hint => 'Nhập email';
+	@override String get required => 'Email là bắt buộc!';
+}
+
+// Path: auth.password
+class _StringsAuthPasswordVi implements _StringsAuthPasswordEn {
+	_StringsAuthPasswordVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Mật khẩu';
+	@override String get hint => 'Nhập mật khẩu';
+	@override String get required => 'Mật khẩu là bắt buộc!';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -615,6 +701,19 @@ extension on _StringsEn {
 			case 'detailCrop.manure': return 'Manure';
 			case 'detailCrop.weeding': return 'Weeding';
 			case 'detailCrop.writeComment': return 'Write comment...';
+			case 'auth.login': return 'Login';
+			case 'auth.email.label': return 'Email';
+			case 'auth.email.hint': return 'Enter email';
+			case 'auth.email.required': return 'Email is required!';
+			case 'auth.password.label': return 'Password';
+			case 'auth.password.hint': return 'Enter password';
+			case 'auth.password.required': return 'Password is required!';
+			case 'auth.forgotPassword': return 'Forgot password';
+			case 'auth.haveNotAnAccount': return 'Haven\'t an account? ';
+			case 'auth.or': return 'OR';
+			case 'auth.loginWithGoogle': return 'Login with Google';
+			case 'auth.loginWithFacebook': return 'Login with Facebook';
+			case 'auth.register': return 'Register';
 			default: return null;
 		}
 	}
@@ -677,6 +776,19 @@ extension on _StringsVi {
 			case 'detailCrop.manure': return 'Bón phân';
 			case 'detailCrop.weeding': return 'Làm cỏ';
 			case 'detailCrop.writeComment': return 'Viết bình luận...';
+			case 'auth.login': return 'Đăng nhập';
+			case 'auth.email.label': return 'Email';
+			case 'auth.email.hint': return 'Nhập email';
+			case 'auth.email.required': return 'Email là bắt buộc!';
+			case 'auth.password.label': return 'Mật khẩu';
+			case 'auth.password.hint': return 'Nhập mật khẩu';
+			case 'auth.password.required': return 'Mật khẩu là bắt buộc!';
+			case 'auth.forgotPassword': return 'Quên mật khẩu';
+			case 'auth.haveNotAnAccount': return 'Chưa có tài khoản? ';
+			case 'auth.or': return 'HOẶC';
+			case 'auth.loginWithGoogle': return 'Đăng nhập với Google';
+			case 'auth.loginWithFacebook': return 'Đăng nhập với Facebook';
+			case 'auth.register': return 'Đăng ký';
 			default: return null;
 		}
 	}

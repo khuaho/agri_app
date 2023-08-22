@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_reaction_button/flutter_reaction_button.dart';
 
+import '../../../global/app_router/app_router.dart';
 import '../../../global/enum/reaction_enum.dart';
 import '../../../global/gen/strings.g.dart';
 import '../../../global/themes/app_colors.dart';
@@ -23,6 +25,7 @@ class DiscussTile extends StatelessWidget {
         fontWeight: FontWeight.bold,
       ),
     );
+
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -126,6 +129,8 @@ class DiscussTile extends StatelessWidget {
                 style: textBtnStyle,
                 onPressed: () {
                   // TO DOs: comment handle
+                  // if user exist -> using this feat or else
+                  context.pushRoute(const LoginRoute());
                 },
                 child: Text(transl.common.button.comment),
               ),
