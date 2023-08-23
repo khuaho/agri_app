@@ -26,6 +26,14 @@
       "justNow": "just now"
     }
   },
+  "error": {
+    "error": "Error!!!",
+    "illegalData": "Wrong data format",
+    "noNetwork": "No internet connection",
+    "unknown": "An Unexpected Error Occurred",
+    "permissionDenied": "Permission denied",
+    "processingError": "Error while processing"
+  },
   "onboarding": {
     "title": [
       "Agriculture Guide",
@@ -93,13 +101,31 @@
     "password": {
       "label": "Password",
       "hint": "Enter password",
-      "required": "Password is required!"
+      "required": "Password is required!",
+      "isAtLeast8Characters": "Password is at least 8 characters",
+      "isNotValid": "Password is not valid"
     },
     "forgotPassword": "Forgot password",
     "haveNotAnAccount": "Haven't an account? ",
     "or": "OR",
     "loginWithGoogle": "Login with Google",
     "loginWithFacebook": "Login with Facebook",
-    "register": "Register"
+    "register": "Register",
+    "username": {
+      "label": "Username",
+      "hint": "Enter username",
+      "required": "Username is required!"
+    },
+    "fullName": {
+      "label": "Full name",
+      "hint": "Enter full name",
+      "required": "Full name is required!"
+    },
+    "confirmPassword": {
+      "label": "Confirm password",
+      "hint": "Enter confirm password",
+      "required": "Confirm password is required!",
+      "notMatch": "Password is not match"
+    }
   }
 }

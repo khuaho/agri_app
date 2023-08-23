@@ -26,6 +26,14 @@
       "justNow": "bây giờ"
     }
   },
+  "error": {
+    "error": "Lỗi rồi!!!",
+    "illegalData": "Dữ liệu không hợp lệ",
+    "noNetwork": "Không có kết nối internet",
+    "unknown": "Đã có lỗi xảy ra",
+    "permissionDenied": "Quyền truy cập bị từ chối",
+    "processingError": "Có lỗi xảy ra khi chuyển đổi"
+  },
   "onboarding": {
     "title": [
       "Hướng dẫn nông nghiệp",
@@ -93,13 +101,31 @@
     "password": {
       "label": "Mật khẩu",
       "hint": "Nhập mật khẩu",
-      "required": "Mật khẩu là bắt buộc!"
+      "required": "Mật khẩu là bắt buộc!",
+      "isAtLeast8Characters": "Mật khẩu phải ít nhất 8 kí tự",
+      "isNotValid": "Mật khẩu không hợp lệ"
     },
     "forgotPassword": "Quên mật khẩu",
     "haveNotAnAccount": "Chưa có tài khoản? ",
     "or": "HOẶC",
     "loginWithGoogle": "Đăng nhập với Google",
     "loginWithFacebook": "Đăng nhập với Facebook",
-    "register": "Đăng ký"
+    "register": "Đăng ký",
+    "username": {
+      "label": "Tên người dùng",
+      "hint": "Nhập tên người dùng",
+      "required": "Tên người dùng là bắt buộc!"
+    },
+    "fullName": {
+      "label": "Họ và tên",
+      "hint": "Nhập họ và tên",
+      "required": "Họ và tên là bắt buộc!"
+    },
+    "confirmPassword": {
+      "label": "Xác nhận mật khẩu",
+      "hint": "Nhập xác nhận mật khẩu",
+      "required": "Xác nhận mật khẩu là bắt buộc!",
+      "notMatch": "Mật khẩu không khớp"
+    }
   }
 }

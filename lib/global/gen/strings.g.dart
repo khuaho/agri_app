@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 134 (67 per locale)
+/// Strings: 170 (85 per locale)
 ///
-/// Built on 2023-08-22 at 08:27 UTC
+/// Built on 2023-08-23 at 02:13 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -152,6 +152,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	// Translations
 	String get appName => 'Agriculture App';
 	late final _StringsCommonEn common = _StringsCommonEn._(_root);
+	late final _StringsErrorEn error = _StringsErrorEn._(_root);
 	late final _StringsOnboardingEn onboarding = _StringsOnboardingEn._(_root);
 	late final _StringsHomeEn home = _StringsHomeEn._(_root);
 	late final _StringsCropsEn crops = _StringsCropsEn._(_root);
@@ -171,6 +172,21 @@ class _StringsCommonEn {
 	late final _StringsCommonReactionEn reaction = _StringsCommonReactionEn._(_root);
 	String get dataNotFound => 'Data not found';
 	late final _StringsCommonDateTimeEn dateTime = _StringsCommonDateTimeEn._(_root);
+}
+
+// Path: error
+class _StringsErrorEn {
+	_StringsErrorEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get error => 'Error!!!';
+	String get illegalData => 'Wrong data format';
+	String get noNetwork => 'No internet connection';
+	String get unknown => 'An Unexpected Error Occurred';
+	String get permissionDenied => 'Permission denied';
+	String get processingError => 'Error while processing';
 }
 
 // Path: onboarding
@@ -259,6 +275,9 @@ class _StringsAuthEn {
 	String get loginWithGoogle => 'Login with Google';
 	String get loginWithFacebook => 'Login with Facebook';
 	String get register => 'Register';
+	late final _StringsAuthUsernameEn username = _StringsAuthUsernameEn._(_root);
+	late final _StringsAuthFullNameEn fullName = _StringsAuthFullNameEn._(_root);
+	late final _StringsAuthConfirmPasswordEn confirmPassword = _StringsAuthConfirmPasswordEn._(_root);
 }
 
 // Path: common.button
@@ -381,6 +400,45 @@ class _StringsAuthPasswordEn {
 	String get label => 'Password';
 	String get hint => 'Enter password';
 	String get required => 'Password is required!';
+	String get isAtLeast8Characters => 'Password is at least 8 characters';
+	String get isNotValid => 'Password is not valid';
+}
+
+// Path: auth.username
+class _StringsAuthUsernameEn {
+	_StringsAuthUsernameEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Username';
+	String get hint => 'Enter username';
+	String get required => 'Username is required!';
+}
+
+// Path: auth.fullName
+class _StringsAuthFullNameEn {
+	_StringsAuthFullNameEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Full name';
+	String get hint => 'Enter full name';
+	String get required => 'Full name is required!';
+}
+
+// Path: auth.confirmPassword
+class _StringsAuthConfirmPasswordEn {
+	_StringsAuthConfirmPasswordEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Confirm password';
+	String get hint => 'Enter confirm password';
+	String get required => 'Confirm password is required!';
+	String get notMatch => 'Password is not match';
 }
 
 // Path: <root>
@@ -410,6 +468,7 @@ class _StringsVi implements _StringsEn {
 	// Translations
 	@override String get appName => 'Agriculture App';
 	@override late final _StringsCommonVi common = _StringsCommonVi._(_root);
+	@override late final _StringsErrorVi error = _StringsErrorVi._(_root);
 	@override late final _StringsOnboardingVi onboarding = _StringsOnboardingVi._(_root);
 	@override late final _StringsHomeVi home = _StringsHomeVi._(_root);
 	@override late final _StringsCropsVi crops = _StringsCropsVi._(_root);
@@ -429,6 +488,21 @@ class _StringsCommonVi implements _StringsCommonEn {
 	@override late final _StringsCommonReactionVi reaction = _StringsCommonReactionVi._(_root);
 	@override String get dataNotFound => 'Dữ liệu không được tìm thấy';
 	@override late final _StringsCommonDateTimeVi dateTime = _StringsCommonDateTimeVi._(_root);
+}
+
+// Path: error
+class _StringsErrorVi implements _StringsErrorEn {
+	_StringsErrorVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get error => 'Lỗi rồi!!!';
+	@override String get illegalData => 'Dữ liệu không hợp lệ';
+	@override String get noNetwork => 'Không có kết nối internet';
+	@override String get unknown => 'Đã có lỗi xảy ra';
+	@override String get permissionDenied => 'Quyền truy cập bị từ chối';
+	@override String get processingError => 'Có lỗi xảy ra khi chuyển đổi';
 }
 
 // Path: onboarding
@@ -517,6 +591,9 @@ class _StringsAuthVi implements _StringsAuthEn {
 	@override String get loginWithGoogle => 'Đăng nhập với Google';
 	@override String get loginWithFacebook => 'Đăng nhập với Facebook';
 	@override String get register => 'Đăng ký';
+	@override late final _StringsAuthUsernameVi username = _StringsAuthUsernameVi._(_root);
+	@override late final _StringsAuthFullNameVi fullName = _StringsAuthFullNameVi._(_root);
+	@override late final _StringsAuthConfirmPasswordVi confirmPassword = _StringsAuthConfirmPasswordVi._(_root);
 }
 
 // Path: common.button
@@ -639,6 +716,45 @@ class _StringsAuthPasswordVi implements _StringsAuthPasswordEn {
 	@override String get label => 'Mật khẩu';
 	@override String get hint => 'Nhập mật khẩu';
 	@override String get required => 'Mật khẩu là bắt buộc!';
+	@override String get isAtLeast8Characters => 'Mật khẩu phải ít nhất 8 kí tự';
+	@override String get isNotValid => 'Mật khẩu không hợp lệ';
+}
+
+// Path: auth.username
+class _StringsAuthUsernameVi implements _StringsAuthUsernameEn {
+	_StringsAuthUsernameVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Tên người dùng';
+	@override String get hint => 'Nhập tên người dùng';
+	@override String get required => 'Tên người dùng là bắt buộc!';
+}
+
+// Path: auth.fullName
+class _StringsAuthFullNameVi implements _StringsAuthFullNameEn {
+	_StringsAuthFullNameVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Họ và tên';
+	@override String get hint => 'Nhập họ và tên';
+	@override String get required => 'Họ và tên là bắt buộc!';
+}
+
+// Path: auth.confirmPassword
+class _StringsAuthConfirmPasswordVi implements _StringsAuthConfirmPasswordEn {
+	_StringsAuthConfirmPasswordVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Xác nhận mật khẩu';
+	@override String get hint => 'Nhập xác nhận mật khẩu';
+	@override String get required => 'Xác nhận mật khẩu là bắt buộc!';
+	@override String get notMatch => 'Mật khẩu không khớp';
 }
 
 /// Flat map(s) containing all translations.
@@ -666,6 +782,12 @@ extension on _StringsEn {
 			case 'common.dateTime.hour': return 'hour';
 			case 'common.dateTime.minute': return 'minute';
 			case 'common.dateTime.justNow': return 'just now';
+			case 'error.error': return 'Error!!!';
+			case 'error.illegalData': return 'Wrong data format';
+			case 'error.noNetwork': return 'No internet connection';
+			case 'error.unknown': return 'An Unexpected Error Occurred';
+			case 'error.permissionDenied': return 'Permission denied';
+			case 'error.processingError': return 'Error while processing';
 			case 'onboarding.title.0': return 'Agriculture Guide';
 			case 'onboarding.title.1': return 'Sharing and Exchanging experiences';
 			case 'onboarding.title.2': return 'Miniature Farming Store';
@@ -708,12 +830,24 @@ extension on _StringsEn {
 			case 'auth.password.label': return 'Password';
 			case 'auth.password.hint': return 'Enter password';
 			case 'auth.password.required': return 'Password is required!';
+			case 'auth.password.isAtLeast8Characters': return 'Password is at least 8 characters';
+			case 'auth.password.isNotValid': return 'Password is not valid';
 			case 'auth.forgotPassword': return 'Forgot password';
 			case 'auth.haveNotAnAccount': return 'Haven\'t an account? ';
 			case 'auth.or': return 'OR';
 			case 'auth.loginWithGoogle': return 'Login with Google';
 			case 'auth.loginWithFacebook': return 'Login with Facebook';
 			case 'auth.register': return 'Register';
+			case 'auth.username.label': return 'Username';
+			case 'auth.username.hint': return 'Enter username';
+			case 'auth.username.required': return 'Username is required!';
+			case 'auth.fullName.label': return 'Full name';
+			case 'auth.fullName.hint': return 'Enter full name';
+			case 'auth.fullName.required': return 'Full name is required!';
+			case 'auth.confirmPassword.label': return 'Confirm password';
+			case 'auth.confirmPassword.hint': return 'Enter confirm password';
+			case 'auth.confirmPassword.required': return 'Confirm password is required!';
+			case 'auth.confirmPassword.notMatch': return 'Password is not match';
 			default: return null;
 		}
 	}
@@ -741,6 +875,12 @@ extension on _StringsVi {
 			case 'common.dateTime.hour': return 'giờ';
 			case 'common.dateTime.minute': return 'phút';
 			case 'common.dateTime.justNow': return 'bây giờ';
+			case 'error.error': return 'Lỗi rồi!!!';
+			case 'error.illegalData': return 'Dữ liệu không hợp lệ';
+			case 'error.noNetwork': return 'Không có kết nối internet';
+			case 'error.unknown': return 'Đã có lỗi xảy ra';
+			case 'error.permissionDenied': return 'Quyền truy cập bị từ chối';
+			case 'error.processingError': return 'Có lỗi xảy ra khi chuyển đổi';
 			case 'onboarding.title.0': return 'Hướng dẫn nông nghiệp';
 			case 'onboarding.title.1': return 'Chia sẻ và Trao đổi kinh nghiệm';
 			case 'onboarding.title.2': return 'Cửa hàng nông nghiệp thu nhỏ';
@@ -783,12 +923,24 @@ extension on _StringsVi {
 			case 'auth.password.label': return 'Mật khẩu';
 			case 'auth.password.hint': return 'Nhập mật khẩu';
 			case 'auth.password.required': return 'Mật khẩu là bắt buộc!';
+			case 'auth.password.isAtLeast8Characters': return 'Mật khẩu phải ít nhất 8 kí tự';
+			case 'auth.password.isNotValid': return 'Mật khẩu không hợp lệ';
 			case 'auth.forgotPassword': return 'Quên mật khẩu';
 			case 'auth.haveNotAnAccount': return 'Chưa có tài khoản? ';
 			case 'auth.or': return 'HOẶC';
 			case 'auth.loginWithGoogle': return 'Đăng nhập với Google';
 			case 'auth.loginWithFacebook': return 'Đăng nhập với Facebook';
 			case 'auth.register': return 'Đăng ký';
+			case 'auth.username.label': return 'Tên người dùng';
+			case 'auth.username.hint': return 'Nhập tên người dùng';
+			case 'auth.username.required': return 'Tên người dùng là bắt buộc!';
+			case 'auth.fullName.label': return 'Họ và tên';
+			case 'auth.fullName.hint': return 'Nhập họ và tên';
+			case 'auth.fullName.required': return 'Họ và tên là bắt buộc!';
+			case 'auth.confirmPassword.label': return 'Xác nhận mật khẩu';
+			case 'auth.confirmPassword.hint': return 'Nhập xác nhận mật khẩu';
+			case 'auth.confirmPassword.required': return 'Xác nhận mật khẩu là bắt buộc!';
+			case 'auth.confirmPassword.notMatch': return 'Mật khẩu không khớp';
 			default: return null;
 		}
 	}
