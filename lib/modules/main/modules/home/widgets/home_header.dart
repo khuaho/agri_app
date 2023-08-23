@@ -24,26 +24,28 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                transl.home.hello.you,
-                style: textTheme.titleLarge?.copyWith(
-                  color: AppColors.white,
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  transl.home.hello.you,
+                  style: textTheme.titleLarge?.copyWith(
+                    color: AppColors.white,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                transl.home
-                    .weatherDes(value: weather?.weatherDescription ?? ''),
-                style: textTheme.headlineSmall?.copyWith(
-                  color: AppColors.white,
-                  fontWeight: FontWeight.w500,
+                const SizedBox(height: 4),
+                Text(
+                  transl.home
+                      .weatherDes(value: weather?.weatherDescription ?? ''),
+                  style: textTheme.titleLarge?.copyWith(
+                    color: AppColors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,

@@ -1,8 +1,7 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_reaction_button/flutter_reaction_button.dart';
 
-import '../../../global/app_router/app_router.dart';
 import '../../../global/enum/reaction_enum.dart';
 import '../../../global/gen/strings.g.dart';
 import '../../../global/themes/app_colors.dart';
@@ -130,7 +129,12 @@ class DiscussTile extends StatelessWidget {
                 onPressed: () {
                   // TO DOs: comment handle
                   // if user exist -> using this feat or else
-                  context.pushRoute(const LoginRoute());
+                  if (FirebaseAuth.instance.currentUser != null) {
+                    print('user exists');
+                  } else {
+                    print('user is not exists');
+// context.pushRoute(const LoginRoute());
+                  }
                 },
                 child: Text(transl.common.button.comment),
               ),
