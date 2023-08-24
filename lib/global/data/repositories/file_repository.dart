@@ -17,7 +17,7 @@ final fileRepositoryProvider = Provider(
 abstract class FileRepository {
   /// Return list of file path
   Future<Either<Failure, String>> uploadFile({
-    required String docId,
+    required String folder,
     required File file,
   });
 
@@ -32,19 +32,19 @@ class _FileRepositoryImpl extends BaseRepository implements FileRepository {
 
   @override
   Future<Either<Failure, String>> uploadFile({
-    required String docId,
+    required String folder,
     required File file,
   }) {
     return guardFuture(() async {
       final uid = FirebaseAuth.instance.currentUser?.uid;
 
       final docRef = storageRef.child(
-        '$uid/docs/$docId/${basename(file.path)}',
+        '$folder/$uid/${basename(file.path)}',
       );
-      final byteData = await file.readAsBytes();
-      await docRef.putData(byteData);
+      final snapshot = await docRef.putFile(file).whenComplete(() => null);
+      final downloadUrl = await snapshot.ref.getDownloadURL();
 
-      return docRef.fullPath;
+      return downloadUrl;
     });
   }
 

@@ -50,6 +50,14 @@ dependencies:
   form_builder_validators: ^9.0.0
   google_sign_in: ^6.1.4
   firebase_storage: ^11.2.6
+  collection: ^1.17.1
+  image_picker: ^1.0.2
+  image_cropper: ^5.0.0
+  device_info_plus: ^9.0.3
+  permission_handler: ^10.4.3
+  app_settings: ^5.0.0
+  event_bus: ^2.0.0
+  get_it: ^7.6.0
 
 
 dev_dependencies:

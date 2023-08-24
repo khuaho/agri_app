@@ -31,7 +31,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     FocusManager.instance.primaryFocus?.unfocus();
     if (_formKey.currentState!.saveAndValidate()) {
       final data = _formKey.currentState!.value;
-      print('data: $data');
       provider.signUpWithEmailPassword(data);
     }
   }

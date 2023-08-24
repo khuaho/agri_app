@@ -26,6 +26,8 @@ mixin _$User {
   String? get email => throw _privateConstructorUsedError;
   String? get fcmToken => throw _privateConstructorUsedError;
   String? get uid => throw _privateConstructorUsedError;
+  bool? get gender => throw _privateConstructorUsedError;
+  String? get role => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +45,9 @@ abstract class $UserCopyWith<$Res> {
       String? avatar,
       String? email,
       String? fcmToken,
-      String? uid});
+      String? uid,
+      bool? gender,
+      String? role});
 }
 
 /// @nodoc
@@ -65,6 +69,8 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? email = freezed,
     Object? fcmToken = freezed,
     Object? uid = freezed,
+    Object? gender = freezed,
+    Object? role = freezed,
   }) {
     return _then(_value.copyWith(
       username: freezed == username
@@ -91,6 +97,14 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -107,7 +121,9 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       String? avatar,
       String? email,
       String? fcmToken,
-      String? uid});
+      String? uid,
+      bool? gender,
+      String? role});
 }
 
 /// @nodoc
@@ -125,6 +141,8 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? email = freezed,
     Object? fcmToken = freezed,
     Object? uid = freezed,
+    Object? gender = freezed,
+    Object? role = freezed,
   }) {
     return _then(_$_User(
       username: freezed == username
@@ -151,6 +169,14 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -164,7 +190,9 @@ class _$_User extends _User {
       this.avatar,
       this.email,
       this.fcmToken,
-      this.uid})
+      this.uid,
+      this.gender,
+      this.role})
       : super._();
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
@@ -181,10 +209,14 @@ class _$_User extends _User {
   final String? fcmToken;
   @override
   final String? uid;
+  @override
+  final bool? gender;
+  @override
+  final String? role;
 
   @override
   String toString() {
-    return 'User(username: $username, fullName: $fullName, avatar: $avatar, email: $email, fcmToken: $fcmToken, uid: $uid)';
+    return 'User(username: $username, fullName: $fullName, avatar: $avatar, email: $email, fcmToken: $fcmToken, uid: $uid, gender: $gender, role: $role)';
   }
 
   @override
@@ -200,13 +232,15 @@ class _$_User extends _User {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.fcmToken, fcmToken) ||
                 other.fcmToken == fcmToken) &&
-            (identical(other.uid, uid) || other.uid == uid));
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.role, role) || other.role == role));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, username, fullName, avatar, email, fcmToken, uid);
+  int get hashCode => Object.hash(runtimeType, username, fullName, avatar,
+      email, fcmToken, uid, gender, role);
 
   @JsonKey(ignore: true)
   @override
@@ -229,7 +263,9 @@ abstract class _User extends User {
       final String? avatar,
       final String? email,
       final String? fcmToken,
-      final String? uid}) = _$_User;
+      final String? uid,
+      final bool? gender,
+      final String? role}) = _$_User;
   _User._() : super._();
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
@@ -246,6 +282,10 @@ abstract class _User extends User {
   String? get fcmToken;
   @override
   String? get uid;
+  @override
+  bool? get gender;
+  @override
+  String? get role;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

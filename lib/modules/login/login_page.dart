@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -28,14 +29,22 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   final _formKey = GlobalKey<FormBuilderState>();
   bool passwordObscure = true;
 
-  void signInWithEmailPassword() {
+  Future<void> signInWithEmailPassword() async {
     FocusManager.instance.primaryFocus?.unfocus();
     if (_formKey.currentState!.saveAndValidate()) {
       final data = _formKey.currentState!.value;
-      provider.signInWithEmailPassword(
+      await provider.signInWithEmailPassword(
         email: data['email'],
         password: data['password'],
       );
+
+      if (mounted) {
+        if (FirebaseAuth.instance.currentUser != null) {
+          context.router.replaceAll(
+            [const MainRoute()],
+          );
+        }
+      }
     }
   }
 

@@ -35,7 +35,6 @@ class RegisterProvider extends StateNotifier<AppState<Unit>> {
         );
 
     if (state.data != null) {
-      print('hello');
       userRepository.addUser(data).then(
             (either) => either.fold(
               (l) => state = AppState.error(l),

@@ -6,7 +6,11 @@
       "reset": "Reset",
       "apply": "Apply",
       "delete": "Delete",
-      "comment": "Comment"
+      "comment": "Comment",
+      "cancel": "Cancel",
+      "ok": "Ok",
+      "edit": "Edit",
+      "openSettings": "Open settings"
     },
     "reaction": {
       "like": "Like",
@@ -24,6 +28,16 @@
       "hour": "hour",
       "minute": "minute",
       "justNow": "just now"
+    },
+    "getPhoto": "Get photo",
+    "camera": "Camera",
+    "gallery": "Gallery",
+    "oops": "Oops!",
+    "permission_": {
+      "cameraMsgIos": "We could not access your camera. Please remove any restrictions on the camera to continue (Settings ➔ Post Reader ➔ Enable Camera).",
+      "cameraMsgAndroid": "We could not access your camera. Please remove any restrictions on the camera to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Camera).",
+      "photoMsgIos": "We could not access your photos. Please remove any restrictions on the photos to continue (Settings ➔ Post Reader ➔ Enable Photos).",
+      "photoMsgAndroid": "We could not access your gallery. Please remove any restrictions on the gallery to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Photos)."
     }
   },
   "error": {
@@ -127,5 +141,25 @@
       "required": "Confirm password is required!",
       "notMatch": "Password is not match"
     }
+  },
+  "settings": {
+    "title": "Settings",
+    "logout": "Logout"
+  },
+  "profile": {
+    "title": "Profile",
+    "gender": {
+      "label": "Gender",
+      "hint": "Select gender",
+      "female": "Female",
+      "male": "Male"
+    },
+    "role": {
+      "label": "Role",
+      "hint": "Select role",
+      "farmer": "Farmer",
+      "expert": "Expert"
+    },
+    "update": "Update"
   }
 }

@@ -17,20 +17,20 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final appRouter = AppRouter();
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: F.title,
       debugShowCheckedModeBanner: false,
-      routerDelegate: appRouter.delegate(),
-      routeInformationParser: appRouter.defaultRouteParser(),
-      // routerConfig: appRouter.config(),
+      // routerDelegate: appRouter.delegate(),
+      // routeInformationParser: appRouter.defaultRouteParser(),
+      routerConfig: appRouter.config(),
       locale: TranslationProvider.of(context).flutterLocale, // use provider
       supportedLocales: AppLocaleUtils.supportedLocales,
       localizationsDelegates: const [

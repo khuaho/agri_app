@@ -15,7 +15,6 @@ class SnackBarUtils {
     String Function(Object data)? unknown,
     String Function(Object data)? illegalData,
   }) {
-    // final i18n = I18n.of(context)!;
     final transl = Translations.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

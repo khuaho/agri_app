@@ -26,18 +26,4 @@ class AsyncCropsNotifier extends AsyncNotifier<List<Crop>> {
   FutureOr<List<Crop>> build() {
     return _fetchCrop();
   }
-
-  // Future<void> searchCropsByName(String keyword) async {
-  //   state = const AsyncValue.loading();
-  //   state = await AsyncValue.guard(() async {
-  //     await ref.read(cropRepositoryProvider).searchCropByName(keyword).then(
-  //           (either) => either.fold(
-  //             (l) => null,
-  //             (r) => r,
-  //           ),
-  //         );
-
-  //     return _fetchCrop();
-  //   });
-  // }
 }

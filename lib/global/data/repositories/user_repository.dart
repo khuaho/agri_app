@@ -17,6 +17,8 @@ abstract class UserRepository {
   Future<Either<Failure, User>> getMe();
 
   Future<Either<Failure, Unit>> addUser(Map<String, dynamic> data);
+
+  Future<Either<Failure, Unit>> updateUser(User data);
 }
 
 class _UserRepositoryImpl extends BaseRepository implements UserRepository {
@@ -44,6 +46,20 @@ class _UserRepositoryImpl extends BaseRepository implements UserRepository {
       );
 
       await userRef.doc(uid).set(user);
+      return unit;
+    });
+  }
+
+  @override
+  Future<Either<Failure, Unit>> updateUser(User data) {
+    return guardFuture(() async {
+      final uid = fb.FirebaseAuth.instance.currentUser?.uid;
+
+      await userRef.doc(uid).set(data);
+      await fb.FirebaseAuth.instance.currentUser
+          ?.updateDisplayName(data.fullName);
+      await fb.FirebaseAuth.instance.currentUser?.updatePhotoURL(data.avatar);
+      await fb.FirebaseAuth.instance.currentUser?.reload();
       return unit;
     });
   }

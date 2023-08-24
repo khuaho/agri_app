@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../app/providers/app_settings_provider.dart';
 import '../../global/app_router/app_router.dart';
 import '../../global/gen/assets.gen.dart';
 import '../../global/gen/strings.g.dart';
@@ -42,14 +43,13 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         curve: Curves.easeInOut,
       );
     } else {
-      print('last page');
       context.router.replaceAll(
         [const HomeRoute()],
       );
-      // if (!mounted) return;
-      // ref.watch(appSettingProvider.notifier).update(
-      //       (state) => state.copyWith(isFirstLaunch: false),
-      //     );
+      if (!mounted) return;
+      ref.watch(appSettingProvider.notifier).update(
+            (state) => state.copyWith(isFirstLaunch: false),
+          );
     }
   }
 

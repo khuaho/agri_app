@@ -15,13 +15,13 @@ class LoginProvider extends StateNotifier<AppState<Unit>> {
   final Ref ref;
   late final authRepository = ref.watch(authRepositoryProvider);
 
-  void signInWithEmailPassword({
+  Future<void> signInWithEmailPassword({
     required String email,
     required String password,
-  }) {
+  }) async {
     FocusManager.instance.primaryFocus?.unfocus();
     state = AppState.loading();
-    authRepository
+    await authRepository
         .signInWithEmailPassword(email: email, password: password)
         .then(
           (either) => either.fold(

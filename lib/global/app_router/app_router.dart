@@ -10,6 +10,8 @@ import '../../modules/onboarding/onboarding_page.dart';
 import '../../modules/register/register_page.dart';
 import '../../modules/splash/splash_page.dart';
 import '../../modules/crop_detail/crop_detail_page.dart';
+import '../../modules/profile/profile_page.dart';
+import 'auth_guard.dart';
 
 part 'app_router.gr.dart';
 
@@ -31,12 +33,22 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: '/main',
           page: MainRoute.page,
+          guards: [AuthGuard()],
           children: [
             AutoRoute(path: 'home', page: HomeRoute.page),
             AutoRoute(path: 'crops', page: CropsRoute.page),
             AutoRoute(path: 'settings', page: SettingsRoute.page),
           ],
         ),
-        AutoRoute(path: '/crop_detail', page: CropDetailRoute.page),
+        AutoRoute(
+          path: '/crop_detail',
+          page: CropDetailRoute.page,
+          guards: [AuthGuard()],
+        ),
+        AutoRoute(
+          path: '/profile',
+          page: ProfileRoute.page,
+          guards: [AuthGuard()],
+        )
       ];
 }

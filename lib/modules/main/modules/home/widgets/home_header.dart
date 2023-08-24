@@ -1,14 +1,44 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather/weather.dart';
 
+import '../../../../../global/data/models/app_event/app_event.dart';
 import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
+import '../../../../../global/utils/app_mixin.dart';
 import '../../../../../global/widgets/avatar.dart';
 
-class HomeHeader extends StatelessWidget {
+class HomeHeader extends ConsumerStatefulWidget {
   const HomeHeader({super.key, this.weather});
 
   final Weather? weather;
+
+  @override
+  ConsumerState<HomeHeader> createState() => _HomeHeaderState();
+}
+
+class _HomeHeaderState extends ConsumerState<HomeHeader> with AppMixin {
+  late StreamSubscription updateUserSub;
+  User? currentUser = FirebaseAuth.instance.currentUser;
+  @override
+  void initState() {
+    updateUserSub = eventBus.on<UpdateUserEvent>().listen((_) {
+      setState(() {
+        currentUser = FirebaseAuth.instance.currentUser;
+      });
+    });
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    updateUserSub.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +67,8 @@ class HomeHeader extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  transl.home
-                      .weatherDes(value: weather?.weatherDescription ?? ''),
+                  transl.home.weatherDes(
+                      value: widget.weather?.weatherDescription ?? ''),
                   style: textTheme.titleLarge?.copyWith(
                     color: AppColors.white,
                     fontWeight: FontWeight.w500,
@@ -51,7 +81,10 @@ class HomeHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Avatar(name: 'Khua'),
+              Avatar(
+                name: currentUser?.displayName,
+                imageUrl: currentUser?.photoURL,
+              ),
               const SizedBox(height: 6),
               Container(
                 padding: const EdgeInsets.all(6),
@@ -67,7 +100,7 @@ class HomeHeader extends StatelessWidget {
                     ),
                     const SizedBox(width: 4),
                     Text(
-                      weather?.areaName ?? '',
+                      widget.weather?.areaName ?? '',
                       style: textTheme.titleSmall,
                     )
                   ],

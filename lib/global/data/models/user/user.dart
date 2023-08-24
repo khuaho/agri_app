@@ -15,6 +15,8 @@ class User with _$User {
     String? email,
     String? fcmToken,
     String? uid,
+    bool? gender,
+    String? role,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

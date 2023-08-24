@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 170 (85 per locale)
+/// Strings: 218 (109 per locale)
 ///
-/// Built on 2023-08-23 at 02:13 UTC
+/// Built on 2023-08-24 at 09:21 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -158,6 +158,8 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsCropsEn crops = _StringsCropsEn._(_root);
 	late final _StringsDetailCropEn detailCrop = _StringsDetailCropEn._(_root);
 	late final _StringsAuthEn auth = _StringsAuthEn._(_root);
+	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
+	late final _StringsProfileEn profile = _StringsProfileEn._(_root);
 }
 
 // Path: common
@@ -172,6 +174,11 @@ class _StringsCommonEn {
 	late final _StringsCommonReactionEn reaction = _StringsCommonReactionEn._(_root);
 	String get dataNotFound => 'Data not found';
 	late final _StringsCommonDateTimeEn dateTime = _StringsCommonDateTimeEn._(_root);
+	String get getPhoto => 'Get photo';
+	String get camera => 'Camera';
+	String get gallery => 'Gallery';
+	String get oops => 'Oops!';
+	late final _StringsCommonPermissionEn permission_ = _StringsCommonPermissionEn._(_root);
 }
 
 // Path: error
@@ -280,6 +287,30 @@ class _StringsAuthEn {
 	late final _StringsAuthConfirmPasswordEn confirmPassword = _StringsAuthConfirmPasswordEn._(_root);
 }
 
+// Path: settings
+class _StringsSettingsEn {
+	_StringsSettingsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Settings';
+	String get logout => 'Logout';
+}
+
+// Path: profile
+class _StringsProfileEn {
+	_StringsProfileEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Profile';
+	late final _StringsProfileGenderEn gender = _StringsProfileGenderEn._(_root);
+	late final _StringsProfileRoleEn role = _StringsProfileRoleEn._(_root);
+	String get update => 'Update';
+}
+
 // Path: common.button
 class _StringsCommonButtonEn {
 	_StringsCommonButtonEn._(this._root);
@@ -291,6 +322,10 @@ class _StringsCommonButtonEn {
 	String get apply => 'Apply';
 	String get delete => 'Delete';
 	String get comment => 'Comment';
+	String get cancel => 'Cancel';
+	String get ok => 'Ok';
+	String get edit => 'Edit';
+	String get openSettings => 'Open settings';
 }
 
 // Path: common.reaction
@@ -321,6 +356,19 @@ class _StringsCommonDateTimeEn {
 	String get hour => 'hour';
 	String get minute => 'minute';
 	String get justNow => 'just now';
+}
+
+// Path: common.permission_
+class _StringsCommonPermissionEn {
+	_StringsCommonPermissionEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get cameraMsgIos => 'We could not access your camera. Please remove any restrictions on the camera to continue (Settings ➔ Post Reader ➔ Enable Camera).';
+	String get cameraMsgAndroid => 'We could not access your camera. Please remove any restrictions on the camera to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Camera).';
+	String get photoMsgIos => 'We could not access your photos. Please remove any restrictions on the photos to continue (Settings ➔ Post Reader ➔ Enable Photos).';
+	String get photoMsgAndroid => 'We could not access your gallery. Please remove any restrictions on the gallery to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Photos).';
 }
 
 // Path: home.hello
@@ -441,6 +489,32 @@ class _StringsAuthConfirmPasswordEn {
 	String get notMatch => 'Password is not match';
 }
 
+// Path: profile.gender
+class _StringsProfileGenderEn {
+	_StringsProfileGenderEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Gender';
+	String get hint => 'Select gender';
+	String get female => 'Female';
+	String get male => 'Male';
+}
+
+// Path: profile.role
+class _StringsProfileRoleEn {
+	_StringsProfileRoleEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Role';
+	String get hint => 'Select role';
+	String get farmer => 'Farmer';
+	String get expert => 'Expert';
+}
+
 // Path: <root>
 class _StringsVi implements _StringsEn {
 
@@ -474,6 +548,8 @@ class _StringsVi implements _StringsEn {
 	@override late final _StringsCropsVi crops = _StringsCropsVi._(_root);
 	@override late final _StringsDetailCropVi detailCrop = _StringsDetailCropVi._(_root);
 	@override late final _StringsAuthVi auth = _StringsAuthVi._(_root);
+	@override late final _StringsSettingsVi settings = _StringsSettingsVi._(_root);
+	@override late final _StringsProfileVi profile = _StringsProfileVi._(_root);
 }
 
 // Path: common
@@ -488,6 +564,11 @@ class _StringsCommonVi implements _StringsCommonEn {
 	@override late final _StringsCommonReactionVi reaction = _StringsCommonReactionVi._(_root);
 	@override String get dataNotFound => 'Dữ liệu không được tìm thấy';
 	@override late final _StringsCommonDateTimeVi dateTime = _StringsCommonDateTimeVi._(_root);
+	@override String get getPhoto => 'Cách lấy ảnh';
+	@override String get camera => 'Máy ảnh';
+	@override String get gallery => 'Thư viện';
+	@override String get oops => 'Oops!';
+	@override late final _StringsCommonPermissionVi permission_ = _StringsCommonPermissionVi._(_root);
 }
 
 // Path: error
@@ -596,6 +677,30 @@ class _StringsAuthVi implements _StringsAuthEn {
 	@override late final _StringsAuthConfirmPasswordVi confirmPassword = _StringsAuthConfirmPasswordVi._(_root);
 }
 
+// Path: settings
+class _StringsSettingsVi implements _StringsSettingsEn {
+	_StringsSettingsVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Cài đặt';
+	@override String get logout => 'Đăng xuất';
+}
+
+// Path: profile
+class _StringsProfileVi implements _StringsProfileEn {
+	_StringsProfileVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Thông tin cá nhân';
+	@override late final _StringsProfileGenderVi gender = _StringsProfileGenderVi._(_root);
+	@override late final _StringsProfileRoleVi role = _StringsProfileRoleVi._(_root);
+	@override String get update => 'Cập nhật';
+}
+
 // Path: common.button
 class _StringsCommonButtonVi implements _StringsCommonButtonEn {
 	_StringsCommonButtonVi._(this._root);
@@ -607,6 +712,10 @@ class _StringsCommonButtonVi implements _StringsCommonButtonEn {
 	@override String get apply => 'Áp dụng';
 	@override String get delete => 'Xoá';
 	@override String get comment => 'Bình luận';
+	@override String get cancel => 'Bỏ qua';
+	@override String get ok => 'Đồng ý';
+	@override String get edit => 'Chỉnh sửa';
+	@override String get openSettings => 'Mở cài đặt';
 }
 
 // Path: common.reaction
@@ -637,6 +746,19 @@ class _StringsCommonDateTimeVi implements _StringsCommonDateTimeEn {
 	@override String get hour => 'giờ';
 	@override String get minute => 'phút';
 	@override String get justNow => 'bây giờ';
+}
+
+// Path: common.permission_
+class _StringsCommonPermissionVi implements _StringsCommonPermissionEn {
+	_StringsCommonPermissionVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get cameraMsgIos => 'Chúng tôi không thể truy cập máy ảnh. Vui lòng xóa mọi hạn chế đối với máy ảnh để tiếp tục (Cài đặt ➔ Post Reader ➔ Cho phép truy cập Máy ảnh).';
+	@override String get cameraMsgAndroid => 'Chúng tôi không thể truy cập máy ảnh. Vui lòng xóa mọi hạn chế đối với máy ảnh để tiếp tục (Cài đặt ➔ Ứng dụng ➔ Post Reader ➔ Quyền ➔ Cho phép truy cập Máy ảnh).';
+	@override String get photoMsgIos => 'Chúng tôi không thể truy cập Ảnh. Vui lòng xóa mọi hạn chế đối với Ảnh để tiếp tục (Cài đặt ➔ Post Reader ➔ Cho phép truy cập Ảnh).';
+	@override String get photoMsgAndroid => 'Chúng tôi không thể truy cập Bộ sưu tập. Vui lòng xóa mọi hạn chế đối với Bộ sưu tập để tiếp tục (Cài đặt ➔ Ứng dụng ➔ Post Reader ➔ Quyền ➔ Cho phép truy cập Ảnh).';
 }
 
 // Path: home.hello
@@ -757,6 +879,32 @@ class _StringsAuthConfirmPasswordVi implements _StringsAuthConfirmPasswordEn {
 	@override String get notMatch => 'Mật khẩu không khớp';
 }
 
+// Path: profile.gender
+class _StringsProfileGenderVi implements _StringsProfileGenderEn {
+	_StringsProfileGenderVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Giới tính';
+	@override String get hint => 'Chọn giới tính';
+	@override String get female => 'Nữ';
+	@override String get male => 'Nam';
+}
+
+// Path: profile.role
+class _StringsProfileRoleVi implements _StringsProfileRoleEn {
+	_StringsProfileRoleVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Vai trò';
+	@override String get hint => 'Chọn vai trò';
+	@override String get farmer => 'Nông dân';
+	@override String get expert => 'Chuyên gia';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -769,6 +917,10 @@ extension on _StringsEn {
 			case 'common.button.apply': return 'Apply';
 			case 'common.button.delete': return 'Delete';
 			case 'common.button.comment': return 'Comment';
+			case 'common.button.cancel': return 'Cancel';
+			case 'common.button.ok': return 'Ok';
+			case 'common.button.edit': return 'Edit';
+			case 'common.button.openSettings': return 'Open settings';
 			case 'common.reaction.like': return 'Like';
 			case 'common.reaction.favorite': return 'Favorite';
 			case 'common.reaction.satisfied': return 'Satisfied';
@@ -782,6 +934,14 @@ extension on _StringsEn {
 			case 'common.dateTime.hour': return 'hour';
 			case 'common.dateTime.minute': return 'minute';
 			case 'common.dateTime.justNow': return 'just now';
+			case 'common.getPhoto': return 'Get photo';
+			case 'common.camera': return 'Camera';
+			case 'common.gallery': return 'Gallery';
+			case 'common.oops': return 'Oops!';
+			case 'common.permission_.cameraMsgIos': return 'We could not access your camera. Please remove any restrictions on the camera to continue (Settings ➔ Post Reader ➔ Enable Camera).';
+			case 'common.permission_.cameraMsgAndroid': return 'We could not access your camera. Please remove any restrictions on the camera to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Camera).';
+			case 'common.permission_.photoMsgIos': return 'We could not access your photos. Please remove any restrictions on the photos to continue (Settings ➔ Post Reader ➔ Enable Photos).';
+			case 'common.permission_.photoMsgAndroid': return 'We could not access your gallery. Please remove any restrictions on the gallery to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Photos).';
 			case 'error.error': return 'Error!!!';
 			case 'error.illegalData': return 'Wrong data format';
 			case 'error.noNetwork': return 'No internet connection';
@@ -848,6 +1008,18 @@ extension on _StringsEn {
 			case 'auth.confirmPassword.hint': return 'Enter confirm password';
 			case 'auth.confirmPassword.required': return 'Confirm password is required!';
 			case 'auth.confirmPassword.notMatch': return 'Password is not match';
+			case 'settings.title': return 'Settings';
+			case 'settings.logout': return 'Logout';
+			case 'profile.title': return 'Profile';
+			case 'profile.gender.label': return 'Gender';
+			case 'profile.gender.hint': return 'Select gender';
+			case 'profile.gender.female': return 'Female';
+			case 'profile.gender.male': return 'Male';
+			case 'profile.role.label': return 'Role';
+			case 'profile.role.hint': return 'Select role';
+			case 'profile.role.farmer': return 'Farmer';
+			case 'profile.role.expert': return 'Expert';
+			case 'profile.update': return 'Update';
 			default: return null;
 		}
 	}
@@ -862,6 +1034,10 @@ extension on _StringsVi {
 			case 'common.button.apply': return 'Áp dụng';
 			case 'common.button.delete': return 'Xoá';
 			case 'common.button.comment': return 'Bình luận';
+			case 'common.button.cancel': return 'Bỏ qua';
+			case 'common.button.ok': return 'Đồng ý';
+			case 'common.button.edit': return 'Chỉnh sửa';
+			case 'common.button.openSettings': return 'Mở cài đặt';
 			case 'common.reaction.like': return 'Thích';
 			case 'common.reaction.favorite': return 'Yêu thích';
 			case 'common.reaction.satisfied': return 'Hài lòng';
@@ -875,6 +1051,14 @@ extension on _StringsVi {
 			case 'common.dateTime.hour': return 'giờ';
 			case 'common.dateTime.minute': return 'phút';
 			case 'common.dateTime.justNow': return 'bây giờ';
+			case 'common.getPhoto': return 'Cách lấy ảnh';
+			case 'common.camera': return 'Máy ảnh';
+			case 'common.gallery': return 'Thư viện';
+			case 'common.oops': return 'Oops!';
+			case 'common.permission_.cameraMsgIos': return 'Chúng tôi không thể truy cập máy ảnh. Vui lòng xóa mọi hạn chế đối với máy ảnh để tiếp tục (Cài đặt ➔ Post Reader ➔ Cho phép truy cập Máy ảnh).';
+			case 'common.permission_.cameraMsgAndroid': return 'Chúng tôi không thể truy cập máy ảnh. Vui lòng xóa mọi hạn chế đối với máy ảnh để tiếp tục (Cài đặt ➔ Ứng dụng ➔ Post Reader ➔ Quyền ➔ Cho phép truy cập Máy ảnh).';
+			case 'common.permission_.photoMsgIos': return 'Chúng tôi không thể truy cập Ảnh. Vui lòng xóa mọi hạn chế đối với Ảnh để tiếp tục (Cài đặt ➔ Post Reader ➔ Cho phép truy cập Ảnh).';
+			case 'common.permission_.photoMsgAndroid': return 'Chúng tôi không thể truy cập Bộ sưu tập. Vui lòng xóa mọi hạn chế đối với Bộ sưu tập để tiếp tục (Cài đặt ➔ Ứng dụng ➔ Post Reader ➔ Quyền ➔ Cho phép truy cập Ảnh).';
 			case 'error.error': return 'Lỗi rồi!!!';
 			case 'error.illegalData': return 'Dữ liệu không hợp lệ';
 			case 'error.noNetwork': return 'Không có kết nối internet';
@@ -941,6 +1125,18 @@ extension on _StringsVi {
 			case 'auth.confirmPassword.hint': return 'Nhập xác nhận mật khẩu';
 			case 'auth.confirmPassword.required': return 'Xác nhận mật khẩu là bắt buộc!';
 			case 'auth.confirmPassword.notMatch': return 'Mật khẩu không khớp';
+			case 'settings.title': return 'Cài đặt';
+			case 'settings.logout': return 'Đăng xuất';
+			case 'profile.title': return 'Thông tin cá nhân';
+			case 'profile.gender.label': return 'Giới tính';
+			case 'profile.gender.hint': return 'Chọn giới tính';
+			case 'profile.gender.female': return 'Nữ';
+			case 'profile.gender.male': return 'Nam';
+			case 'profile.role.label': return 'Vai trò';
+			case 'profile.role.hint': return 'Chọn vai trò';
+			case 'profile.role.farmer': return 'Nông dân';
+			case 'profile.role.expert': return 'Chuyên gia';
+			case 'profile.update': return 'Cập nhật';
 			default: return null;
 		}
 	}

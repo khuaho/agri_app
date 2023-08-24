@@ -13,6 +13,8 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       email: json['email'] as String?,
       fcmToken: json['fcmToken'] as String?,
       uid: json['uid'] as String?,
+      gender: json['gender'] as bool?,
+      role: json['role'] as String?,
     );
 
 Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
@@ -22,4 +24,6 @@ Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'email': instance.email,
       'fcmToken': instance.fcmToken,
       'uid': instance.uid,
+      'gender': instance.gender,
+      'role': instance.role,
     };
