@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather/weather.dart';
 
+import '../../../../../global/app_router/app_router.dart';
 import '../../../../../global/data/models/app_event/app_event.dart';
 import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
@@ -68,7 +70,8 @@ class _HomeHeaderState extends ConsumerState<HomeHeader> with AppMixin {
                 const SizedBox(height: 4),
                 Text(
                   transl.home.weatherDes(
-                      value: widget.weather?.weatherDescription ?? ''),
+                    value: widget.weather?.weatherDescription ?? '',
+                  ),
                   style: textTheme.titleLarge?.copyWith(
                     color: AppColors.white,
                     fontWeight: FontWeight.w500,
@@ -81,9 +84,12 @@ class _HomeHeaderState extends ConsumerState<HomeHeader> with AppMixin {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Avatar(
-                name: currentUser?.displayName,
-                imageUrl: currentUser?.photoURL,
+              GestureDetector(
+                onTap: () => context.pushRoute(const ProfileRoute()),
+                child: Avatar(
+                  name: currentUser?.displayName,
+                  imageUrl: currentUser?.photoURL,
+                ),
               ),
               const SizedBox(height: 6),
               Container(

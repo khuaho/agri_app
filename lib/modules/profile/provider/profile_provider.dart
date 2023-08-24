@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:firebase_auth/firebase_auth.dart' as fb;
 
 import '../../../global/data/models/app_event/app_event.dart';
 import '../../../global/data/models/user/user.dart';
@@ -32,9 +33,14 @@ class AsyncProfileNotifier extends AsyncNotifier<User> with AppMixin {
   }
 
   Future<void> updateUser(
-      Map<String, dynamic> data, bool isUpdateAvatar) async {
+    Map<String, dynamic> data,
+    bool isUpdateAvatar,
+  ) async {
+    final uid = fb.FirebaseAuth.instance.currentUser?.uid;
     final fileRepo = ref.read(fileRepositoryProvider);
+
     state = const AsyncValue.loading();
+
     if (isUpdateAvatar == true) {
       final urlAvatar = await fileRepo
           .uploadFile(
@@ -47,17 +53,17 @@ class AsyncProfileNotifier extends AsyncNotifier<User> with AppMixin {
               (r) => r,
             ),
           );
-      final user = User(
-        username: data['username'],
-        fullName: data['fullName'],
-        email: data['email'],
-        gender: data['gender'],
-        role: data['role'],
-        avatar: urlAvatar,
-      );
 
       state = await AsyncValue.guard(() async {
-        await ref.read(userRepositoryProvider).updateUser(user).then(
+        await ref
+            .read(userRepositoryProvider)
+            .updateUser(
+              User.fromJson(data).copyWith(
+                uid: uid,
+                avatar: urlAvatar,
+              ),
+            )
+            .then(
               (either) => either.fold(
                 (l) => null,
                 (r) => r,
@@ -70,7 +76,7 @@ class AsyncProfileNotifier extends AsyncNotifier<User> with AppMixin {
       state = await AsyncValue.guard(() async {
         await ref
             .read(userRepositoryProvider)
-            .updateUser(User.fromJson(data))
+            .updateUser(User.fromJson(data).copyWith(uid: uid))
             .then(
               (either) => either.fold(
                 (l) => null,
