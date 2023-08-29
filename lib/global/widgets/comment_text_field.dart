@@ -9,10 +9,12 @@ class CommentTextField extends StatefulWidget {
     this.controller,
     required this.onTextChange,
     required this.hintText,
+    required this.onTapSend,
   });
   final TextEditingController? controller;
   final String hintText;
   final ValueChanged<String> onTextChange;
+  final void Function(String) onTapSend;
 
   @override
   State<CommentTextField> createState() => _CommentTextFieldState();
@@ -21,6 +23,7 @@ class CommentTextField extends StatefulWidget {
 class _CommentTextFieldState extends State<CommentTextField> {
   late final textController = widget.controller ?? TextEditingController();
   final debouncer = Debouncer();
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -29,12 +32,30 @@ class _CommentTextFieldState extends State<CommentTextField> {
       borderSide: BorderSide.none,
     );
     return TextFormField(
+      controller: textController,
+      onFieldSubmitted: (value) {
+        widget.onTapSend(value);
+        textController.clear();
+      },
       keyboardType: TextInputType.text,
       decoration: InputDecoration(
         hintText: widget.hintText,
         hintStyle: textTheme.bodyLarge?.copyWith(
           color: AppColors.neutral05,
           height: 1.5,
+        ),
+        suffixIcon: Material(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(12),
+          clipBehavior: Clip.hardEdge,
+          child: IconButton(
+            onPressed: () {
+              widget.onTapSend(textController.text);
+              textController.clear();
+            },
+            icon: const Icon(Icons.send),
+            hoverColor: AppColors.neutral09,
+          ),
         ),
         contentPadding: const EdgeInsets.all(12),
         hoverColor: AppColors.neutral10,

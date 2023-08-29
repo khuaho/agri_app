@@ -4,9 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../services/hive_service.dart';
 import '../models/failures/failure.dart';
 import '_base_repository.dart';
-// import 'user_repository.dart';
 
 final authRepositoryProvider = Provider(_AuthRepositoryImpl.new);
 
@@ -80,6 +80,10 @@ class _AuthRepositoryImpl extends BaseRepository implements AuthRepository {
       if (GoogleSignIn().currentUser != null) {
         await GoogleSignIn().disconnect();
       }
+      await ref.read(hiveServiceProvider).deleteUser();
+      // await hiveService.deleteUserCredentials();
+      // Hive.box(Constants.hiveGraphqlBox).clear();
+      // await FirebaseMessaging.instance.deleteToken();
       await firebaseAuth.signOut();
       return unit;
     });

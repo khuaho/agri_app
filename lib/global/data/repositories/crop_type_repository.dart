@@ -16,8 +16,9 @@ abstract class CropTypeRepository {
 
 class _CropTypeRepositoryImpl extends BaseRepository
     implements CropTypeRepository {
-  final docRef =
-      FirebaseFirestore.instance.collection('crop_types').withDocConverter();
+  final docRef = FirebaseFirestore.instance
+      .collection('crop_types')
+      .withCropTypeConverter();
 
   @override
   Future<Either<Failure, List<CropType>>> getCropTypes() {

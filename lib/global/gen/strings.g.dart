@@ -6,7 +6,7 @@
 /// Locales: 2
 /// Strings: 218 (109 per locale)
 ///
-/// Built on 2023-08-24 at 09:21 UTC
+/// Built on 2023-08-29 at 02:37 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -321,7 +321,7 @@ class _StringsCommonButtonEn {
 	String get reset => 'Reset';
 	String get apply => 'Apply';
 	String get delete => 'Delete';
-	String get comment => 'Comment';
+	String get reply => 'Reply';
 	String get cancel => 'Cancel';
 	String get ok => 'Ok';
 	String get edit => 'Edit';
@@ -711,7 +711,7 @@ class _StringsCommonButtonVi implements _StringsCommonButtonEn {
 	@override String get reset => 'Đặt lại';
 	@override String get apply => 'Áp dụng';
 	@override String get delete => 'Xoá';
-	@override String get comment => 'Bình luận';
+	@override String get reply => 'Trả lời';
 	@override String get cancel => 'Bỏ qua';
 	@override String get ok => 'Đồng ý';
 	@override String get edit => 'Chỉnh sửa';
@@ -916,7 +916,7 @@ extension on _StringsEn {
 			case 'common.button.reset': return 'Reset';
 			case 'common.button.apply': return 'Apply';
 			case 'common.button.delete': return 'Delete';
-			case 'common.button.comment': return 'Comment';
+			case 'common.button.reply': return 'Reply';
 			case 'common.button.cancel': return 'Cancel';
 			case 'common.button.ok': return 'Ok';
 			case 'common.button.edit': return 'Edit';
@@ -1033,7 +1033,7 @@ extension on _StringsVi {
 			case 'common.button.reset': return 'Đặt lại';
 			case 'common.button.apply': return 'Áp dụng';
 			case 'common.button.delete': return 'Xoá';
-			case 'common.button.comment': return 'Bình luận';
+			case 'common.button.reply': return 'Trả lời';
 			case 'common.button.cancel': return 'Bỏ qua';
 			case 'common.button.ok': return 'Đồng ý';
 			case 'common.button.edit': return 'Chỉnh sửa';

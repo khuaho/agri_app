@@ -52,10 +52,9 @@ extension DateTimeExtension on DateTime {
       DateTime(
           year, month, day, hour, minute, second, millisecond, microsecond);
 
-  String timeAgoCustom({
-    required DateTime date,
-    required BuildContext context,
-  }) {
+  String timeAgoCustom(
+    BuildContext context,
+  ) {
     final transl = Translations.of(context);
 
     final year = '${transl.common.dateTime.year} ${transl.common.dateTime.ago}';
@@ -66,7 +65,7 @@ extension DateTimeExtension on DateTime {
     final minute =
         '${transl.common.dateTime.minute} ${transl.common.dateTime.ago}';
 
-    Duration diff = DateTime.now().difference(date);
+    Duration diff = DateTime.now().difference(this);
     if (diff.inDays > 365) {
       return '${(diff.inDays / 365).floor()} $year';
     }
@@ -79,7 +78,7 @@ extension DateTimeExtension on DateTime {
     if (diff.inDays > 0) {
       return DateFormat.EEEE(LocaleSettings.currentLocale.languageCode)
           .add_jm()
-          .format(date)
+          .format(this)
           .toString();
     }
     if (diff.inHours > 0) {

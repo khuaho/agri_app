@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
 import '../gen/strings.g.dart';
@@ -5,19 +6,24 @@ import '../themes/app_colors.dart';
 import '../utils/app_icons.dart';
 
 enum ReactionEnum {
-  like('like'),
-  favorite('favorite'),
-  satisfied('satisfied'),
-  unsatisfied('unsatisfied');
+  like('like', 0),
+  favorite('favorite', 1),
+  satisfied('satisfied', 2),
+  unsatisfied('unsatisfied', 3);
 
   final String value;
-  const ReactionEnum(this.value);
+  final int id;
+  const ReactionEnum(this.value, this.id);
 
   static ReactionEnum fromValue(String? value) {
     return ReactionEnum.values.firstWhere(
       (e) => e.value == value,
       orElse: () => like,
     );
+  }
+
+  static ReactionEnum? fromValueWithId(int? value) {
+    return ReactionEnum.values.firstWhereOrNull((e) => e.id == value);
   }
 
   String reactionTitle(BuildContext context) {

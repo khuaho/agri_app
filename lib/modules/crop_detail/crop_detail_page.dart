@@ -8,7 +8,7 @@ import '../../global/utils/riverpod/app_state.dart';
 import '../../global/widgets/loading_overlay.dart';
 import 'providers/crop_detail_provider.dart';
 import 'widgets/crop_detail_carousel.dart';
-import 'widgets/discuss.dart';
+import 'widgets/discusses.dart';
 import 'widgets/planting_guide.dart';
 
 @RoutePage()
@@ -85,7 +85,7 @@ class _CropDetailPageState extends ConsumerState<CropDetailPage>
                         controller: tabController,
                         children: [
                           PlantingGuide(crop: state.data),
-                          const Discuss(),
+                          Discusses(cropId: widget.id),
                         ],
                       ),
                     ),

@@ -44,7 +44,7 @@ class Crop with _$Crop {
 }
 
 extension CropConverter on CollectionReference {
-  CollectionReference<Crop> withDocConverter() {
+  CollectionReference<Crop> withCropConverter() {
     return withConverter(
       fromFirestore: (snapshot, _) => Crop.fromJson(snapshot.data()!),
       toFirestore: (crop, _) => crop.toJson(),

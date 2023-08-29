@@ -8,6 +8,7 @@ import '../../../global/data/models/app_event/app_event.dart';
 import '../../../global/data/models/user/user.dart';
 import '../../../global/data/repositories/file_repository.dart';
 import '../../../global/data/repositories/user_repository.dart';
+import '../../../global/services/hive_service.dart';
 import '../../../global/utils/app_mixin.dart';
 
 final asyncProfileProvider =
@@ -69,6 +70,12 @@ class AsyncProfileNotifier extends AsyncNotifier<User> with AppMixin {
                 (r) => r,
               ),
             );
+        await ref.read(hiveServiceProvider).saveUser(
+              User.fromJson(data).copyWith(
+                uid: uid,
+                avatar: urlAvatar,
+              ),
+            );
         eventBus.fire(const UpdateUserEvent());
         return _fetchUser();
       });
@@ -82,6 +89,10 @@ class AsyncProfileNotifier extends AsyncNotifier<User> with AppMixin {
                 (l) => null,
                 (r) => r,
               ),
+            );
+
+        await ref.read(hiveServiceProvider).saveUser(
+              User.fromJson(data).copyWith(uid: uid),
             );
 
         return _fetchUser();

@@ -20,7 +20,7 @@ abstract class CropRepository {
 
 class _CropRepositoryImpl extends BaseRepository implements CropRepository {
   final cropRef =
-      FirebaseFirestore.instance.collection('crops').withDocConverter();
+      FirebaseFirestore.instance.collection('crops').withCropConverter();
 
   @override
   Future<Either<Failure, List<Crop>>> getCrops() {
