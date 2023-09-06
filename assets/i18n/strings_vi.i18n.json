@@ -37,7 +37,13 @@
       "cameraMsgIos": "Chúng tôi không thể truy cập máy ảnh. Vui lòng xóa mọi hạn chế đối với máy ảnh để tiếp tục (Cài đặt ➔ Post Reader ➔ Cho phép truy cập Máy ảnh).",
       "cameraMsgAndroid": "Chúng tôi không thể truy cập máy ảnh. Vui lòng xóa mọi hạn chế đối với máy ảnh để tiếp tục (Cài đặt ➔ Ứng dụng ➔ Post Reader ➔ Quyền ➔ Cho phép truy cập Máy ảnh).",
       "photoMsgIos": "Chúng tôi không thể truy cập Ảnh. Vui lòng xóa mọi hạn chế đối với Ảnh để tiếp tục (Cài đặt ➔ Post Reader ➔ Cho phép truy cập Ảnh).",
-      "photoMsgAndroid": "Chúng tôi không thể truy cập Bộ sưu tập. Vui lòng xóa mọi hạn chế đối với Bộ sưu tập để tiếp tục (Cài đặt ➔ Ứng dụng ➔ Post Reader ➔ Quyền ➔ Cho phép truy cập Ảnh)."
+      "photoMsgAndroid": "Chúng tôi không thể truy cập Bộ sưu tập. Vui lòng xóa mọi hạn chế đối với Bộ sưu tập để tiếp tục (Cài đặt ➔ Ứng dụng ➔ Post Reader ➔ Quyền ➔ Cho phép truy cập Ảnh).",
+      "locationServicesAreDisabled": "Dịch vụ định vị bị vô hiệu hóa.",
+      "permissionDenied": "Quyền bị từ chối",
+      "permissionDeniedForever": "Quyền bị từ chối mãi mãi.",
+      "permissionGranted": "Đã được cho phép.",
+      "locationNotAvailable": "Vị trí không có sẵn",
+      "unableToDetermine": "Không thể xác định"
     }
   },
   "error": {

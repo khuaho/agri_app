@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather/weather.dart';
 
 import '../../../../app/providers/app_settings_provider.dart';
+import '../../../../global/app_router/app_router.dart';
 import '../../../../global/utils/app_mixin.dart';
 import 'widgets/home_header.dart';
 import 'widgets/weather_overview.dart';
@@ -50,6 +51,13 @@ class _HomePageState extends ConsumerState<HomePage> with AppMixin {
             child: Column(
               children: [
                 WeatherOverview(weather: weather),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    context.pushRoute(const LocationRoute());
+                  },
+                  child: const Text('Location page'),
+                )
               ],
             ),
           )

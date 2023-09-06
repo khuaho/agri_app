@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 218 (109 per locale)
+/// Strings: 230 (115 per locale)
 ///
-/// Built on 2023-08-29 at 02:37 UTC
+/// Built on 2023-08-30 at 03:48 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -369,6 +369,12 @@ class _StringsCommonPermissionEn {
 	String get cameraMsgAndroid => 'We could not access your camera. Please remove any restrictions on the camera to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Camera).';
 	String get photoMsgIos => 'We could not access your photos. Please remove any restrictions on the photos to continue (Settings ➔ Post Reader ➔ Enable Photos).';
 	String get photoMsgAndroid => 'We could not access your gallery. Please remove any restrictions on the gallery to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Photos).';
+	String get locationServicesAreDisabled => 'Location services are disabled.';
+	String get permissionDenied => 'Permission denied.';
+	String get permissionDeniedForever => 'Permission denied forever.';
+	String get permissionGranted => 'Permission granted.';
+	String get locationNotAvailable => 'Location Not Available';
+	String get unableToDetermine => 'Unable to determine';
 }
 
 // Path: home.hello
@@ -759,6 +765,12 @@ class _StringsCommonPermissionVi implements _StringsCommonPermissionEn {
 	@override String get cameraMsgAndroid => 'Chúng tôi không thể truy cập máy ảnh. Vui lòng xóa mọi hạn chế đối với máy ảnh để tiếp tục (Cài đặt ➔ Ứng dụng ➔ Post Reader ➔ Quyền ➔ Cho phép truy cập Máy ảnh).';
 	@override String get photoMsgIos => 'Chúng tôi không thể truy cập Ảnh. Vui lòng xóa mọi hạn chế đối với Ảnh để tiếp tục (Cài đặt ➔ Post Reader ➔ Cho phép truy cập Ảnh).';
 	@override String get photoMsgAndroid => 'Chúng tôi không thể truy cập Bộ sưu tập. Vui lòng xóa mọi hạn chế đối với Bộ sưu tập để tiếp tục (Cài đặt ➔ Ứng dụng ➔ Post Reader ➔ Quyền ➔ Cho phép truy cập Ảnh).';
+	@override String get locationServicesAreDisabled => 'Dịch vụ định vị bị vô hiệu hóa.';
+	@override String get permissionDenied => 'Quyền bị từ chối';
+	@override String get permissionDeniedForever => 'Quyền bị từ chối mãi mãi.';
+	@override String get permissionGranted => 'Đã được cho phép.';
+	@override String get locationNotAvailable => 'Vị trí không có sẵn';
+	@override String get unableToDetermine => 'Không thể xác định';
 }
 
 // Path: home.hello
@@ -942,6 +954,12 @@ extension on _StringsEn {
 			case 'common.permission_.cameraMsgAndroid': return 'We could not access your camera. Please remove any restrictions on the camera to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Camera).';
 			case 'common.permission_.photoMsgIos': return 'We could not access your photos. Please remove any restrictions on the photos to continue (Settings ➔ Post Reader ➔ Enable Photos).';
 			case 'common.permission_.photoMsgAndroid': return 'We could not access your gallery. Please remove any restrictions on the gallery to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Photos).';
+			case 'common.permission_.locationServicesAreDisabled': return 'Location services are disabled.';
+			case 'common.permission_.permissionDenied': return 'Permission denied.';
+			case 'common.permission_.permissionDeniedForever': return 'Permission denied forever.';
+			case 'common.permission_.permissionGranted': return 'Permission granted.';
+			case 'common.permission_.locationNotAvailable': return 'Location Not Available';
+			case 'common.permission_.unableToDetermine': return 'Unable to determine';
 			case 'error.error': return 'Error!!!';
 			case 'error.illegalData': return 'Wrong data format';
 			case 'error.noNetwork': return 'No internet connection';
@@ -1059,6 +1077,12 @@ extension on _StringsVi {
 			case 'common.permission_.cameraMsgAndroid': return 'Chúng tôi không thể truy cập máy ảnh. Vui lòng xóa mọi hạn chế đối với máy ảnh để tiếp tục (Cài đặt ➔ Ứng dụng ➔ Post Reader ➔ Quyền ➔ Cho phép truy cập Máy ảnh).';
 			case 'common.permission_.photoMsgIos': return 'Chúng tôi không thể truy cập Ảnh. Vui lòng xóa mọi hạn chế đối với Ảnh để tiếp tục (Cài đặt ➔ Post Reader ➔ Cho phép truy cập Ảnh).';
 			case 'common.permission_.photoMsgAndroid': return 'Chúng tôi không thể truy cập Bộ sưu tập. Vui lòng xóa mọi hạn chế đối với Bộ sưu tập để tiếp tục (Cài đặt ➔ Ứng dụng ➔ Post Reader ➔ Quyền ➔ Cho phép truy cập Ảnh).';
+			case 'common.permission_.locationServicesAreDisabled': return 'Dịch vụ định vị bị vô hiệu hóa.';
+			case 'common.permission_.permissionDenied': return 'Quyền bị từ chối';
+			case 'common.permission_.permissionDeniedForever': return 'Quyền bị từ chối mãi mãi.';
+			case 'common.permission_.permissionGranted': return 'Đã được cho phép.';
+			case 'common.permission_.locationNotAvailable': return 'Vị trí không có sẵn';
+			case 'common.permission_.unableToDetermine': return 'Không thể xác định';
 			case 'error.error': return 'Lỗi rồi!!!';
 			case 'error.illegalData': return 'Dữ liệu không hợp lệ';
 			case 'error.noNetwork': return 'Không có kết nối internet';

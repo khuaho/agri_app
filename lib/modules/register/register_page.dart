@@ -64,176 +64,173 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
         ),
         body: FormBuilder(
           key: _formKey,
-          child: Padding(
+          child: ListView(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Textlabel(label: transl.auth.username.label),
-                FormBuilderTextField(
-                  name: 'username',
-                  textInputAction: TextInputAction.next,
-                  autocorrect: false,
-                  enableSuggestions: true,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: InputDecoration(
-                    hintText: transl.auth.username.hint,
-                    suffixIcon: const SizedBox.square(dimension: 40),
-                  ),
-                  valueTransformer: (String? value) => value!.trim(),
-                  validator: FormBuilderValidators.compose(
-                    [
-                      FormBuilderValidators.required(
-                        errorText: transl.auth.username.required,
-                      ),
-                    ],
-                  ),
+            children: [
+              Textlabel(label: transl.auth.username.label),
+              FormBuilderTextField(
+                name: 'username',
+                textInputAction: TextInputAction.next,
+                autocorrect: false,
+                enableSuggestions: true,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                decoration: InputDecoration(
+                  hintText: transl.auth.username.hint,
+                  suffixIcon: const SizedBox.square(dimension: 40),
                 ),
-                Textlabel(label: transl.auth.fullName.label),
-                FormBuilderTextField(
-                  name: 'fullName',
-                  textInputAction: TextInputAction.next,
-                  autocorrect: false,
-                  enableSuggestions: true,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: InputDecoration(
-                    hintText: transl.auth.fullName.hint,
-                    suffixIcon: const SizedBox.square(dimension: 40),
-                  ),
-                  valueTransformer: (String? value) => value!.trim(),
-                  validator: FormBuilderValidators.compose(
-                    [
-                      FormBuilderValidators.required(
-                        errorText: transl.auth.fullName.required,
-                      ),
-                    ],
-                  ),
-                ),
-                Textlabel(label: transl.auth.email.label),
-                FormBuilderTextField(
-                  name: 'email',
-                  textInputAction: TextInputAction.next,
-                  autocorrect: false,
-                  enableSuggestions: true,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: InputDecoration(
-                    hintText: transl.auth.email.hint,
-                    suffixIcon: const SizedBox.square(dimension: 40),
-                  ),
-                  valueTransformer: (String? value) => value!.trim(),
-                  validator: FormBuilderValidators.compose(
-                    [
-                      FormBuilderValidators.required(
-                        errorText: transl.auth.email.required,
-                      ),
-                    ],
-                  ),
-                ),
-                Textlabel(label: transl.auth.password.label),
-                FormBuilderTextField(
-                  name: 'password',
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: InputDecoration(
-                    hintText: transl.auth.password.hint,
-                    suffixIcon: SizedBox.square(
-                      dimension: 40,
-                      child: IconButton(
-                        icon: Icon(
-                          passwordObscure
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          color: AppColors.neutral03,
-                          size: 20,
-                        ),
-                        onPressed: () {
-                          setState(() => passwordObscure = !passwordObscure);
-                        },
-                      ),
+                valueTransformer: (String? value) => value!.trim(),
+                validator: FormBuilderValidators.compose(
+                  [
+                    FormBuilderValidators.required(
+                      errorText: transl.auth.username.required,
                     ),
-                  ),
-                  obscureText: passwordObscure,
-                  obscuringCharacter: '*',
-                  validator: FormBuilderValidators.compose(
-                    [
-                      FormBuilderValidators.required(
-                        errorText: transl.auth.password.required,
-                      ),
-                      FormBuilderValidators.minLength(
-                        8,
-                        errorText: transl.auth.password.isAtLeast8Characters,
-                      ),
-                      FormBuilderValidators.match(
-                        r'^(?=.*?[0-9])(?=.*?[!@#\$&*~%.^]).{8,}$',
-                        errorText: transl.auth.password.isNotValid,
-                      )
-                    ],
-                  ),
+                  ],
                 ),
-                Textlabel(label: transl.auth.confirmPassword.label),
-                FormBuilderTextField(
-                  name: 'confirmPassword',
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: InputDecoration(
-                    hintText: transl.auth.confirmPassword.hint,
-                    suffixIcon: SizedBox.square(
-                      dimension: 40,
-                      child: IconButton(
-                        icon: Icon(
-                          confirmPasswordobscure
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          color: AppColors.neutral03,
-                          size: 20,
-                        ),
-                        onPressed: () {
-                          setState(() =>
-                              confirmPasswordobscure = !confirmPasswordobscure);
-                        },
-                      ),
+              ),
+              Textlabel(label: transl.auth.fullName.label),
+              FormBuilderTextField(
+                name: 'fullName',
+                textInputAction: TextInputAction.next,
+                autocorrect: false,
+                enableSuggestions: true,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                decoration: InputDecoration(
+                  hintText: transl.auth.fullName.hint,
+                  suffixIcon: const SizedBox.square(dimension: 40),
+                ),
+                valueTransformer: (String? value) => value!.trim(),
+                validator: FormBuilderValidators.compose(
+                  [
+                    FormBuilderValidators.required(
+                      errorText: transl.auth.fullName.required,
                     ),
-                  ),
-                  obscureText: confirmPasswordobscure,
-                  obscuringCharacter: '*',
-                  validator: FormBuilderValidators.compose(
-                    [
-                      FormBuilderValidators.required(
-                        errorText: transl.auth.confirmPassword.required,
+                  ],
+                ),
+              ),
+              Textlabel(label: transl.auth.email.label),
+              FormBuilderTextField(
+                name: 'email',
+                textInputAction: TextInputAction.next,
+                autocorrect: false,
+                enableSuggestions: true,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                decoration: InputDecoration(
+                  hintText: transl.auth.email.hint,
+                  suffixIcon: const SizedBox.square(dimension: 40),
+                ),
+                valueTransformer: (String? value) => value!.trim(),
+                validator: FormBuilderValidators.compose(
+                  [
+                    FormBuilderValidators.required(
+                      errorText: transl.auth.email.required,
+                    ),
+                  ],
+                ),
+              ),
+              Textlabel(label: transl.auth.password.label),
+              FormBuilderTextField(
+                name: 'password',
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                decoration: InputDecoration(
+                  hintText: transl.auth.password.hint,
+                  suffixIcon: SizedBox.square(
+                    dimension: 40,
+                    child: IconButton(
+                      icon: Icon(
+                        passwordObscure
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: AppColors.neutral03,
+                        size: 20,
                       ),
-                      (value) {
-                        if (value !=
-                            _formKey.currentState?.fields['password']?.value) {
-                          return transl.auth.confirmPassword.notMatch;
-                        }
-                        return null;
+                      onPressed: () {
+                        setState(() => passwordObscure = !passwordObscure);
                       },
-                    ],
+                    ),
                   ),
                 ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: signUpWithEmailPassword,
-                  child: Text(transl.auth.register),
+                obscureText: passwordObscure,
+                obscuringCharacter: '*',
+                validator: FormBuilderValidators.compose(
+                  [
+                    FormBuilderValidators.required(
+                      errorText: transl.auth.password.required,
+                    ),
+                    FormBuilderValidators.minLength(
+                      8,
+                      errorText: transl.auth.password.isAtLeast8Characters,
+                    ),
+                    FormBuilderValidators.match(
+                      r'^(?=.*?[0-9])(?=.*?[!@#\$&*~%.^]).{8,}$',
+                      errorText: transl.auth.password.isNotValid,
+                    )
+                  ],
                 ),
-                const SizedBox(height: 10),
-                Text.rich(
-                  TextSpan(
-                    text: 'You have an account? ',
-                    children: [
-                      TextSpan(
-                        text: transl.auth.login,
-                        style: textTheme.bodyMedium?.copyWith(
-                          color: AppColors.primary,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = AutoRouter.of(context).pop,
+              ),
+              Textlabel(label: transl.auth.confirmPassword.label),
+              FormBuilderTextField(
+                name: 'confirmPassword',
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                decoration: InputDecoration(
+                  hintText: transl.auth.confirmPassword.hint,
+                  suffixIcon: SizedBox.square(
+                    dimension: 40,
+                    child: IconButton(
+                      icon: Icon(
+                        confirmPasswordobscure
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: AppColors.neutral03,
+                        size: 20,
                       ),
-                    ],
+                      onPressed: () {
+                        setState(() =>
+                            confirmPasswordobscure = !confirmPasswordobscure);
+                      },
+                    ),
                   ),
-                  textAlign: TextAlign.center,
                 ),
-              ],
-            ),
+                obscureText: confirmPasswordobscure,
+                obscuringCharacter: '*',
+                validator: FormBuilderValidators.compose(
+                  [
+                    FormBuilderValidators.required(
+                      errorText: transl.auth.confirmPassword.required,
+                    ),
+                    (value) {
+                      if (value !=
+                          _formKey.currentState?.fields['password']?.value) {
+                        return transl.auth.confirmPassword.notMatch;
+                      }
+                      return null;
+                    },
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: signUpWithEmailPassword,
+                child: Text(transl.auth.register),
+              ),
+              const SizedBox(height: 10),
+              Text.rich(
+                TextSpan(
+                  text: 'You have an account? ',
+                  children: [
+                    TextSpan(
+                      text: transl.auth.login,
+                      style: textTheme.bodyMedium?.copyWith(
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = AutoRouter.of(context).pop,
+                    ),
+                  ],
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
           ),
         ),
       ),

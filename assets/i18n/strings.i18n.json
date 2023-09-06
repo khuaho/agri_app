@@ -37,7 +37,13 @@
       "cameraMsgIos": "We could not access your camera. Please remove any restrictions on the camera to continue (Settings ➔ Post Reader ➔ Enable Camera).",
       "cameraMsgAndroid": "We could not access your camera. Please remove any restrictions on the camera to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Camera).",
       "photoMsgIos": "We could not access your photos. Please remove any restrictions on the photos to continue (Settings ➔ Post Reader ➔ Enable Photos).",
-      "photoMsgAndroid": "We could not access your gallery. Please remove any restrictions on the gallery to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Photos)."
+      "photoMsgAndroid": "We could not access your gallery. Please remove any restrictions on the gallery to continue (Settings ➔ Apps ➔ Post Reader ➔ Permissions ➔ Enable Photos).",
+      "locationServicesAreDisabled": "Location services are disabled.",
+      "permissionDenied": "Permission denied.",
+      "permissionDeniedForever": "Permission denied forever.",
+      "permissionGranted": "Permission granted.",
+      "locationNotAvailable": "Location Not Available",
+      "unableToDetermine": "Unable to determine"
     }
   },
   "error": {

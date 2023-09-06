@@ -58,6 +58,13 @@ dependencies:
   app_settings: ^5.0.0
   event_bus: ^2.0.0
   get_it: ^7.6.0
+  flutter_background_geolocation: ^4.12.2
+  background_fetch: ^1.2.1
+  flutter_map: ^5.0.0
+  latlong2: ^0.9.0
+  google_maps_flutter: ^2.4.1
+  http: ^1.1.0
+  shared_preferences: ^2.2.0
 
 
 dev_dependencies:

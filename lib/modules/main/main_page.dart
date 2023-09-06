@@ -20,8 +20,6 @@ class MainPage extends ConsumerStatefulWidget {
 }
 
 class _MainPageState extends ConsumerState<MainPage> {
-  // late final StreamSubscription changePageSubscription,
-  //     loadBadgeMailboxSubscription;
   TabsRouter? tabsRouter;
   LocationSettings? locationSettings;
   StreamSubscription<Position>? positionStream;
@@ -45,13 +43,12 @@ class _MainPageState extends ConsumerState<MainPage> {
 
   // @override
   // void dispose() {
-  //   changePageSubscription.cancel();
-  //   loadBadgeMailboxSubscription.cancel();
   //   super.dispose();
   // }
 
   Future<void> getAndSaveCurrentPosition() async {
-    Position? currentPosition = await GeolocatorService.determinePosition();
+    Position? currentPosition =
+        await GeolocatorService.determinePosition(context);
     final appSettingsPro = ref.read(appSettingProvider.notifier);
     if (currentPosition != null) {
       appSettingsPro.saveCurrentPosition(currentPosition);

@@ -105,13 +105,15 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
 
   Widget page(BuildContext context, int index) {
     final transl = Translations.of(context);
+    var size = MediaQuery.of(context).size;
+    final double itemHeight = size.height / 1.65;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          height: 600,
+          height: itemHeight,
           alignment: Alignment.center,
           color: AppColors.primary,
           child: onboardImages[index].image(
