@@ -1,5 +1,10 @@
 {
   "appName": "Agriculture App",
+  "main": {
+    "home": "Home",
+    "crops": "Crops",
+    "settings": "Settings"
+  },
   "common": {
     "filter": "Filter",
     "button": {

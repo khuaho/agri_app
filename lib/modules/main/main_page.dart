@@ -8,6 +8,7 @@ import 'package:geolocator/geolocator.dart';
 
 import '../../app/providers/app_settings_provider.dart';
 import '../../global/app_router/app_router.dart';
+import '../../global/gen/strings.g.dart';
 import '../../global/services/geolocator_service.dart';
 import '../../global/themes/app_colors.dart';
 
@@ -97,6 +98,8 @@ class _MainPageState extends ConsumerState<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    final transl = Translations.of(context);
+
     return AutoTabsRouter(
       routes: routes,
       transitionBuilder: (context, child, animation) => FadeTransition(
@@ -116,21 +119,21 @@ class _MainPageState extends ConsumerState<MainPage> {
             selectedItemColor: AppColors.primary,
             showUnselectedLabels: true,
             type: BottomNavigationBarType.fixed,
-            items: const [
+            items: [
               BottomNavigationBarItem(
-                label: 'Home',
-                icon: Icon(Icons.home_outlined),
-                activeIcon: Icon(Icons.home),
+                label: transl.main.home,
+                icon: const Icon(Icons.home_outlined),
+                activeIcon: const Icon(Icons.home),
               ),
               BottomNavigationBarItem(
-                label: 'Crops',
-                icon: Icon(Icons.local_florist),
-                activeIcon: Icon(Icons.local_florist),
+                label: transl.main.crops,
+                icon: const Icon(Icons.local_florist),
+                activeIcon: const Icon(Icons.local_florist),
               ),
               BottomNavigationBarItem(
-                label: 'Setting',
-                icon: Icon(Icons.settings_outlined),
-                activeIcon: Icon(Icons.settings),
+                label: transl.main.settings,
+                icon: const Icon(Icons.settings_outlined),
+                activeIcon: const Icon(Icons.settings),
               ),
             ],
           ),

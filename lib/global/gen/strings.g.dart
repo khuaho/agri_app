@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 230 (115 per locale)
+/// Strings: 236 (118 per locale)
 ///
-/// Built on 2023-08-30 at 03:48 UTC
+/// Built on 2023-09-06 at 04:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -151,6 +151,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 
 	// Translations
 	String get appName => 'Agriculture App';
+	late final _StringsMainEn main = _StringsMainEn._(_root);
 	late final _StringsCommonEn common = _StringsCommonEn._(_root);
 	late final _StringsErrorEn error = _StringsErrorEn._(_root);
 	late final _StringsOnboardingEn onboarding = _StringsOnboardingEn._(_root);
@@ -160,6 +161,18 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsAuthEn auth = _StringsAuthEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 	late final _StringsProfileEn profile = _StringsProfileEn._(_root);
+}
+
+// Path: main
+class _StringsMainEn {
+	_StringsMainEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get home => 'Home';
+	String get crops => 'Crops';
+	String get settings => 'Settings';
 }
 
 // Path: common
@@ -547,6 +560,7 @@ class _StringsVi implements _StringsEn {
 
 	// Translations
 	@override String get appName => 'Agriculture App';
+	@override late final _StringsMainVi main = _StringsMainVi._(_root);
 	@override late final _StringsCommonVi common = _StringsCommonVi._(_root);
 	@override late final _StringsErrorVi error = _StringsErrorVi._(_root);
 	@override late final _StringsOnboardingVi onboarding = _StringsOnboardingVi._(_root);
@@ -556,6 +570,18 @@ class _StringsVi implements _StringsEn {
 	@override late final _StringsAuthVi auth = _StringsAuthVi._(_root);
 	@override late final _StringsSettingsVi settings = _StringsSettingsVi._(_root);
 	@override late final _StringsProfileVi profile = _StringsProfileVi._(_root);
+}
+
+// Path: main
+class _StringsMainVi implements _StringsMainEn {
+	_StringsMainVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Trang chủ';
+	@override String get crops => 'Cây trồng';
+	@override String get settings => 'Cài đặt';
 }
 
 // Path: common
@@ -924,6 +950,9 @@ extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'appName': return 'Agriculture App';
+			case 'main.home': return 'Home';
+			case 'main.crops': return 'Crops';
+			case 'main.settings': return 'Settings';
 			case 'common.filter': return 'Filter';
 			case 'common.button.reset': return 'Reset';
 			case 'common.button.apply': return 'Apply';
@@ -1047,6 +1076,9 @@ extension on _StringsVi {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'appName': return 'Agriculture App';
+			case 'main.home': return 'Trang chủ';
+			case 'main.crops': return 'Cây trồng';
+			case 'main.settings': return 'Cài đặt';
 			case 'common.filter': return 'Bộ lọc';
 			case 'common.button.reset': return 'Đặt lại';
 			case 'common.button.apply': return 'Áp dụng';

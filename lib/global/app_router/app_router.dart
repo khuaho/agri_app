@@ -11,7 +11,6 @@ import '../../modules/register/register_page.dart';
 import '../../modules/splash/splash_page.dart';
 import '../../modules/crop_detail/crop_detail_page.dart';
 import '../../modules/profile/profile_page.dart';
-import '../../modules/location/location_page.dart';
 import 'auth_guard.dart';
 
 part 'app_router.gr.dart';
@@ -51,6 +50,5 @@ class AppRouter extends _$AppRouter {
           page: ProfileRoute.page,
           guards: [AuthGuard()],
         ),
-        AutoRoute(path: '/location', page: LocationRoute.page)
       ];
 }
