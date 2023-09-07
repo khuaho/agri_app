@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../modules/main/modules/home/home_page.dart';
 import '../../modules/main/modules/settings/settings_page.dart';
 import '../../modules/main/modules/crops/crops_page.dart';
+import '../../modules/main/modules/my_crop/modules/list/my_crops_page.dart';
 import '../../modules/main/main_page.dart';
 import '../../modules/login/login_page.dart';
 import '../../modules/onboarding/onboarding_page.dart';
@@ -11,6 +12,8 @@ import '../../modules/register/register_page.dart';
 import '../../modules/splash/splash_page.dart';
 import '../../modules/crop_detail/crop_detail_page.dart';
 import '../../modules/profile/profile_page.dart';
+import '../../modules/main/modules/my_crop/modules/upsert/upsert_my_crop_page.dart';
+import '../../modules/main/modules/my_crop/modules/detail/my_crop_detail_page.dart';
 import 'auth_guard.dart';
 
 part 'app_router.gr.dart';
@@ -37,6 +40,7 @@ class AppRouter extends _$AppRouter {
           children: [
             AutoRoute(path: 'home', page: HomeRoute.page),
             AutoRoute(path: 'crops', page: CropsRoute.page),
+            AutoRoute(path: 'my_crops', page: MyCropsRoute.page),
             AutoRoute(path: 'settings', page: SettingsRoute.page),
           ],
         ),
@@ -48,6 +52,16 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: '/profile',
           page: ProfileRoute.page,
+          guards: [AuthGuard()],
+        ),
+        AutoRoute(
+          path: '/upsert_my_crop',
+          page: UpsertMyCropRoute.page,
+          guards: [AuthGuard()],
+        ),
+        AutoRoute(
+          path: '/detail_my_crop',
+          page: MyCropDetailRoute.page,
           guards: [AuthGuard()],
         ),
       ];

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 236 (118 per locale)
+/// Strings: 264 (132 per locale)
 ///
-/// Built on 2023-09-06 at 04:46 UTC
+/// Built on 2023-09-07 at 10:08 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -161,6 +161,9 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsAuthEn auth = _StringsAuthEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 	late final _StringsProfileEn profile = _StringsProfileEn._(_root);
+	late final _StringsMyCropsEn myCrops = _StringsMyCropsEn._(_root);
+	late final _StringsUpsertMyCropEn upsertMyCrop = _StringsUpsertMyCropEn._(_root);
+	late final _StringsMyCropDetailEn myCropDetail = _StringsMyCropDetailEn._(_root);
 }
 
 // Path: main
@@ -172,6 +175,7 @@ class _StringsMainEn {
 	// Translations
 	String get home => 'Home';
 	String get crops => 'Crops';
+	String get myCrops => 'My crops';
 	String get settings => 'Settings';
 }
 
@@ -321,7 +325,47 @@ class _StringsProfileEn {
 	String get title => 'Profile';
 	late final _StringsProfileGenderEn gender = _StringsProfileGenderEn._(_root);
 	late final _StringsProfileRoleEn role = _StringsProfileRoleEn._(_root);
-	String get update => 'Update';
+}
+
+// Path: myCrops
+class _StringsMyCropsEn {
+	_StringsMyCropsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	List<String> get status => [
+		'Completed',
+		'Inprogress',
+		'To do',
+		'Cancel',
+	];
+	String get type => 'Type:';
+	String get date => 'Date:';
+	String get complete => 'Complete';
+	String get perform => 'Perform';
+	String get cancel => 'Cancel';
+	String get haveNotCreateCrop => 'You haven\'t created a crop profile yet!';
+}
+
+// Path: upsertMyCrop
+class _StringsUpsertMyCropEn {
+	_StringsUpsertMyCropEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Create crop profile';
+}
+
+// Path: myCropDetail
+class _StringsMyCropDetailEn {
+	_StringsMyCropDetailEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'My crop profile';
 }
 
 // Path: common.button
@@ -339,6 +383,8 @@ class _StringsCommonButtonEn {
 	String get ok => 'Ok';
 	String get edit => 'Edit';
 	String get openSettings => 'Open settings';
+	String get update => 'Update';
+	String get create => 'Create';
 }
 
 // Path: common.reaction
@@ -570,6 +616,9 @@ class _StringsVi implements _StringsEn {
 	@override late final _StringsAuthVi auth = _StringsAuthVi._(_root);
 	@override late final _StringsSettingsVi settings = _StringsSettingsVi._(_root);
 	@override late final _StringsProfileVi profile = _StringsProfileVi._(_root);
+	@override late final _StringsMyCropsVi myCrops = _StringsMyCropsVi._(_root);
+	@override late final _StringsUpsertMyCropVi upsertMyCrop = _StringsUpsertMyCropVi._(_root);
+	@override late final _StringsMyCropDetailVi myCropDetail = _StringsMyCropDetailVi._(_root);
 }
 
 // Path: main
@@ -581,6 +630,7 @@ class _StringsMainVi implements _StringsMainEn {
 	// Translations
 	@override String get home => 'Trang chủ';
 	@override String get crops => 'Cây trồng';
+	@override String get myCrops => 'Cây trồng của tôi';
 	@override String get settings => 'Cài đặt';
 }
 
@@ -730,7 +780,47 @@ class _StringsProfileVi implements _StringsProfileEn {
 	@override String get title => 'Thông tin cá nhân';
 	@override late final _StringsProfileGenderVi gender = _StringsProfileGenderVi._(_root);
 	@override late final _StringsProfileRoleVi role = _StringsProfileRoleVi._(_root);
-	@override String get update => 'Cập nhật';
+}
+
+// Path: myCrops
+class _StringsMyCropsVi implements _StringsMyCropsEn {
+	_StringsMyCropsVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override List<String> get status => [
+		'Đã hoàn thành',
+		'Đang thực hiện',
+		'Chưa thực hiện',
+		'Đã xoá',
+	];
+	@override String get type => 'Loại:';
+	@override String get date => 'Ngày:';
+	@override String get complete => 'Hoàn thành';
+	@override String get perform => 'Thực hiện';
+	@override String get cancel => 'Xoá bỏ';
+	@override String get haveNotCreateCrop => 'Bạn chưa tạo hồ sơ cây trồng!';
+}
+
+// Path: upsertMyCrop
+class _StringsUpsertMyCropVi implements _StringsUpsertMyCropEn {
+	_StringsUpsertMyCropVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Tạo hồ sơ cây trồng';
+}
+
+// Path: myCropDetail
+class _StringsMyCropDetailVi implements _StringsMyCropDetailEn {
+	_StringsMyCropDetailVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Hồ sơ cây trồng của tôi';
 }
 
 // Path: common.button
@@ -748,6 +838,8 @@ class _StringsCommonButtonVi implements _StringsCommonButtonEn {
 	@override String get ok => 'Đồng ý';
 	@override String get edit => 'Chỉnh sửa';
 	@override String get openSettings => 'Mở cài đặt';
+	@override String get update => 'Cập nhật';
+	@override String get create => 'Tạo';
 }
 
 // Path: common.reaction
@@ -952,6 +1044,7 @@ extension on _StringsEn {
 			case 'appName': return 'Agriculture App';
 			case 'main.home': return 'Home';
 			case 'main.crops': return 'Crops';
+			case 'main.myCrops': return 'My crops';
 			case 'main.settings': return 'Settings';
 			case 'common.filter': return 'Filter';
 			case 'common.button.reset': return 'Reset';
@@ -962,6 +1055,8 @@ extension on _StringsEn {
 			case 'common.button.ok': return 'Ok';
 			case 'common.button.edit': return 'Edit';
 			case 'common.button.openSettings': return 'Open settings';
+			case 'common.button.update': return 'Update';
+			case 'common.button.create': return 'Create';
 			case 'common.reaction.like': return 'Like';
 			case 'common.reaction.favorite': return 'Favorite';
 			case 'common.reaction.satisfied': return 'Satisfied';
@@ -1066,7 +1161,18 @@ extension on _StringsEn {
 			case 'profile.role.hint': return 'Select role';
 			case 'profile.role.farmer': return 'Farmer';
 			case 'profile.role.expert': return 'Expert';
-			case 'profile.update': return 'Update';
+			case 'myCrops.status.0': return 'Completed';
+			case 'myCrops.status.1': return 'Inprogress';
+			case 'myCrops.status.2': return 'To do';
+			case 'myCrops.status.3': return 'Cancel';
+			case 'myCrops.type': return 'Type:';
+			case 'myCrops.date': return 'Date:';
+			case 'myCrops.complete': return 'Complete';
+			case 'myCrops.perform': return 'Perform';
+			case 'myCrops.cancel': return 'Cancel';
+			case 'myCrops.haveNotCreateCrop': return 'You haven\'t created a crop profile yet!';
+			case 'upsertMyCrop.title': return 'Create crop profile';
+			case 'myCropDetail.title': return 'My crop profile';
 			default: return null;
 		}
 	}
@@ -1078,6 +1184,7 @@ extension on _StringsVi {
 			case 'appName': return 'Agriculture App';
 			case 'main.home': return 'Trang chủ';
 			case 'main.crops': return 'Cây trồng';
+			case 'main.myCrops': return 'Cây trồng của tôi';
 			case 'main.settings': return 'Cài đặt';
 			case 'common.filter': return 'Bộ lọc';
 			case 'common.button.reset': return 'Đặt lại';
@@ -1088,6 +1195,8 @@ extension on _StringsVi {
 			case 'common.button.ok': return 'Đồng ý';
 			case 'common.button.edit': return 'Chỉnh sửa';
 			case 'common.button.openSettings': return 'Mở cài đặt';
+			case 'common.button.update': return 'Cập nhật';
+			case 'common.button.create': return 'Tạo';
 			case 'common.reaction.like': return 'Thích';
 			case 'common.reaction.favorite': return 'Yêu thích';
 			case 'common.reaction.satisfied': return 'Hài lòng';
@@ -1192,7 +1301,18 @@ extension on _StringsVi {
 			case 'profile.role.hint': return 'Chọn vai trò';
 			case 'profile.role.farmer': return 'Nông dân';
 			case 'profile.role.expert': return 'Chuyên gia';
-			case 'profile.update': return 'Cập nhật';
+			case 'myCrops.status.0': return 'Đã hoàn thành';
+			case 'myCrops.status.1': return 'Đang thực hiện';
+			case 'myCrops.status.2': return 'Chưa thực hiện';
+			case 'myCrops.status.3': return 'Đã xoá';
+			case 'myCrops.type': return 'Loại:';
+			case 'myCrops.date': return 'Ngày:';
+			case 'myCrops.complete': return 'Hoàn thành';
+			case 'myCrops.perform': return 'Thực hiện';
+			case 'myCrops.cancel': return 'Xoá bỏ';
+			case 'myCrops.haveNotCreateCrop': return 'Bạn chưa tạo hồ sơ cây trồng!';
+			case 'upsertMyCrop.title': return 'Tạo hồ sơ cây trồng';
+			case 'myCropDetail.title': return 'Hồ sơ cây trồng của tôi';
 			default: return null;
 		}
 	}

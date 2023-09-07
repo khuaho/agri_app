@@ -44,6 +44,9 @@ class $AssetsI18nGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/garden.png
+  AssetGenImage get garden => const AssetGenImage('assets/images/garden.png');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
@@ -64,7 +67,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [logo, noData, onboarding1, onboarding2, onboarding3];
+      [garden, logo, noData, onboarding1, onboarding2, onboarding3];
 }
 
 class Assets {

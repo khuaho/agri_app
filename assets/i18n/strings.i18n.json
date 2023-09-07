@@ -3,6 +3,7 @@
   "main": {
     "home": "Home",
     "crops": "Crops",
+    "myCrops": "My crops",
     "settings": "Settings"
   },
   "common": {
@@ -15,7 +16,9 @@
       "cancel": "Cancel",
       "ok": "Ok",
       "edit": "Edit",
-      "openSettings": "Open settings"
+      "openSettings": "Open settings",
+      "update": "Update",
+      "create": "Create"
     },
     "reaction": {
       "like": "Like",
@@ -170,7 +173,26 @@
       "hint": "Select role",
       "farmer": "Farmer",
       "expert": "Expert"
-    },
-    "update": "Update"
+    }
+  },
+  "myCrops": {
+    "status": [
+      "Completed",
+      "Inprogress",
+      "To do",
+      "Cancel"
+    ],
+    "type": "Type:",
+    "date": "Date:",
+    "complete": "Complete",
+    "perform": "Perform",
+    "cancel": "Cancel",
+    "haveNotCreateCrop": "You haven't created a crop profile yet!"
+  },
+  "upsertMyCrop": {
+    "title": "Create crop profile"
+  },
+  "myCropDetail": {
+    "title": "My crop profile"
   }
 }

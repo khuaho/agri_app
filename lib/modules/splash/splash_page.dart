@@ -20,6 +20,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await Future.delayed(const Duration(seconds: 1));
       final getAppSetting = ref.read(appSettingProvider);
       if (getAppSetting.isFirstLaunch && mounted) {
         context.router.replaceAll(

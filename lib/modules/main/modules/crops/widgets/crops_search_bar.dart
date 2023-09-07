@@ -55,7 +55,6 @@ class _CropsSearchBarState extends State<CropsSearchBar> {
           color: Theme.of(context).canvasColor,
           child: IconButton(
             onPressed: () async {
-              // * (Optional) show dialog on mobile
               await showDialog(
                 context: context,
                 builder: (context) => Padding(

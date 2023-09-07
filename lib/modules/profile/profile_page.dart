@@ -202,7 +202,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
           padding: const EdgeInsets.all(16),
           child: ElevatedButton(
             onPressed: updateProfile,
-            child: Text(transl.profile.update),
+            child: Text(transl.common.button.update),
           ),
         ),
       ),

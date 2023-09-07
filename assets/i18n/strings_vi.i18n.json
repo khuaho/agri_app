@@ -3,6 +3,7 @@
   "main": {
     "home": "Trang chủ",
     "crops": "Cây trồng",
+    "myCrops": "Cây trồng của tôi",
     "settings": "Cài đặt"
   },
   "common": {
@@ -15,7 +16,9 @@
       "cancel": "Bỏ qua",
       "ok": "Đồng ý",
       "edit": "Chỉnh sửa",
-      "openSettings": "Mở cài đặt"
+      "openSettings": "Mở cài đặt",
+      "update": "Cập nhật",
+      "create": "Tạo"
     },
     "reaction": {
       "like": "Thích",
@@ -170,7 +173,26 @@
       "hint": "Chọn vai trò",
       "farmer": "Nông dân",
       "expert": "Chuyên gia"
-    },
-    "update": "Cập nhật"
+    }
+  },
+  "myCrops": {
+    "status": [
+      "Đã hoàn thành",
+      "Đang thực hiện",
+      "Chưa thực hiện",
+      "Đã xoá"
+    ],
+    "type": "Loại:",
+    "date": "Ngày:",
+    "complete": "Hoàn thành",
+    "perform": "Thực hiện",
+    "cancel": "Xoá bỏ",
+    "haveNotCreateCrop": "Bạn chưa tạo hồ sơ cây trồng!"
+  },
+  "upsertMyCrop": {
+    "title": "Tạo hồ sơ cây trồng"
+  },
+  "myCropDetail": {
+    "title": "Hồ sơ cây trồng của tôi"
   }
 }

@@ -28,14 +28,22 @@
 ///         Author:    Google
 ///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
 ///         Homepage:  https://design.google.com/icons/
-/// * Brandico, (C) 2012 by Vitaly Puzrin
-///         Author:    Crowdsourced, for Fontello project
-///         License:   SIL (http://scripts.sil.org/OFL)
-///         Homepage:  
 /// * Font Awesome 5, Copyright (C) 2016 by Dave Gandy
 ///         Author:    Dave Gandy
 ///         License:   SIL (https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
 ///         Homepage:  http://fortawesome.github.com/Font-Awesome/
+/// * Maki, Copyright (C) Mapbox, LCC
+///         Author:    Mapbox
+///         License:   BSD (https://github.com/mapbox/maki/blob/gh-pages/LICENSE.txt)
+///         Homepage:  http://mapbox.com/maki/
+/// * RPG Awesome, Copyright (c) 2014, Daniela Howe
+///         Author:    Daniela Howe & Ivan Montiel
+///         License:   SIL (http://scripts.sil.org/OFL)
+///         Homepage:  http://nagoshiashumari.github.io/Rpg-Awesome/
+/// * Brandico, (C) 2012 by Vitaly Puzrin
+///         Author:    Crowdsourced, for Fontello project
+///         License:   SIL (http://scripts.sil.org/OFL)
+///         Homepage:  
 ///
 import 'package:flutter/widgets.dart';
 
@@ -82,6 +90,30 @@ class AppIcons {
   static const IconData fire = IconData(0xe822, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData gift = IconData(0xe823, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData asterisk = IconData(0xe824, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData photo = IconData(0xe825, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData photo_camera = IconData(0xe826, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nature_people = IconData(0xe827, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData edit = IconData(0xe828, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData award = IconData(0xe829, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData bug_1 = IconData(0xe82a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData garden = IconData(0xe82b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData clover = IconData(0xe96a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData daisy = IconData(0xe98a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData dead_tree = IconData(0xe98b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData flowers = IconData(0xe9ce, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData gears = IconData(0xe9dd, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData grass_patch = IconData(0xe9e6, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData grass = IconData(0xe9e7, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData leaf_1 = IconData(0xea21, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData palm_tree = IconData(0xea56, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData pine_tree = IconData(0xea62, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sprout_emblem = IconData(0xeab7, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sprout = IconData(0xeab8, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData super_mushroom = IconData(0xeabf, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData trefoil_lily = IconData(0xead4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData zigzag_leaf = IconData(0xeaee, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData certificate = IconData(0xf0a3, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData magic = IconData(0xf0d0, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData bell_alt = IconData(0xf0f3, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData smile = IconData(0xf118, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData frown = IconData(0xf119, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -93,9 +125,19 @@ class AppIcons {
   static const IconData google = IconData(0xf1a0, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData language = IconData(0xf1ab, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData tree = IconData(0xf1bb, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData yelp = IconData(0xf1e9, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData envira = IconData(0xf299, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData pied_piper = IconData(0xf2ae, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData icq = IconData(0xf304, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData facebook_squared = IconData(0xf308, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData seedling = IconData(0xf4d8, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData cannabis = IconData(0xf55f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData feather_alt = IconData(0xf56b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fish = IconData(0xf578, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData kiss_wink_heart = IconData(0xf598, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData spa = IconData(0xf5bb, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData critical_role = IconData(0xf6c9, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData carrot = IconData(0xf787, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData disease = IconData(0xf7fa, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData pepper_hot = IconData(0xf816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

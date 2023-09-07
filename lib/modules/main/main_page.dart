@@ -11,6 +11,7 @@ import '../../global/app_router/app_router.dart';
 import '../../global/gen/strings.g.dart';
 import '../../global/services/geolocator_service.dart';
 import '../../global/themes/app_colors.dart';
+import '../../global/utils/app_icons.dart';
 
 @RoutePage()
 class MainPage extends ConsumerStatefulWidget {
@@ -42,10 +43,11 @@ class _MainPageState extends ConsumerState<MainPage> {
     });
   }
 
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    positionStream?.cancel();
+    super.dispose();
+  }
 
   Future<void> getAndSaveCurrentPosition() async {
     Position? currentPosition =
@@ -93,6 +95,7 @@ class _MainPageState extends ConsumerState<MainPage> {
   final routes = [
     const HomeRoute(),
     const CropsRoute(),
+    const MyCropsRoute(),
     const SettingsRoute(),
   ];
 
@@ -129,6 +132,11 @@ class _MainPageState extends ConsumerState<MainPage> {
                 label: transl.main.crops,
                 icon: const Icon(Icons.local_florist),
                 activeIcon: const Icon(Icons.local_florist),
+              ),
+              BottomNavigationBarItem(
+                label: transl.main.myCrops,
+                icon: const Icon(AppIcons.nature_people),
+                activeIcon: const Icon(AppIcons.nature_people),
               ),
               BottomNavigationBarItem(
                 label: transl.main.settings,
