@@ -24,6 +24,8 @@ mixin _$MyCrop {
   String? get nameEn => throw _privateConstructorUsedError;
   String? get nameVi => throw _privateConstructorUsedError;
   String? get thumbnail => throw _privateConstructorUsedError;
+  String? get cropId => throw _privateConstructorUsedError;
+  String? get cropTypeId => throw _privateConstructorUsedError;
   String? get cropTypeVi => throw _privateConstructorUsedError;
   String? get cropTypeEn => throw _privateConstructorUsedError;
   CropStatus? get cropStatus => throw _privateConstructorUsedError;
@@ -47,6 +49,8 @@ abstract class $MyCropCopyWith<$Res> {
       String? nameEn,
       String? nameVi,
       String? thumbnail,
+      String? cropId,
+      String? cropTypeId,
       String? cropTypeVi,
       String? cropTypeEn,
       CropStatus? cropStatus,
@@ -71,6 +75,8 @@ class _$MyCropCopyWithImpl<$Res, $Val extends MyCrop>
     Object? nameEn = freezed,
     Object? nameVi = freezed,
     Object? thumbnail = freezed,
+    Object? cropId = freezed,
+    Object? cropTypeId = freezed,
     Object? cropTypeVi = freezed,
     Object? cropTypeEn = freezed,
     Object? cropStatus = freezed,
@@ -93,6 +99,14 @@ class _$MyCropCopyWithImpl<$Res, $Val extends MyCrop>
       thumbnail: freezed == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cropId: freezed == cropId
+          ? _value.cropId
+          : cropId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cropTypeId: freezed == cropTypeId
+          ? _value.cropTypeId
+          : cropTypeId // ignore: cast_nullable_to_non_nullable
               as String?,
       cropTypeVi: freezed == cropTypeVi
           ? _value.cropTypeVi
@@ -129,6 +143,8 @@ abstract class _$$_MyCropCopyWith<$Res> implements $MyCropCopyWith<$Res> {
       String? nameEn,
       String? nameVi,
       String? thumbnail,
+      String? cropId,
+      String? cropTypeId,
       String? cropTypeVi,
       String? cropTypeEn,
       CropStatus? cropStatus,
@@ -150,6 +166,8 @@ class __$$_MyCropCopyWithImpl<$Res>
     Object? nameEn = freezed,
     Object? nameVi = freezed,
     Object? thumbnail = freezed,
+    Object? cropId = freezed,
+    Object? cropTypeId = freezed,
     Object? cropTypeVi = freezed,
     Object? cropTypeEn = freezed,
     Object? cropStatus = freezed,
@@ -172,6 +190,14 @@ class __$$_MyCropCopyWithImpl<$Res>
       thumbnail: freezed == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cropId: freezed == cropId
+          ? _value.cropId
+          : cropId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cropTypeId: freezed == cropTypeId
+          ? _value.cropTypeId
+          : cropTypeId // ignore: cast_nullable_to_non_nullable
               as String?,
       cropTypeVi: freezed == cropTypeVi
           ? _value.cropTypeVi
@@ -205,6 +231,8 @@ class _$_MyCrop extends _MyCrop {
       this.nameEn,
       this.nameVi,
       this.thumbnail,
+      this.cropId,
+      this.cropTypeId,
       this.cropTypeVi,
       this.cropTypeEn,
       this.cropStatus,
@@ -224,6 +252,10 @@ class _$_MyCrop extends _MyCrop {
   @override
   final String? thumbnail;
   @override
+  final String? cropId;
+  @override
+  final String? cropTypeId;
+  @override
   final String? cropTypeVi;
   @override
   final String? cropTypeEn;
@@ -238,7 +270,7 @@ class _$_MyCrop extends _MyCrop {
 
   @override
   String toString() {
-    return 'MyCrop(uid: $uid, nameEn: $nameEn, nameVi: $nameVi, thumbnail: $thumbnail, cropTypeVi: $cropTypeVi, cropTypeEn: $cropTypeEn, cropStatus: $cropStatus, startDate: $startDate, endDate: $endDate)';
+    return 'MyCrop(uid: $uid, nameEn: $nameEn, nameVi: $nameVi, thumbnail: $thumbnail, cropId: $cropId, cropTypeId: $cropTypeId, cropTypeVi: $cropTypeVi, cropTypeEn: $cropTypeEn, cropStatus: $cropStatus, startDate: $startDate, endDate: $endDate)';
   }
 
   @override
@@ -251,6 +283,9 @@ class _$_MyCrop extends _MyCrop {
             (identical(other.nameVi, nameVi) || other.nameVi == nameVi) &&
             (identical(other.thumbnail, thumbnail) ||
                 other.thumbnail == thumbnail) &&
+            (identical(other.cropId, cropId) || other.cropId == cropId) &&
+            (identical(other.cropTypeId, cropTypeId) ||
+                other.cropTypeId == cropTypeId) &&
             (identical(other.cropTypeVi, cropTypeVi) ||
                 other.cropTypeVi == cropTypeVi) &&
             (identical(other.cropTypeEn, cropTypeEn) ||
@@ -264,8 +299,19 @@ class _$_MyCrop extends _MyCrop {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uid, nameEn, nameVi, thumbnail,
-      cropTypeVi, cropTypeEn, cropStatus, startDate, endDate);
+  int get hashCode => Object.hash(
+      runtimeType,
+      uid,
+      nameEn,
+      nameVi,
+      thumbnail,
+      cropId,
+      cropTypeId,
+      cropTypeVi,
+      cropTypeEn,
+      cropStatus,
+      startDate,
+      endDate);
 
   @JsonKey(ignore: true)
   @override
@@ -287,6 +333,8 @@ abstract class _MyCrop extends MyCrop {
       final String? nameEn,
       final String? nameVi,
       final String? thumbnail,
+      final String? cropId,
+      final String? cropTypeId,
       final String? cropTypeVi,
       final String? cropTypeEn,
       final CropStatus? cropStatus,
@@ -304,6 +352,10 @@ abstract class _MyCrop extends MyCrop {
   String? get nameVi;
   @override
   String? get thumbnail;
+  @override
+  String? get cropId;
+  @override
+  String? get cropTypeId;
   @override
   String? get cropTypeVi;
   @override

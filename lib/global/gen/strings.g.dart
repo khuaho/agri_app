@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 264 (132 per locale)
+/// Strings: 278 (139 per locale)
 ///
-/// Built on 2023-09-07 at 10:08 UTC
+/// Built on 2023-09-08 at 10:36 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -356,6 +356,8 @@ class _StringsUpsertMyCropEn {
 
 	// Translations
 	String get title => 'Create crop profile';
+	late final _StringsUpsertMyCropCropTypeEn cropType = _StringsUpsertMyCropCropTypeEn._(_root);
+	late final _StringsUpsertMyCropCropEn crop = _StringsUpsertMyCropCropEn._(_root);
 }
 
 // Path: myCropDetail
@@ -578,6 +580,31 @@ class _StringsProfileRoleEn {
 	String get hint => 'Select role';
 	String get farmer => 'Farmer';
 	String get expert => 'Expert';
+}
+
+// Path: upsertMyCrop.cropType
+class _StringsUpsertMyCropCropTypeEn {
+	_StringsUpsertMyCropCropTypeEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get other => 'Other';
+	String get otherHint => 'Enter crop name (optional)';
+	String get required => 'Crop type is required!';
+}
+
+// Path: upsertMyCrop.crop
+class _StringsUpsertMyCropCropEn {
+	_StringsUpsertMyCropCropEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Crop';
+	String get hint => 'Select crop';
+	String get otherHint => 'Enter crop name';
+	String get required => 'Crop is required!';
 }
 
 // Path: <root>
@@ -811,6 +838,8 @@ class _StringsUpsertMyCropVi implements _StringsUpsertMyCropEn {
 
 	// Translations
 	@override String get title => 'Tạo hồ sơ cây trồng';
+	@override late final _StringsUpsertMyCropCropTypeVi cropType = _StringsUpsertMyCropCropTypeVi._(_root);
+	@override late final _StringsUpsertMyCropCropVi crop = _StringsUpsertMyCropCropVi._(_root);
 }
 
 // Path: myCropDetail
@@ -1035,6 +1064,31 @@ class _StringsProfileRoleVi implements _StringsProfileRoleEn {
 	@override String get expert => 'Chuyên gia';
 }
 
+// Path: upsertMyCrop.cropType
+class _StringsUpsertMyCropCropTypeVi implements _StringsUpsertMyCropCropTypeEn {
+	_StringsUpsertMyCropCropTypeVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get other => 'Khác';
+	@override String get otherHint => 'Nhập loại cây trồng (không bắt buộc)';
+	@override String get required => 'Loại cây trồng là bắt buộc!';
+}
+
+// Path: upsertMyCrop.crop
+class _StringsUpsertMyCropCropVi implements _StringsUpsertMyCropCropEn {
+	_StringsUpsertMyCropCropVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Cây trồng';
+	@override String get hint => 'Chọn cây trồng';
+	@override String get otherHint => 'Nhập tên cây trồng';
+	@override String get required => 'Cây trồng là bắt buộc!';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -1172,6 +1226,13 @@ extension on _StringsEn {
 			case 'myCrops.cancel': return 'Cancel';
 			case 'myCrops.haveNotCreateCrop': return 'You haven\'t created a crop profile yet!';
 			case 'upsertMyCrop.title': return 'Create crop profile';
+			case 'upsertMyCrop.cropType.other': return 'Other';
+			case 'upsertMyCrop.cropType.otherHint': return 'Enter crop name (optional)';
+			case 'upsertMyCrop.cropType.required': return 'Crop type is required!';
+			case 'upsertMyCrop.crop.label': return 'Crop';
+			case 'upsertMyCrop.crop.hint': return 'Select crop';
+			case 'upsertMyCrop.crop.otherHint': return 'Enter crop name';
+			case 'upsertMyCrop.crop.required': return 'Crop is required!';
 			case 'myCropDetail.title': return 'My crop profile';
 			default: return null;
 		}
@@ -1312,6 +1373,13 @@ extension on _StringsVi {
 			case 'myCrops.cancel': return 'Xoá bỏ';
 			case 'myCrops.haveNotCreateCrop': return 'Bạn chưa tạo hồ sơ cây trồng!';
 			case 'upsertMyCrop.title': return 'Tạo hồ sơ cây trồng';
+			case 'upsertMyCrop.cropType.other': return 'Khác';
+			case 'upsertMyCrop.cropType.otherHint': return 'Nhập loại cây trồng (không bắt buộc)';
+			case 'upsertMyCrop.cropType.required': return 'Loại cây trồng là bắt buộc!';
+			case 'upsertMyCrop.crop.label': return 'Cây trồng';
+			case 'upsertMyCrop.crop.hint': return 'Chọn cây trồng';
+			case 'upsertMyCrop.crop.otherHint': return 'Nhập tên cây trồng';
+			case 'upsertMyCrop.crop.required': return 'Cây trồng là bắt buộc!';
 			case 'myCropDetail.title': return 'Hồ sơ cây trồng của tôi';
 			default: return null;
 		}

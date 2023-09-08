@@ -25,7 +25,7 @@ class _CropTypeRepositoryImpl extends BaseRepository
     return guardFuture(() async {
       await Future.delayed(const Duration(seconds: 1));
       final res = await docRef.get();
-      final data = res.docs.map((e) => e.data()).toList();
+      final data = res.docs.map((e) => e.data().copyWith(uid: e.id)).toList();
 
       return data;
     });

@@ -8,6 +8,7 @@ import '../../../../../../global/enum/crop_status.dart';
 import '../../../../../../global/gen/strings.g.dart';
 import '../../widgets/my_crop_overview.dart';
 import '../../widgets/my_crop_upsert_form.dart';
+import 'provider/upsert_my_crop_provider.dart';
 
 @RoutePage()
 class UpsertMyCropPage extends ConsumerStatefulWidget {
@@ -22,6 +23,15 @@ class UpsertMyCropPage extends ConsumerStatefulWidget {
 class _UpsertMyCropPageState extends ConsumerState<UpsertMyCropPage> {
   var formKey = GlobalKey<FormBuilderState>();
   MyCrop? myCrop;
+  bool loading = false;
+
+  // @override
+  // void initState() {
+  //   final upsertMyCrop = ref.read(upsertMyCropProvider(widget.id));
+  //   upsertMyCrop.l
+  //   // TODO: implement initState
+  //   super.initState();
+  // }
 
   void handleReset() {
     // TODOs: ...
@@ -39,6 +49,7 @@ class _UpsertMyCropPageState extends ConsumerState<UpsertMyCropPage> {
   Widget build(BuildContext context) {
     final transl = Translations.of(context);
     final isInsert = widget.id == null;
+    final upsertMyCrop = ref.watch(upsertMyCropProvider(widget.id));
 
     return Scaffold(
       appBar: AppBar(
@@ -46,20 +57,31 @@ class _UpsertMyCropPageState extends ConsumerState<UpsertMyCropPage> {
           isInsert ? transl.upsertMyCrop.title : transl.myCropDetail.title,
         ),
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          if (!isInsert) const MyCropOverview(),
-          const SizedBox(height: 16),
-          FormBuilder(
-            key: formKey,
-            enabled: isInsert
-                ? true
-                : myCrop?.cropStatus == CropStatus.todo ||
-                    myCrop?.cropStatus == CropStatus.inprogress,
-            child: MyCropUpsertForm(initial: myCrop),
-          ),
-        ],
+      body: upsertMyCrop.when(
+        initial: () => const SizedBox(),
+        loading: () => const Center(
+          child: CircularProgressIndicator(),
+        ),
+        data: (data, _) {
+          return ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+              if (!isInsert) ...[
+                MyCropOverview(myCrop: data),
+                const SizedBox(height: 16)
+              ],
+              FormBuilder(
+                key: formKey,
+                enabled: isInsert
+                    ? true
+                    : myCrop?.cropStatus == CropStatus.todo ||
+                        myCrop?.cropStatus == CropStatus.inprogress,
+                child: MyCropUpsertForm(initial: data),
+              ),
+            ],
+          );
+        },
+        error: (err) => Center(child: Text('Err: $err')),
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(16),

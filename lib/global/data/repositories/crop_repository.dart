@@ -27,7 +27,7 @@ class _CropRepositoryImpl extends BaseRepository implements CropRepository {
     return guardFuture(() async {
       await Future.delayed(const Duration(seconds: 1));
       final res = await cropRef.get();
-      final data = res.docs.map((e) => e.data()).toList();
+      final data = res.docs.map((e) => e.data().copyWith(uid: e.id)).toList();
       return data;
     });
   }

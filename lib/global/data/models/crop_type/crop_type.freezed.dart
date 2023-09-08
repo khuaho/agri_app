@@ -21,6 +21,7 @@ CropType _$CropTypeFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CropType {
   String? get id => throw _privateConstructorUsedError;
+  String? get uid => throw _privateConstructorUsedError;
   String get nameVi => throw _privateConstructorUsedError;
   String get nameEn => throw _privateConstructorUsedError;
   String get desVi => throw _privateConstructorUsedError;
@@ -38,7 +39,12 @@ abstract class $CropTypeCopyWith<$Res> {
       _$CropTypeCopyWithImpl<$Res, CropType>;
   @useResult
   $Res call(
-      {String? id, String nameVi, String nameEn, String desVi, String desEn});
+      {String? id,
+      String? uid,
+      String nameVi,
+      String nameEn,
+      String desVi,
+      String desEn});
 }
 
 /// @nodoc
@@ -55,6 +61,7 @@ class _$CropTypeCopyWithImpl<$Res, $Val extends CropType>
   @override
   $Res call({
     Object? id = freezed,
+    Object? uid = freezed,
     Object? nameVi = null,
     Object? nameEn = null,
     Object? desVi = null,
@@ -64,6 +71,10 @@ class _$CropTypeCopyWithImpl<$Res, $Val extends CropType>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      uid: freezed == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
               as String?,
       nameVi: null == nameVi
           ? _value.nameVi
@@ -93,7 +104,12 @@ abstract class _$$_CropTypeCopyWith<$Res> implements $CropTypeCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? id, String nameVi, String nameEn, String desVi, String desEn});
+      {String? id,
+      String? uid,
+      String nameVi,
+      String nameEn,
+      String desVi,
+      String desEn});
 }
 
 /// @nodoc
@@ -108,6 +124,7 @@ class __$$_CropTypeCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? uid = freezed,
     Object? nameVi = null,
     Object? nameEn = null,
     Object? desVi = null,
@@ -117,6 +134,10 @@ class __$$_CropTypeCopyWithImpl<$Res>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      uid: freezed == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
               as String?,
       nameVi: null == nameVi
           ? _value.nameVi
@@ -143,6 +164,7 @@ class __$$_CropTypeCopyWithImpl<$Res>
 class _$_CropType extends _CropType {
   _$_CropType(
       {this.id,
+      this.uid,
       required this.nameVi,
       required this.nameEn,
       required this.desVi,
@@ -155,6 +177,8 @@ class _$_CropType extends _CropType {
   @override
   final String? id;
   @override
+  final String? uid;
+  @override
   final String nameVi;
   @override
   final String nameEn;
@@ -165,7 +189,7 @@ class _$_CropType extends _CropType {
 
   @override
   String toString() {
-    return 'CropType(id: $id, nameVi: $nameVi, nameEn: $nameEn, desVi: $desVi, desEn: $desEn)';
+    return 'CropType(id: $id, uid: $uid, nameVi: $nameVi, nameEn: $nameEn, desVi: $desVi, desEn: $desEn)';
   }
 
   @override
@@ -174,6 +198,7 @@ class _$_CropType extends _CropType {
         (other.runtimeType == runtimeType &&
             other is _$_CropType &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.nameVi, nameVi) || other.nameVi == nameVi) &&
             (identical(other.nameEn, nameEn) || other.nameEn == nameEn) &&
             (identical(other.desVi, desVi) || other.desVi == desVi) &&
@@ -183,7 +208,7 @@ class _$_CropType extends _CropType {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, nameVi, nameEn, desVi, desEn);
+      Object.hash(runtimeType, id, uid, nameVi, nameEn, desVi, desEn);
 
   @JsonKey(ignore: true)
   @override
@@ -202,6 +227,7 @@ class _$_CropType extends _CropType {
 abstract class _CropType extends CropType {
   factory _CropType(
       {final String? id,
+      final String? uid,
       required final String nameVi,
       required final String nameEn,
       required final String desVi,
@@ -212,6 +238,8 @@ abstract class _CropType extends CropType {
 
   @override
   String? get id;
+  @override
+  String? get uid;
   @override
   String get nameVi;
   @override

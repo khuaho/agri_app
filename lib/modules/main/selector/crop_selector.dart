@@ -1,19 +1,21 @@
 import 'package:adaptive_selector/adaptive_selector.dart';
 import 'package:flutter/material.dart';
 
-import '../../../global/data/models/crop_type/crop_type.dart';
+import '../../../global/data/models/crop/crop.dart';
 import '../../../global/gen/strings.g.dart';
 
-extension CropTypeExt on CropType {
-  AdaptiveSelectorOption<CropType> get option => AdaptiveSelectorOption(
+extension CropExt on Crop {
+  AdaptiveSelectorOption<Crop> get option => AdaptiveSelectorOption(
         id: uid,
-        label: LocaleSettings.currentLocale == AppLocale.en ? nameEn : nameVi,
+        label: LocaleSettings.currentLocale == AppLocale.en
+            ? nameEn ?? '_'
+            : nameVi ?? '_',
         value: this,
       );
 }
 
-class CropTypeSelector extends StatefulWidget {
-  const CropTypeSelector({
+class CropSelector extends StatefulWidget {
+  const CropSelector({
     Key? key,
     this.onChanged,
     this.errorText,
@@ -26,29 +28,29 @@ class CropTypeSelector extends StatefulWidget {
     required this.items,
   }) : super(key: key);
 
-  final List<CropType> initial;
+  final List<Crop> initial;
   final List<String>? excludeIds;
   final void Function(
-    List<AdaptiveSelectorOption<CropType>> options,
+    List<AdaptiveSelectorOption<Crop>> options,
   )? onChanged;
   final String? errorText;
   final String? hintText;
   final bool isMultiple;
   final bool enabled;
   final bool allowClear;
-  final List<CropType> items;
+  final List<Crop> items;
 
   @override
-  State<CropTypeSelector> createState() => _CropTypeSelectorState();
+  State<CropSelector> createState() => _CropTypeSelectorState();
 }
 
-class _CropTypeSelectorState extends State<CropTypeSelector> {
+class _CropTypeSelectorState extends State<CropSelector> {
   bool loading = false;
 
   @override
   Widget build(BuildContext context) {
     final initialOptions = widget.initial.map((e) => e.option).toList();
-    List<AdaptiveSelectorOption<CropType>>? options =
+    List<AdaptiveSelectorOption<Crop>>? options =
         widget.items.map((e) => e.option).toList();
 
     return AdaptiveSelector(
@@ -62,7 +64,7 @@ class _CropTypeSelectorState extends State<CropTypeSelector> {
       refreshWhenShow: true,
       decoration: InputDecoration(
         errorText: widget.errorText,
-        hintText: initialOptions.isEmpty ? widget.hintText : null,
+        hintText: widget.hintText,
       ),
       onChanged: widget.onChanged?.call,
       onSearch: (keyword) async {},

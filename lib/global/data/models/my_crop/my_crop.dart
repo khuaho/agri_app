@@ -16,6 +16,8 @@ class MyCrop with _$MyCrop {
     String? nameEn,
     String? nameVi,
     String? thumbnail,
+    String? cropId,
+    String? cropTypeId,
     String? cropTypeVi,
     String? cropTypeEn,
     CropStatus? cropStatus,

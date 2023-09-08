@@ -190,7 +190,18 @@
     "haveNotCreateCrop": "You haven't created a crop profile yet!"
   },
   "upsertMyCrop": {
-    "title": "Create crop profile"
+    "title": "Create crop profile",
+    "cropType": {
+      "other": "Other",
+      "otherHint": "Enter crop name (optional)",
+      "required": "Crop type is required!"
+    },
+    "crop": {
+      "label": "Crop",
+      "hint": "Select crop",
+      "otherHint": "Enter crop name",
+      "required": "Crop is required!"
+    }
   },
   "myCropDetail": {
     "title": "My crop profile"

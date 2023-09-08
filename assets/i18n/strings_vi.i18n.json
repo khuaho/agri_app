@@ -190,7 +190,18 @@
     "haveNotCreateCrop": "Bạn chưa tạo hồ sơ cây trồng!"
   },
   "upsertMyCrop": {
-    "title": "Tạo hồ sơ cây trồng"
+    "title": "Tạo hồ sơ cây trồng",
+    "cropType": {
+      "other": "Khác",
+      "otherHint": "Nhập loại cây trồng (không bắt buộc)",
+      "required": "Loại cây trồng là bắt buộc!"
+    },
+    "crop": {
+      "label": "Cây trồng",
+      "hint": "Chọn cây trồng",
+      "otherHint": "Nhập tên cây trồng",
+      "required": "Cây trồng là bắt buộc!"
+    }
   },
   "myCropDetail": {
     "title": "Hồ sơ cây trồng của tôi"
