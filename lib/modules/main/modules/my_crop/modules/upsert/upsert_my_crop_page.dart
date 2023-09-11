@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../../../global/data/models/my_crop/my_crop.dart';
+import '../../../../../../global/data/models/crop/crop.dart';
+import '../../../../../../global/data/models/crop_type/crop_type.dart';
+import '../../../../../../global/data/models/my_crop/my_crop_request.dart';
 import '../../../../../../global/enum/crop_status.dart';
 import '../../../../../../global/gen/strings.g.dart';
 import '../../widgets/my_crop_overview.dart';
 import '../../widgets/my_crop_upsert_form.dart';
-import 'provider/upsert_my_crop_provider.dart';
+import 'providers/upsert_my_crop_provider.dart';
 
 @RoutePage()
 class UpsertMyCropPage extends ConsumerStatefulWidget {
@@ -22,16 +24,27 @@ class UpsertMyCropPage extends ConsumerStatefulWidget {
 
 class _UpsertMyCropPageState extends ConsumerState<UpsertMyCropPage> {
   var formKey = GlobalKey<FormBuilderState>();
-  MyCrop? myCrop;
-  bool loading = false;
+  // MyCrop? myCrop;
 
-  // @override
-  // void initState() {
-  //   final upsertMyCrop = ref.read(upsertMyCropProvider(widget.id));
-  //   upsertMyCrop.l
-  //   // TODO: implement initState
-  //   super.initState();
-  // }
+  MyCropRequest get formData {
+    final formValue = formKey.currentState!.value;
+    final cropType = formValue['cropType'] != null
+        ? formValue['cropType'] as CropType
+        : null;
+    final crop = formValue['crop'] != null ? formValue['crop'] as Crop : null;
+    final other = formValue['other'] == null || formValue['other'] == false;
+    return MyCropRequest(
+        uid: widget.id,
+        otherCropType: formValue['other'],
+        nameEn: other ? crop?.nameEn : formValue['otherCropName'],
+        nameVi: other ? crop?.nameVi : formValue['otherCropName'],
+        thumbnail: crop?.thumbnail,
+        cropId: crop?.uid,
+        cropTypeId: cropType?.uid,
+        cropTypeVi: other ? cropType?.nameVi : formValue['otherCropType'],
+        cropTypeEn: other ? cropType?.nameEn : formValue['otherCropType'],
+        cropStatus: formValue['status']);
+  }
 
   void handleReset() {
     // TODOs: ...
@@ -42,7 +55,11 @@ class _UpsertMyCropPageState extends ConsumerState<UpsertMyCropPage> {
   }
 
   void handleSubmit() {
-    // TODOs: ...
+    if (formKey.currentState!.saveAndValidate()) {
+      // final formValue = formKey.currentState!.value;
+
+      print('data: $formData');
+    }
   }
 
   @override
@@ -74,14 +91,14 @@ class _UpsertMyCropPageState extends ConsumerState<UpsertMyCropPage> {
                 key: formKey,
                 enabled: isInsert
                     ? true
-                    : myCrop?.cropStatus == CropStatus.todo ||
-                        myCrop?.cropStatus == CropStatus.inprogress,
+                    : data?.cropStatus == CropStatus.todo ||
+                        data?.cropStatus == CropStatus.inprogress,
                 child: MyCropUpsertForm(initial: data),
               ),
             ],
           );
         },
-        error: (err) => Center(child: Text('Err: $err')),
+        error: (err) => Center(child: Text('${transl.error.error}: $err')),
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(16),

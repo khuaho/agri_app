@@ -15,6 +15,7 @@ _$_Crop _$$_CropFromJson(Map<String, dynamic> json) => _$_Crop(
       thumbnail: json['thumbnail'] as String?,
       images:
           (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      cropTypeId: json['cropTypeId'] as String?,
       cropTypeVi: json['cropTypeVi'] as String?,
       cropTypeEn: json['cropTypeEn'] as String?,
       plantingPotEn: json['plantingPotEn'] as String?,
@@ -69,6 +70,7 @@ Map<String, dynamic> _$$_CropToJson(_$_Crop instance) => <String, dynamic>{
       'desVi': instance.desVi,
       'thumbnail': instance.thumbnail,
       'images': instance.images,
+      'cropTypeId': instance.cropTypeId,
       'cropTypeVi': instance.cropTypeVi,
       'cropTypeEn': instance.cropTypeEn,
       'plantingPotEn': instance.plantingPotEn,

@@ -27,6 +27,7 @@ mixin _$Crop {
   String? get desVi => throw _privateConstructorUsedError;
   String? get thumbnail => throw _privateConstructorUsedError;
   List<String>? get images => throw _privateConstructorUsedError;
+  String? get cropTypeId => throw _privateConstructorUsedError;
   String? get cropTypeVi => throw _privateConstructorUsedError;
   String? get cropTypeEn => throw _privateConstructorUsedError;
   String? get plantingPotEn => throw _privateConstructorUsedError;
@@ -67,6 +68,7 @@ abstract class $CropCopyWith<$Res> {
       String? desVi,
       String? thumbnail,
       List<String>? images,
+      String? cropTypeId,
       String? cropTypeVi,
       String? cropTypeEn,
       String? plantingPotEn,
@@ -109,6 +111,7 @@ class _$CropCopyWithImpl<$Res, $Val extends Crop>
     Object? desVi = freezed,
     Object? thumbnail = freezed,
     Object? images = freezed,
+    Object? cropTypeId = freezed,
     Object? cropTypeVi = freezed,
     Object? cropTypeEn = freezed,
     Object? plantingPotEn = freezed,
@@ -159,6 +162,10 @@ class _$CropCopyWithImpl<$Res, $Val extends Crop>
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      cropTypeId: freezed == cropTypeId
+          ? _value.cropTypeId
+          : cropTypeId // ignore: cast_nullable_to_non_nullable
+              as String?,
       cropTypeVi: freezed == cropTypeVi
           ? _value.cropTypeVi
           : cropTypeVi // ignore: cast_nullable_to_non_nullable
@@ -257,6 +264,7 @@ abstract class _$$_CropCopyWith<$Res> implements $CropCopyWith<$Res> {
       String? desVi,
       String? thumbnail,
       List<String>? images,
+      String? cropTypeId,
       String? cropTypeVi,
       String? cropTypeEn,
       String? plantingPotEn,
@@ -295,6 +303,7 @@ class __$$_CropCopyWithImpl<$Res> extends _$CropCopyWithImpl<$Res, _$_Crop>
     Object? desVi = freezed,
     Object? thumbnail = freezed,
     Object? images = freezed,
+    Object? cropTypeId = freezed,
     Object? cropTypeVi = freezed,
     Object? cropTypeEn = freezed,
     Object? plantingPotEn = freezed,
@@ -345,6 +354,10 @@ class __$$_CropCopyWithImpl<$Res> extends _$CropCopyWithImpl<$Res, _$_Crop>
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      cropTypeId: freezed == cropTypeId
+          ? _value.cropTypeId
+          : cropTypeId // ignore: cast_nullable_to_non_nullable
+              as String?,
       cropTypeVi: freezed == cropTypeVi
           ? _value.cropTypeVi
           : cropTypeVi // ignore: cast_nullable_to_non_nullable
@@ -440,6 +453,7 @@ class _$_Crop extends _Crop {
       this.desVi,
       this.thumbnail,
       final List<String>? images,
+      this.cropTypeId,
       this.cropTypeVi,
       this.cropTypeEn,
       this.plantingPotEn,
@@ -495,6 +509,8 @@ class _$_Crop extends _Crop {
     return EqualUnmodifiableListView(value);
   }
 
+  @override
+  final String? cropTypeId;
   @override
   final String? cropTypeVi;
   @override
@@ -601,7 +617,7 @@ class _$_Crop extends _Crop {
 
   @override
   String toString() {
-    return 'Crop(uid: $uid, nameEn: $nameEn, nameVi: $nameVi, desEn: $desEn, desVi: $desVi, thumbnail: $thumbnail, images: $images, cropTypeVi: $cropTypeVi, cropTypeEn: $cropTypeEn, plantingPotEn: $plantingPotEn, plantingPotVi: $plantingPotVi, seedThumbnail: $seedThumbnail, wateringEn: $wateringEn, wateringVi: $wateringVi, weedingVi: $weedingVi, weedingEn: $weedingEn, manureEn: $manureEn, manureVi: $manureVi, plantingSeasonEn: $plantingSeasonEn, plantingSeasonVi: $plantingSeasonVi, landForPlantingVi: $landForPlantingVi, landForPlantingEn: $landForPlantingEn, seedIncubationEn: $seedIncubationEn, seedIncubationVi: $seedIncubationVi, growVi: $growVi, growEn: $growEn, createdAt: $createdAt)';
+    return 'Crop(uid: $uid, nameEn: $nameEn, nameVi: $nameVi, desEn: $desEn, desVi: $desVi, thumbnail: $thumbnail, images: $images, cropTypeId: $cropTypeId, cropTypeVi: $cropTypeVi, cropTypeEn: $cropTypeEn, plantingPotEn: $plantingPotEn, plantingPotVi: $plantingPotVi, seedThumbnail: $seedThumbnail, wateringEn: $wateringEn, wateringVi: $wateringVi, weedingVi: $weedingVi, weedingEn: $weedingEn, manureEn: $manureEn, manureVi: $manureVi, plantingSeasonEn: $plantingSeasonEn, plantingSeasonVi: $plantingSeasonVi, landForPlantingVi: $landForPlantingVi, landForPlantingEn: $landForPlantingEn, seedIncubationEn: $seedIncubationEn, seedIncubationVi: $seedIncubationVi, growVi: $growVi, growEn: $growEn, createdAt: $createdAt)';
   }
 
   @override
@@ -617,6 +633,8 @@ class _$_Crop extends _Crop {
             (identical(other.thumbnail, thumbnail) ||
                 other.thumbnail == thumbnail) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
+            (identical(other.cropTypeId, cropTypeId) ||
+                other.cropTypeId == cropTypeId) &&
             (identical(other.cropTypeVi, cropTypeVi) ||
                 other.cropTypeVi == cropTypeVi) &&
             (identical(other.cropTypeEn, cropTypeEn) ||
@@ -668,6 +686,7 @@ class _$_Crop extends _Crop {
         desVi,
         thumbnail,
         const DeepCollectionEquality().hash(_images),
+        cropTypeId,
         cropTypeVi,
         cropTypeEn,
         plantingPotEn,
@@ -713,6 +732,7 @@ abstract class _Crop extends Crop {
       final String? desVi,
       final String? thumbnail,
       final List<String>? images,
+      final String? cropTypeId,
       final String? cropTypeVi,
       final String? cropTypeEn,
       final String? plantingPotEn,
@@ -751,6 +771,8 @@ abstract class _Crop extends Crop {
   String? get thumbnail;
   @override
   List<String>? get images;
+  @override
+  String? get cropTypeId;
   @override
   String? get cropTypeVi;
   @override

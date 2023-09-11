@@ -18,7 +18,8 @@
       "edit": "Edit",
       "openSettings": "Open settings",
       "update": "Update",
-      "create": "Create"
+      "create": "Create",
+      "add": "Add"
     },
     "reaction": {
       "like": "Like",
@@ -201,7 +202,12 @@
       "hint": "Select crop",
       "otherHint": "Enter crop name",
       "required": "Crop is required!"
-    }
+    },
+    "initialStatus": "Initial status",
+    "status": "Status",
+    "allTask": "ALL TASKS",
+    "yourPreparation": "Your preparation (optional):",
+    "suggestionTask": "Some suggestion tasks, you choose:"
   },
   "myCropDetail": {
     "title": "My crop profile"

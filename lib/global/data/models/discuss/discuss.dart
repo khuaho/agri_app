@@ -26,7 +26,7 @@ class Discuss with _$Discuss {
       _$DiscussFromJson(json);
 }
 
-extension UserConverter on CollectionReference {
+extension DiscussConverter on CollectionReference {
   CollectionReference<Discuss> withDiscussConverter() {
     return withConverter(
       fromFirestore: (snapshot, _) => Discuss.fromJson(snapshot.data()!),

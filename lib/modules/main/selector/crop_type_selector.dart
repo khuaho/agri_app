@@ -7,7 +7,9 @@ import '../../../global/gen/strings.g.dart';
 extension CropTypeExt on CropType {
   AdaptiveSelectorOption<CropType> get option => AdaptiveSelectorOption(
         id: uid,
-        label: LocaleSettings.currentLocale == AppLocale.en ? nameEn : nameVi,
+        label: LocaleSettings.currentLocale == AppLocale.en
+            ? nameEn ?? '_'
+            : nameVi ?? '_',
         value: this,
       );
 }

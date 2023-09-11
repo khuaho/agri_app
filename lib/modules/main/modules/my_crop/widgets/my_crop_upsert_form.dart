@@ -3,16 +3,20 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
+import '../../../../../global/data/models/crop_type/crop_type.dart';
 import '../../../../../global/data/models/my_crop/my_crop.dart';
+import '../../../../../global/enum/crop_status.dart';
 import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
 import '../../../../../global/widgets/shimmer/shimmer_text_field.dart';
 import '../../../../../global/widgets/text_label.dart';
 import '../../../selector/crop_selector.dart';
 import '../../../selector/crop_type_selector.dart';
-import '../../crops/providers/crop_provider.dart';
 import '../../crops/providers/crop_type_provider.dart';
+import '../modules/upsert/providers/crops_by_crop_type_provider.dart';
+import 'crop_status_selector.dart';
 import 'other_button_tile.dart';
+import 'task_form.dart';
 
 class MyCropUpsertForm extends ConsumerStatefulWidget {
   const MyCropUpsertForm({super.key, this.initial});
@@ -24,14 +28,15 @@ class MyCropUpsertForm extends ConsumerStatefulWidget {
 }
 
 class _MyCropUpsertFormState extends ConsumerState<MyCropUpsertForm> {
-  var formCropTypeKey = GlobalKey();
   var formCropKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     final transl = Translations.of(context);
     final formBuilder = FormBuilder.of(context)!;
     final cropType = ref.watch(cropTypeProvider);
-    final asyncCrops = ref.watch(asyncCropsProvider);
+    final cropTypeId = formBuilder.fields['cropType']?.value != null
+        ? ((formBuilder.fields['cropType']?.value) as CropType).uid
+        : '';
 
     return Column(
       children: [
@@ -51,14 +56,15 @@ class _MyCropUpsertFormState extends ConsumerState<MyCropUpsertForm> {
                   loading: () => const ShimmerTextField(),
                   data: (data, _) {
                     return FormBuilderField(
-                      key: formCropTypeKey,
                       name: 'cropType',
                       enabled: formBuilder.fields['other']?.value == true
                           ? false
                           : true,
-                      validator: FormBuilderValidators.required(
-                        errorText: transl.upsertMyCrop.cropType.required,
-                      ),
+                      validator: formBuilder.fields['other']?.value == true
+                          ? null
+                          : FormBuilderValidators.required(
+                              errorText: transl.upsertMyCrop.cropType.required,
+                            ),
                       builder: (field) {
                         return CropTypeSelector(
                           enabled: formBuilder.fields['other']?.value == true
@@ -73,7 +79,10 @@ class _MyCropUpsertFormState extends ConsumerState<MyCropUpsertForm> {
                           onChanged: (cropType) {
                             if (cropType.isEmpty) return;
                             field.didChange(cropType.first.value);
-                            setState(() {});
+                            formBuilder.fields['crop']?.reset();
+                            setState(() {
+                              formCropKey = GlobalKey();
+                            });
                           },
                         );
                       },
@@ -82,19 +91,13 @@ class _MyCropUpsertFormState extends ConsumerState<MyCropUpsertForm> {
                   error: (err) => Text('${transl.error.error}: $err'),
                 ),
                 FormBuilderField<bool>(
+                  initialValue: widget.initial?.otherCropType,
                   name: 'other',
                   builder: (field) {
                     return OtherButtonTile(
                       onChanged: (value) {
                         field.didChange(value);
                         setState(() {});
-                        // formBuilder.fields['cropType']?.reset();
-                        // formBuilder.fields['cropName']?.reset();
-                        // formBuilder.fields['otherCropName']?.reset();
-                        // formBuilder.fields['cropName']?.reset();
-                        // formCropTypeKey = GlobalKey();
-                        // formCropKey = GlobalKey();
-                        // setState(() {});
                       },
                     );
                   },
@@ -132,39 +135,65 @@ class _MyCropUpsertFormState extends ConsumerState<MyCropUpsertForm> {
                     ),
                   )
                 else
-                  asyncCrops.when(
-                    data: (data) {
-                      return FormBuilderField(
-                        key: formCropKey,
-                        enabled: formBuilder.fields['cropType']?.value != null,
-                        validator: FormBuilderValidators.required(
-                          errorText: transl.upsertMyCrop.crop.required,
-                        ),
-                        name: 'cropName',
-                        builder: (field) {
-                          return CropSelector(
+                  ref.watch(cropsByCropTypeProvider(cropTypeId)).when(
+                        data: (data) {
+                          return FormBuilderField(
+                            key: formCropKey,
                             enabled:
                                 formBuilder.fields['cropType']?.value != null,
-                            errorText: field.errorText,
-                            items: data,
-                            initial: data
-                                .where((e) => e.uid == widget.initial?.cropId)
-                                .toList(),
-                            hintText: transl.upsertMyCrop.crop.hint,
-                            onChanged: (crop) {
-                              if (crop.isEmpty) return;
-                              field.didChange(crop.first.value);
+                            validator:
+                                formBuilder.fields['other']?.value == true
+                                    ? null
+                                    : FormBuilderValidators.required(
+                                        errorText:
+                                            transl.upsertMyCrop.crop.required,
+                                      ),
+                            name: 'crop',
+                            builder: (field) {
+                              return CropSelector(
+                                enabled:
+                                    formBuilder.fields['cropType']?.value !=
+                                        null,
+                                errorText: field.errorText,
+                                items: data,
+                                initial: data
+                                    .where(
+                                        (e) => e.uid == widget.initial?.cropId)
+                                    .toList(),
+                                hintText: transl.upsertMyCrop.crop.hint,
+                                onChanged: (crop) {
+                                  if (crop.isEmpty) return;
+                                  field.didChange(crop.first.value);
+                                },
+                              );
                             },
                           );
                         },
-                      );
-                    },
-                    error: (err, __) => Text('${transl.error.error}: $err'),
-                    loading: () => const ShimmerTextField(),
-                  ),
+                        error: (err, __) => Text('${transl.error.error}: $err'),
+                        loading: () => const ShimmerTextField(),
+                      ),
+                Textlabel(label: transl.upsertMyCrop.initialStatus),
+                FormBuilderField(
+                  name: 'status',
+                  initialValue: CropStatus.todo,
+                  builder: (field) {
+                    return CropStatusSelector(
+                      unSelectedOptions: const [
+                        CropStatus.completed,
+                        CropStatus.cancel
+                      ],
+                      onChanged: (value) {
+                        field.didChange(value);
+                        setState(() {});
+                      },
+                    );
+                  },
+                )
               ],
             ),
           ),
+        if (formBuilder.fields['status']?.value == CropStatus.inprogress)
+          const TaskForm(),
       ],
     );
   }

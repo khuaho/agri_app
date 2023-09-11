@@ -18,6 +18,7 @@ class Crop with _$Crop {
     String? desVi,
     String? thumbnail,
     List<String>? images,
+    String? cropTypeId,
     String? cropTypeVi,
     String? cropTypeEn,
     String? plantingPotEn,

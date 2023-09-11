@@ -11,8 +11,8 @@ class CropType with _$CropType {
   factory CropType({
     String? id,
     String? uid,
-    required String nameVi,
-    required String nameEn,
+    String? nameVi,
+    String? nameEn,
     required String desVi,
     required String desEn,
   }) = _CropType;

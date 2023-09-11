@@ -16,6 +16,8 @@ abstract class CropRepository {
   Future<Either<Failure, Crop?>> getCrop(String? id);
 
   Future<Either<Failure, List<Crop>>> searchCropByName(String keyword);
+
+  Future<Either<Failure, List<Crop>>> getCropsByCropType(String cropTypeId);
 }
 
 class _CropRepositoryImpl extends BaseRepository implements CropRepository {
@@ -64,6 +66,17 @@ class _CropRepositoryImpl extends BaseRepository implements CropRepository {
       }
 
       final data = docSnapShot.docs.map((e) => e.data()).toList();
+      return data;
+    });
+  }
+
+  @override
+  Future<Either<Failure, List<Crop>>> getCropsByCropType(String cropTypeId) {
+    return guardFuture(() async {
+      await Future.delayed(const Duration(seconds: 1));
+      final res =
+          await cropRef.where('cropTypeId', isEqualTo: cropTypeId).get();
+      final data = res.docs.map((e) => e.data().copyWith(uid: e.id)).toList();
       return data;
     });
   }

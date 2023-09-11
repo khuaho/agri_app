@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 278 (139 per locale)
+/// Strings: 290 (145 per locale)
 ///
-/// Built on 2023-09-08 at 10:36 UTC
+/// Built on 2023-09-11 at 09:58 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -358,6 +358,11 @@ class _StringsUpsertMyCropEn {
 	String get title => 'Create crop profile';
 	late final _StringsUpsertMyCropCropTypeEn cropType = _StringsUpsertMyCropCropTypeEn._(_root);
 	late final _StringsUpsertMyCropCropEn crop = _StringsUpsertMyCropCropEn._(_root);
+	String get initialStatus => 'Initial status';
+	String get status => 'Status';
+	String get allTask => 'ALL TASKS';
+	String get yourPreparation => 'Your preparation (optional):';
+	String get suggestionTask => 'Some suggestion tasks, you choose:';
 }
 
 // Path: myCropDetail
@@ -387,6 +392,7 @@ class _StringsCommonButtonEn {
 	String get openSettings => 'Open settings';
 	String get update => 'Update';
 	String get create => 'Create';
+	String get add => 'Add';
 }
 
 // Path: common.reaction
@@ -840,6 +846,11 @@ class _StringsUpsertMyCropVi implements _StringsUpsertMyCropEn {
 	@override String get title => 'Tạo hồ sơ cây trồng';
 	@override late final _StringsUpsertMyCropCropTypeVi cropType = _StringsUpsertMyCropCropTypeVi._(_root);
 	@override late final _StringsUpsertMyCropCropVi crop = _StringsUpsertMyCropCropVi._(_root);
+	@override String get initialStatus => 'Trạng thái ban đầu';
+	@override String get status => 'Trạng thái';
+	@override String get allTask => 'CÁC NHIỆM VỤ';
+	@override String get yourPreparation => 'Sự chuẩn bị của bạn:';
+	@override String get suggestionTask => 'Một số nhiệm vụ được gợi ý, bạn có thể chọn:';
 }
 
 // Path: myCropDetail
@@ -869,6 +880,7 @@ class _StringsCommonButtonVi implements _StringsCommonButtonEn {
 	@override String get openSettings => 'Mở cài đặt';
 	@override String get update => 'Cập nhật';
 	@override String get create => 'Tạo';
+	@override String get add => 'Thêm';
 }
 
 // Path: common.reaction
@@ -1111,6 +1123,7 @@ extension on _StringsEn {
 			case 'common.button.openSettings': return 'Open settings';
 			case 'common.button.update': return 'Update';
 			case 'common.button.create': return 'Create';
+			case 'common.button.add': return 'Add';
 			case 'common.reaction.like': return 'Like';
 			case 'common.reaction.favorite': return 'Favorite';
 			case 'common.reaction.satisfied': return 'Satisfied';
@@ -1233,6 +1246,11 @@ extension on _StringsEn {
 			case 'upsertMyCrop.crop.hint': return 'Select crop';
 			case 'upsertMyCrop.crop.otherHint': return 'Enter crop name';
 			case 'upsertMyCrop.crop.required': return 'Crop is required!';
+			case 'upsertMyCrop.initialStatus': return 'Initial status';
+			case 'upsertMyCrop.status': return 'Status';
+			case 'upsertMyCrop.allTask': return 'ALL TASKS';
+			case 'upsertMyCrop.yourPreparation': return 'Your preparation (optional):';
+			case 'upsertMyCrop.suggestionTask': return 'Some suggestion tasks, you choose:';
 			case 'myCropDetail.title': return 'My crop profile';
 			default: return null;
 		}
@@ -1258,6 +1276,7 @@ extension on _StringsVi {
 			case 'common.button.openSettings': return 'Mở cài đặt';
 			case 'common.button.update': return 'Cập nhật';
 			case 'common.button.create': return 'Tạo';
+			case 'common.button.add': return 'Thêm';
 			case 'common.reaction.like': return 'Thích';
 			case 'common.reaction.favorite': return 'Yêu thích';
 			case 'common.reaction.satisfied': return 'Hài lòng';
@@ -1380,6 +1399,11 @@ extension on _StringsVi {
 			case 'upsertMyCrop.crop.hint': return 'Chọn cây trồng';
 			case 'upsertMyCrop.crop.otherHint': return 'Nhập tên cây trồng';
 			case 'upsertMyCrop.crop.required': return 'Cây trồng là bắt buộc!';
+			case 'upsertMyCrop.initialStatus': return 'Trạng thái ban đầu';
+			case 'upsertMyCrop.status': return 'Trạng thái';
+			case 'upsertMyCrop.allTask': return 'CÁC NHIỆM VỤ';
+			case 'upsertMyCrop.yourPreparation': return 'Sự chuẩn bị của bạn:';
+			case 'upsertMyCrop.suggestionTask': return 'Một số nhiệm vụ được gợi ý, bạn có thể chọn:';
 			case 'myCropDetail.title': return 'Hồ sơ cây trồng của tôi';
 			default: return null;
 		}

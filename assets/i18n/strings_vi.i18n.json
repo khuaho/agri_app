@@ -18,7 +18,8 @@
       "edit": "Chỉnh sửa",
       "openSettings": "Mở cài đặt",
       "update": "Cập nhật",
-      "create": "Tạo"
+      "create": "Tạo",
+      "add": "Thêm"
     },
     "reaction": {
       "like": "Thích",
@@ -201,7 +202,12 @@
       "hint": "Chọn cây trồng",
       "otherHint": "Nhập tên cây trồng",
       "required": "Cây trồng là bắt buộc!"
-    }
+    },
+    "initialStatus": "Trạng thái ban đầu",
+    "status": "Trạng thái",
+    "allTask": "CÁC NHIỆM VỤ",
+    "yourPreparation": "Sự chuẩn bị của bạn:",
+    "suggestionTask": "Một số nhiệm vụ được gợi ý, bạn có thể chọn:"
   },
   "myCropDetail": {
     "title": "Hồ sơ cây trồng của tôi"
