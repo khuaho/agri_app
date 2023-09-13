@@ -17,6 +17,8 @@ _$_MyCrop _$$_MyCropFromJson(Map<String, dynamic> json) => _$_MyCrop(
       cropTypeVi: json['cropTypeVi'] as String?,
       cropTypeEn: json['cropTypeEn'] as String?,
       cropStatus: $enumDecodeNullable(_$CropStatusEnumMap, json['cropStatus']),
+      preparation: json['preparation'] ?? const [],
+      tasks: json['tasks'] ?? const [],
       startDate: const TimestampOrNullConverter().fromJson(json['startDate']),
       endDate: const TimestampOrNullConverter().fromJson(json['endDate']),
     );
@@ -32,6 +34,8 @@ Map<String, dynamic> _$$_MyCropToJson(_$_MyCrop instance) => <String, dynamic>{
       'cropTypeVi': instance.cropTypeVi,
       'cropTypeEn': instance.cropTypeEn,
       'cropStatus': _$CropStatusEnumMap[instance.cropStatus],
+      'preparation': instance.preparation,
+      'tasks': instance.tasks,
       'startDate': const TimestampOrNullConverter().toJson(instance.startDate),
       'endDate': const TimestampOrNullConverter().toJson(instance.endDate),
     };

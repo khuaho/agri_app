@@ -5,4 +5,5 @@ part 'app_event.freezed.dart';
 @freezed
 class AppEvent with _$AppEvent {
   const factory AppEvent.updateUser() = UpdateUserEvent;
+  const factory AppEvent.createMyCrop() = CreateMyCropEvent;
 }

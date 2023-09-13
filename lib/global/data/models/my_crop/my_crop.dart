@@ -22,6 +22,8 @@ class MyCrop with _$MyCrop {
     String? cropTypeVi,
     String? cropTypeEn,
     CropStatus? cropStatus,
+    @Default([]) preparation,
+    @Default([]) tasks,
     @TimestampOrNullConverter() DateTime? startDate,
     @TimestampOrNullConverter() DateTime? endDate,
   }) = _MyCrop;

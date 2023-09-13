@@ -19,32 +19,38 @@ mixin _$AppEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() updateUser,
+    required TResult Function() createMyCrop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? updateUser,
+    TResult? Function()? createMyCrop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? updateUser,
+    TResult Function()? createMyCrop,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UpdateUserEvent value) updateUser,
+    required TResult Function(CreateMyCropEvent value) createMyCrop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdateUserEvent value)? updateUser,
+    TResult? Function(CreateMyCropEvent value)? createMyCrop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdateUserEvent value)? updateUser,
+    TResult Function(CreateMyCropEvent value)? createMyCrop,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +112,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() updateUser,
+    required TResult Function() createMyCrop,
   }) {
     return updateUser();
   }
@@ -114,6 +121,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? updateUser,
+    TResult? Function()? createMyCrop,
   }) {
     return updateUser?.call();
   }
@@ -122,6 +130,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? updateUser,
+    TResult Function()? createMyCrop,
     required TResult orElse(),
   }) {
     if (updateUser != null) {
@@ -134,6 +143,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UpdateUserEvent value) updateUser,
+    required TResult Function(CreateMyCropEvent value) createMyCrop,
   }) {
     return updateUser(this);
   }
@@ -142,6 +152,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdateUserEvent value)? updateUser,
+    TResult? Function(CreateMyCropEvent value)? createMyCrop,
   }) {
     return updateUser?.call(this);
   }
@@ -150,6 +161,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdateUserEvent value)? updateUser,
+    TResult Function(CreateMyCropEvent value)? createMyCrop,
     required TResult orElse(),
   }) {
     if (updateUser != null) {
@@ -161,4 +173,106 @@ class _$UpdateUserEvent implements UpdateUserEvent {
 
 abstract class UpdateUserEvent implements AppEvent {
   const factory UpdateUserEvent() = _$UpdateUserEvent;
+}
+
+/// @nodoc
+abstract class _$$CreateMyCropEventCopyWith<$Res> {
+  factory _$$CreateMyCropEventCopyWith(
+          _$CreateMyCropEvent value, $Res Function(_$CreateMyCropEvent) then) =
+      __$$CreateMyCropEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CreateMyCropEventCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$CreateMyCropEvent>
+    implements _$$CreateMyCropEventCopyWith<$Res> {
+  __$$CreateMyCropEventCopyWithImpl(
+      _$CreateMyCropEvent _value, $Res Function(_$CreateMyCropEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CreateMyCropEvent implements CreateMyCropEvent {
+  const _$CreateMyCropEvent();
+
+  @override
+  String toString() {
+    return 'AppEvent.createMyCrop()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CreateMyCropEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updateUser,
+    required TResult Function() createMyCrop,
+  }) {
+    return createMyCrop();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updateUser,
+    TResult? Function()? createMyCrop,
+  }) {
+    return createMyCrop?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updateUser,
+    TResult Function()? createMyCrop,
+    required TResult orElse(),
+  }) {
+    if (createMyCrop != null) {
+      return createMyCrop();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdateUserEvent value) updateUser,
+    required TResult Function(CreateMyCropEvent value) createMyCrop,
+  }) {
+    return createMyCrop(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdateUserEvent value)? updateUser,
+    TResult? Function(CreateMyCropEvent value)? createMyCrop,
+  }) {
+    return createMyCrop?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdateUserEvent value)? updateUser,
+    TResult Function(CreateMyCropEvent value)? createMyCrop,
+    required TResult orElse(),
+  }) {
+    if (createMyCrop != null) {
+      return createMyCrop(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CreateMyCropEvent implements AppEvent {
+  const factory CreateMyCropEvent() = _$CreateMyCropEvent;
 }

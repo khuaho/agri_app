@@ -1,24 +1,61 @@
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../../../global/app_router/app_router.dart';
+import '../../../../../../../global/data/models/app_event/app_event.dart';
 import '../../../../../../../global/data/models/my_crop/my_crop.dart';
 import '../../../../../../../global/enum/crop_status.dart';
 import '../../../../../../../global/extensions/date_time_ext.dart';
 import '../../../../../../../global/gen/strings.g.dart';
 import '../../../../../../../global/themes/app_colors.dart';
 import '../../../../../../../global/utils/app_icons.dart';
+import '../../../../../../../global/utils/app_mixin.dart';
+import '../../../../../../../global/utils/constants.dart';
+import '../../../../../../../global/utils/riverpod/app_state.dart';
 import '../../../../../../../global/widgets/crop_status_tile.dart';
+import '../../../../../../../global/widgets/dialogs/confirmation_dialog.dart';
 import '../../../../../../../global/widgets/shadow_wrapper.dart';
 import '../../../../../../../global/widgets/shimmer/shimmer_image.dart';
+import '../../upsert/providers/upsert_my_crop_provider.dart';
 
-class MyCropTile extends StatelessWidget {
+class MyCropTile extends ConsumerStatefulWidget {
   const MyCropTile({
     super.key,
     required this.myCrop,
   });
 
   final MyCrop myCrop;
+
+  @override
+  ConsumerState<MyCropTile> createState() => _MyCropTileState();
+}
+
+class _MyCropTileState extends ConsumerState<MyCropTile> with AppMixin {
+  late final upsertProvider =
+      ref.read(upsertMyCropProvider(widget.myCrop.uid).notifier);
+
+  void handleSubmit(CropStatus? status) {
+    final data = widget.myCrop.copyWith(cropStatus: status);
+    // ignore: unused_result
+    showAlertDialog(
+      context: context,
+      builder: (ctx, child) => ConfirmationDialog(
+        title: 'Cập nhật hồ sơ cây trồng',
+        content: 'Bạn có chắc chắn muốn cập nhật cây trồng này không?',
+        onTapOk: () async {
+          await upsertProvider.upsertMyCrop(data);
+          final state = ref.watch(upsertMyCropProvider(widget.myCrop.uid));
+          if (state.data != null) {
+            if (mounted) {
+              eventBus.fire(const CreateMyCropEvent());
+            }
+          }
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +65,7 @@ class MyCropTile extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        context.pushRoute(UpsertMyCropRoute(id: myCrop.uid!));
+        context.pushRoute(UpsertMyCropRoute(id: widget.myCrop.uid!));
       },
       child: ShadowWrapper(
         margin: const EdgeInsets.symmetric(vertical: 8),
@@ -40,7 +77,7 @@ class MyCropTile extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ShimmerImage(
-                imageUrl: myCrop.thumbnail ?? '',
+                imageUrl: widget.myCrop.thumbnail ?? Constants.defaultThumbnail,
                 fit: BoxFit.contain,
                 width: 80,
                 height: 80,
@@ -50,23 +87,30 @@ class MyCropTile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    Text(
+                      'ID: ${widget.myCrop.uid}',
+                      style: textTheme.titleSmall?.copyWith(
+                        color: AppColors.primary,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
                     Expanded(
                       child: Row(
                         children: [
                           Expanded(
                             child: Text(
                               isEn
-                                  ? myCrop.nameEn ?? '_'
-                                  : myCrop.nameVi ?? '_',
+                                  ? widget.myCrop.nameEn ?? '_'
+                                  : widget.myCrop.nameVi ?? '_',
                               style: textTheme.titleSmall,
                             ),
                           ),
-                          CropStatusTile(cropStatus: myCrop.cropStatus),
+                          CropStatusTile(cropStatus: widget.myCrop.cropStatus),
                         ],
                       ),
                     ),
-                    if (myCrop.cropStatus != CropStatus.completed ||
-                        myCrop.cropStatus != CropStatus.cancel)
+                    if (widget.myCrop.cropStatus != CropStatus.completed ||
+                        widget.myCrop.cropStatus != CropStatus.cancel)
                       const SizedBox(height: 10),
                     Expanded(
                       child: Row(
@@ -81,15 +125,15 @@ class MyCropTile extends StatelessWidget {
                           const SizedBox(width: 6),
                           Text(
                             isEn
-                                ? myCrop.cropTypeEn ?? '_'
-                                : myCrop.cropTypeVi ?? '_',
+                                ? widget.myCrop.cropTypeEn ?? '_'
+                                : widget.myCrop.cropTypeVi ?? '_',
                           ),
                         ],
                       ),
                     ),
-                    if (myCrop.cropStatus == CropStatus.inprogress)
+                    if (widget.myCrop.cropStatus == CropStatus.inprogress)
                       const SizedBox(height: 10),
-                    if (myCrop.cropStatus != CropStatus.todo)
+                    if (widget.myCrop.cropStatus != CropStatus.todo)
                       Expanded(
                         child: Row(
                           children: [
@@ -102,14 +146,14 @@ class MyCropTile extends StatelessWidget {
                             Text(transl.myCrops.date),
                             const SizedBox(width: 6),
                             Text(
-                              '${myCrop.startDate?.formatDate()} - ${myCrop.endDate?.formatDate()} ',
+                              '${widget.myCrop.startDate?.formatDate()} - ${widget.myCrop.endDate?.formatDate()} ',
                             ),
                           ],
                         ),
                       ),
-                    (myCrop.cropStatus != null)
+                    (widget.myCrop.cropStatus != null)
                         ? () {
-                            switch (myCrop.cropStatus!) {
+                            switch (widget.myCrop.cropStatus!) {
                               case CropStatus.completed:
                                 return const SizedBox();
                               case CropStatus.inprogress:
@@ -122,14 +166,30 @@ class MyCropTile extends StatelessWidget {
                                     minimumSize:
                                         const Size(double.infinity, 30),
                                   ),
-                                  onPressed: () {
-                                    // TODOs: ...
-                                  },
+                                  onPressed: () =>
+                                      handleSubmit(CropStatus.completed),
                                   child: Text(transl.myCrops.complete),
                                 );
                               case CropStatus.todo:
                                 return Row(
                                   children: [
+                                    Expanded(
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: AppColors.neutral05,
+                                          textStyle: const TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                          minimumSize:
+                                              const Size(double.infinity, 30),
+                                        ),
+                                        onPressed: () =>
+                                            handleSubmit(CropStatus.cancel),
+                                        child: Text(transl.myCrops.cancel),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10),
                                     Expanded(
                                       child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
@@ -142,30 +202,11 @@ class MyCropTile extends StatelessWidget {
                                           minimumSize:
                                               const Size(double.infinity, 30),
                                         ),
-                                        onPressed: () {
-                                          // TODOs: ...
-                                        },
+                                        onPressed: () =>
+                                            handleSubmit(CropStatus.inprogress),
                                         child: Text(transl.myCrops.perform),
                                       ),
                                     ),
-                                    const SizedBox(width: 10),
-                                    Expanded(
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: AppColors.neutral05,
-                                          textStyle: const TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                          minimumSize:
-                                              const Size(double.infinity, 30),
-                                        ),
-                                        onPressed: () {
-                                          // TODOs: ...
-                                        },
-                                        child: Text(transl.myCrops.cancel),
-                                      ),
-                                    )
                                   ],
                                 );
                               case CropStatus.cancel:

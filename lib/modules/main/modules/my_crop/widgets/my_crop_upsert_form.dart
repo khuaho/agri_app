@@ -5,7 +5,6 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 
 import '../../../../../global/data/models/crop_type/crop_type.dart';
 import '../../../../../global/data/models/my_crop/my_crop.dart';
-import '../../../../../global/enum/crop_status.dart';
 import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
 import '../../../../../global/widgets/shimmer/shimmer_text_field.dart';
@@ -14,7 +13,6 @@ import '../../../selector/crop_selector.dart';
 import '../../../selector/crop_type_selector.dart';
 import '../../crops/providers/crop_type_provider.dart';
 import '../modules/upsert/providers/crops_by_crop_type_provider.dart';
-import 'crop_status_selector.dart';
 import 'other_button_tile.dart';
 import 'task_form.dart';
 
@@ -172,28 +170,11 @@ class _MyCropUpsertFormState extends ConsumerState<MyCropUpsertForm> {
                         error: (err, __) => Text('${transl.error.error}: $err'),
                         loading: () => const ShimmerTextField(),
                       ),
-                Textlabel(label: transl.upsertMyCrop.initialStatus),
-                FormBuilderField(
-                  name: 'status',
-                  initialValue: CropStatus.todo,
-                  builder: (field) {
-                    return CropStatusSelector(
-                      unSelectedOptions: const [
-                        CropStatus.completed,
-                        CropStatus.cancel
-                      ],
-                      onChanged: (value) {
-                        field.didChange(value);
-                        setState(() {});
-                      },
-                    );
-                  },
-                )
               ],
             ),
           ),
-        if (formBuilder.fields['status']?.value == CropStatus.inprogress)
-          const TaskForm(),
+        if (widget.initial == null) const SizedBox(height: 16),
+        TaskForm(initial: widget.initial),
       ],
     );
   }

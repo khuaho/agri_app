@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
 import '../../../../../global/data/models/crop_task/preparation.dart';
 import '../../../../../global/data/models/crop_task/suggestion_task.dart';
+import '../../../../../global/data/models/my_crop/my_crop.dart';
+import '../../../../../global/data/repositories/crop_task_repository.dart';
 import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
-import '../../../../../global/utils/app_icons.dart';
 import '../../../../../global/widgets/shimmer/shimmer_image.dart';
 import '../modules/upsert/providers/crop_task_provider.dart';
 
 class TaskForm extends ConsumerStatefulWidget {
-  const TaskForm({super.key});
+  const TaskForm({this.initial, super.key});
+
+  final MyCrop? initial;
 
   @override
   ConsumerState<TaskForm> createState() => _TaskFormState();
@@ -22,13 +26,47 @@ class _TaskFormState extends ConsumerState<TaskForm> {
   List<SuggestionTask> selectedTasks = [];
 
   @override
+  void initState() {
+    initData();
+    super.initState();
+  }
+
+  Future<void> initData() async {
+    final cropTaskRepository = ref.read(cropTaskRepositoryProvider);
+    final suggestionTasks = await cropTaskRepository.getSuggestionTasks().then(
+          (either) => either.fold(
+            (l) => null,
+            (r) => r,
+          ),
+        );
+    final preparation = await cropTaskRepository.getPreparation().then(
+          (either) => either.fold(
+            (l) => null,
+            (r) => r,
+          ),
+        );
+
+    setState(() {
+      selectedPrepare = preparation
+              ?.map((e) => e)
+              .where((e) => (widget.initial?.preparation ?? []).contains(e.uid))
+              .toList() ??
+          [];
+      selectedTasks = suggestionTasks
+              ?.map((e) => e)
+              .where((e) => (widget.initial?.tasks ?? []).contains(e.uid))
+              .toList() ??
+          [];
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final transl = Translations.of(context);
     bool isEn = LocaleSettings.currentLocale == AppLocale.en;
 
     return Container(
-      margin: const EdgeInsets.only(top: 16),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
@@ -37,26 +75,32 @@ class _TaskFormState extends ConsumerState<TaskForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                transl.upsertMyCrop.allTask,
-                style: textTheme.titleSmall,
-              ),
-              GestureDetector(
-                onTap: () {
-                  // TODOs: ...
-                },
-                child: Row(
-                  children: [
-                    const Icon(AppIcons.edit, size: 20),
-                    const SizedBox(width: 4),
-                    Text(transl.common.button.add),
-                  ],
-                ),
-              )
-            ],
+          Text(
+            transl.upsertMyCrop.allTask,
+            style: textTheme.titleSmall?.copyWith(
+              color: AppColors.primary,
+            ),
+          ),
+          const SizedBox(height: 8),
+          const Text(
+            'Ngày bắt đầu',
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 6),
+          FormBuilderDateTimePicker(
+            name: 'startDate',
+            initialValue: widget.initial?.startDate,
+            enabled: FormBuilder.of(context)!.enabled,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            decoration: const InputDecoration(
+              hintText: 'Chọn ngày bắt đầu thực hiện',
+              suffixIcon: Icon(Icons.date_range),
+            ),
+            validator: FormBuilderValidators.required(
+              errorText: 'Chưa chọn ngày bắt đầu!',
+            ),
           ),
           const SizedBox(height: 8),
           Text(
@@ -88,6 +132,8 @@ class _TaskFormState extends ConsumerState<TaskForm> {
                           selected: selectedPrepare.contains(e),
                           value: selectedPrepare.contains(e),
                           onChanged: (value) {
+                            if ((field as FormBuilderFieldState).enabled ==
+                                false) return;
                             if (selected) {
                               setState(() {
                                 selectedPrepare.remove(e);
@@ -119,35 +165,42 @@ class _TaskFormState extends ConsumerState<TaskForm> {
           ref.watch(suggestionTaskProvider).when(
                 data: (data) {
                   return FormBuilderField(
-                      name: 'suggestionTasks',
-                      builder: (field) {
-                        return Column(
-                            children: data.map((e) {
-                          bool selected = selectedTasks.contains(e);
-                          return CheckboxListTile(
-                            title: Text(
-                              isEn ? e.nameEn ?? '' : e.nameVi ?? '_',
-                            ),
-                            autofocus: false,
-                            activeColor: AppColors.primary,
-                            checkColor: AppColors.white,
-                            selected: selectedTasks.contains(e),
-                            value: selectedTasks.contains(e),
-                            onChanged: (value) {
-                              if (selected) {
-                                setState(() {
-                                  selectedTasks.remove(e);
-                                });
-                              } else {
-                                setState(() {
-                                  selectedTasks.add(e);
-                                });
-                              }
-                              field.didChange(selectedTasks);
-                            },
-                          );
-                        }).toList());
-                      });
+                    name: 'suggestionTasks',
+                    builder: (field) {
+                      return Column(
+                        children: data.map(
+                          (e) {
+                            bool selected = selectedTasks.contains(e);
+                            return CheckboxListTile(
+                              title: Text(
+                                isEn ? e.nameEn ?? '' : e.nameVi ?? '_',
+                              ),
+                              autofocus: false,
+                              activeColor: AppColors.primary,
+                              checkColor: AppColors.white,
+                              selected: selectedTasks.contains(e),
+                              value: selectedTasks.contains(e),
+                              onChanged: (value) {
+                                if ((field as FormBuilderFieldState).enabled ==
+                                    true) {
+                                  if (selected) {
+                                    setState(() {
+                                      selectedTasks.remove(e);
+                                    });
+                                  } else {
+                                    setState(() {
+                                      selectedTasks.add(e);
+                                    });
+                                  }
+                                  field.didChange(selectedTasks);
+                                }
+                              },
+                            );
+                          },
+                        ).toList(),
+                      );
+                    },
+                  );
                 },
                 error: (err, __) => Text('${transl.error.error}: $err'),
                 loading: () => const Center(

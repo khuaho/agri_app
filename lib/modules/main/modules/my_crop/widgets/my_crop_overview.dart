@@ -7,6 +7,7 @@ import '../../../../../global/enum/crop_status.dart';
 import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
 import '../../../../../global/utils/app_icons.dart';
+import '../../../../../global/utils/constants.dart';
 import '../../../../../global/widgets/crop_status_tile.dart';
 import '../../../../../global/widgets/shadow_wrapper.dart';
 import '../../../../../global/widgets/shimmer/shimmer_image.dart';
@@ -33,7 +34,7 @@ class MyCropOverview extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             clipBehavior: Clip.hardEdge,
             child: ShimmerImage(
-              imageUrl: myCrop?.thumbnail ?? '',
+              imageUrl: myCrop?.thumbnail ?? Constants.defaultThumbnail,
               fit: BoxFit.contain,
               height: 100,
             ),
@@ -106,9 +107,11 @@ class MyCropOverview extends StatelessWidget {
                 // ),
                 ElevatedButton.icon(
                   onPressed: () {
-                    context.pushRoute(
-                      CropDetailRoute(id: myCrop?.cropId ?? ''),
-                    );
+                    if (myCrop?.otherCropType == false) {
+                      context.pushRoute(
+                        CropDetailRoute(id: myCrop?.cropId ?? ''),
+                      );
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size.fromHeight(30),

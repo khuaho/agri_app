@@ -20,6 +20,10 @@ abstract class MyCropRepository {
   Future<Either<Failure, bool>> checkMyCropExist();
 
   Future<Either<Failure, MyCrop?>> getMyCrop(String? id);
+
+  Future<Either<Failure, Unit>> addMyCrop(MyCrop data);
+
+  Future<Either<Failure, Unit>> updateMyCrop(MyCrop data);
 }
 
 class _MyCropRepositoryImpl extends BaseRepository implements MyCropRepository {
@@ -85,10 +89,42 @@ class _MyCropRepositoryImpl extends BaseRepository implements MyCropRepository {
 
       final res = await myCropRef.doc(id).get();
       if (res.exists) {
-        return res.data()!;
+        return res.data()!.copyWith(uid: res.id);
       }
-
       return null;
+    });
+  }
+
+  @override
+  Future<Either<Failure, Unit>> addMyCrop(MyCrop data) {
+    final currentUser = FirebaseAuth.instance.currentUser;
+    final myCropRef = FirebaseFirestore.instance
+        .collection('myCrops')
+        .doc(currentUser?.uid ?? '')
+        .collection('crops')
+        .withMyCropConverter();
+
+    return guardFuture(() async {
+      await Future.delayed(const Duration(seconds: 1));
+      await myCropRef.add(data);
+
+      return unit;
+    });
+  }
+
+  @override
+  Future<Either<Failure, Unit>> updateMyCrop(MyCrop data) {
+    final currentUser = FirebaseAuth.instance.currentUser;
+    final myCropRef = FirebaseFirestore.instance
+        .collection('myCrops')
+        .doc(currentUser?.uid ?? '')
+        .collection('crops')
+        .withMyCropConverter();
+
+    return guardFuture(() async {
+      await Future.delayed(const Duration(seconds: 1));
+      await myCropRef.doc(data.uid).update(data.toJson());
+      return unit;
     });
   }
 }

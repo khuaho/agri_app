@@ -30,6 +30,8 @@ mixin _$MyCrop {
   String? get cropTypeVi => throw _privateConstructorUsedError;
   String? get cropTypeEn => throw _privateConstructorUsedError;
   CropStatus? get cropStatus => throw _privateConstructorUsedError;
+  dynamic get preparation => throw _privateConstructorUsedError;
+  dynamic get tasks => throw _privateConstructorUsedError;
   @TimestampOrNullConverter()
   DateTime? get startDate => throw _privateConstructorUsedError;
   @TimestampOrNullConverter()
@@ -56,6 +58,8 @@ abstract class $MyCropCopyWith<$Res> {
       String? cropTypeVi,
       String? cropTypeEn,
       CropStatus? cropStatus,
+      dynamic preparation,
+      dynamic tasks,
       @TimestampOrNullConverter() DateTime? startDate,
       @TimestampOrNullConverter() DateTime? endDate});
 }
@@ -83,6 +87,8 @@ class _$MyCropCopyWithImpl<$Res, $Val extends MyCrop>
     Object? cropTypeVi = freezed,
     Object? cropTypeEn = freezed,
     Object? cropStatus = freezed,
+    Object? preparation = freezed,
+    Object? tasks = freezed,
     Object? startDate = freezed,
     Object? endDate = freezed,
   }) {
@@ -127,6 +133,14 @@ class _$MyCropCopyWithImpl<$Res, $Val extends MyCrop>
           ? _value.cropStatus
           : cropStatus // ignore: cast_nullable_to_non_nullable
               as CropStatus?,
+      preparation: freezed == preparation
+          ? _value.preparation
+          : preparation // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      tasks: freezed == tasks
+          ? _value.tasks
+          : tasks // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -156,6 +170,8 @@ abstract class _$$_MyCropCopyWith<$Res> implements $MyCropCopyWith<$Res> {
       String? cropTypeVi,
       String? cropTypeEn,
       CropStatus? cropStatus,
+      dynamic preparation,
+      dynamic tasks,
       @TimestampOrNullConverter() DateTime? startDate,
       @TimestampOrNullConverter() DateTime? endDate});
 }
@@ -180,6 +196,8 @@ class __$$_MyCropCopyWithImpl<$Res>
     Object? cropTypeVi = freezed,
     Object? cropTypeEn = freezed,
     Object? cropStatus = freezed,
+    Object? preparation = freezed,
+    Object? tasks = freezed,
     Object? startDate = freezed,
     Object? endDate = freezed,
   }) {
@@ -222,6 +240,8 @@ class __$$_MyCropCopyWithImpl<$Res>
           ? _value.cropStatus
           : cropStatus // ignore: cast_nullable_to_non_nullable
               as CropStatus?,
+      preparation: freezed == preparation ? _value.preparation! : preparation,
+      tasks: freezed == tasks ? _value.tasks! : tasks,
       startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -248,6 +268,8 @@ class _$_MyCrop extends _MyCrop {
       this.cropTypeVi,
       this.cropTypeEn,
       this.cropStatus,
+      this.preparation = const [],
+      this.tasks = const [],
       @TimestampOrNullConverter() this.startDate,
       @TimestampOrNullConverter() this.endDate})
       : super._();
@@ -277,6 +299,12 @@ class _$_MyCrop extends _MyCrop {
   @override
   final CropStatus? cropStatus;
   @override
+  @JsonKey()
+  final dynamic preparation;
+  @override
+  @JsonKey()
+  final dynamic tasks;
+  @override
   @TimestampOrNullConverter()
   final DateTime? startDate;
   @override
@@ -285,7 +313,7 @@ class _$_MyCrop extends _MyCrop {
 
   @override
   String toString() {
-    return 'MyCrop(uid: $uid, nameEn: $nameEn, nameVi: $nameVi, thumbnail: $thumbnail, cropId: $cropId, otherCropType: $otherCropType, cropTypeId: $cropTypeId, cropTypeVi: $cropTypeVi, cropTypeEn: $cropTypeEn, cropStatus: $cropStatus, startDate: $startDate, endDate: $endDate)';
+    return 'MyCrop(uid: $uid, nameEn: $nameEn, nameVi: $nameVi, thumbnail: $thumbnail, cropId: $cropId, otherCropType: $otherCropType, cropTypeId: $cropTypeId, cropTypeVi: $cropTypeVi, cropTypeEn: $cropTypeEn, cropStatus: $cropStatus, preparation: $preparation, tasks: $tasks, startDate: $startDate, endDate: $endDate)';
   }
 
   @override
@@ -309,6 +337,9 @@ class _$_MyCrop extends _MyCrop {
                 other.cropTypeEn == cropTypeEn) &&
             (identical(other.cropStatus, cropStatus) ||
                 other.cropStatus == cropStatus) &&
+            const DeepCollectionEquality()
+                .equals(other.preparation, preparation) &&
+            const DeepCollectionEquality().equals(other.tasks, tasks) &&
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate));
@@ -328,6 +359,8 @@ class _$_MyCrop extends _MyCrop {
       cropTypeVi,
       cropTypeEn,
       cropStatus,
+      const DeepCollectionEquality().hash(preparation),
+      const DeepCollectionEquality().hash(tasks),
       startDate,
       endDate);
 
@@ -357,6 +390,8 @@ abstract class _MyCrop extends MyCrop {
       final String? cropTypeVi,
       final String? cropTypeEn,
       final CropStatus? cropStatus,
+      final dynamic preparation,
+      final dynamic tasks,
       @TimestampOrNullConverter() final DateTime? startDate,
       @TimestampOrNullConverter() final DateTime? endDate}) = _$_MyCrop;
   _MyCrop._() : super._();
@@ -383,6 +418,10 @@ abstract class _MyCrop extends MyCrop {
   String? get cropTypeEn;
   @override
   CropStatus? get cropStatus;
+  @override
+  dynamic get preparation;
+  @override
+  dynamic get tasks;
   @override
   @TimestampOrNullConverter()
   DateTime? get startDate;

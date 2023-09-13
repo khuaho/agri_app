@@ -65,6 +65,7 @@ dependencies:
   google_maps_flutter: ^2.4.1
   http: ^1.1.0
   shared_preferences: ^2.2.0
+  adaptive_dialog: ^1.9.0+2
 
 
 dev_dependencies:

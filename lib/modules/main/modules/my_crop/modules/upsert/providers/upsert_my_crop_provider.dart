@@ -26,4 +26,20 @@ class UpsertMyCropProvider extends StateNotifier<AppState<MyCrop?>> {
           ),
         );
   }
+
+  Future<void> upsertMyCrop(MyCrop data) async {
+    state = AppState.loading();
+    final functionRepository = data.uid != null
+        ? myCropRepository.updateMyCrop(data)
+        : myCropRepository.addMyCrop(data);
+
+    await functionRepository.then(
+      (either) => either.fold(
+        (l) => AppState.error(l),
+        (r) {
+          return AppState.data(r);
+        },
+      ),
+    );
+  }
 }

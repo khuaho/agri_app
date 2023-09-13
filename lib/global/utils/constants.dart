@@ -7,4 +7,6 @@ class Constants {
   static const String hiveUserCredentialsKey = '@hive_user_credentials_key';
   static const String weatherApiKey = '58ba0aab265cfe744fb6f3acb166ef50';
   static const String trackerHost = 'https://tracker.transistorsoft.com';
+  static const String defaultThumbnail =
+      'https://firebasestorage.googleapis.com/v0/b/agriapp-c2b55.appspot.com/o/preparation%2Fplant_undetermine.png?alt=media&token=554d2379-e304-4cb0-8a36-964f215fdd1c';
 }
