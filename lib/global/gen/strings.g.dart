@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 302 (151 per locale)
+/// Strings: 308 (154 per locale)
 ///
-/// Built on 2023-09-14 at 09:09 UTC
+/// Built on 2023-09-15 at 07:28 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -369,6 +369,7 @@ class _StringsUpsertMyCropEn {
 	String get carryOutPlantingDes => 'Are you sure want to carry out planting this crop?';
 	String get createCropDes => 'Are you sure you want to create this crop profile?';
 	String get updateCropDes => 'Are you sure you want to update this crop?';
+	late final _StringsUpsertMyCropStartDateEn startDate = _StringsUpsertMyCropStartDateEn._(_root);
 }
 
 // Path: myCropDetail
@@ -619,6 +620,18 @@ class _StringsUpsertMyCropCropEn {
 	String get required => 'Crop is required!';
 }
 
+// Path: upsertMyCrop.startDate
+class _StringsUpsertMyCropStartDateEn {
+	_StringsUpsertMyCropStartDateEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Start date';
+	String get hint => 'Choose start date to do';
+	String get required => 'Haven\'t choosen start date';
+}
+
 // Path: <root>
 class _StringsVi implements _StringsEn {
 
@@ -863,6 +876,7 @@ class _StringsUpsertMyCropVi implements _StringsUpsertMyCropEn {
 	@override String get carryOutPlantingDes => 'Bạn có chắc chắn muốn tiến hành trồng cây trồng này không?';
 	@override String get createCropDes => 'Bạn có chắc chắn muốn tạo hồ sơ cây trồng này không?';
 	@override String get updateCropDes => 'Bạn có chắc chắn muốn cập nhật hồ sơ cây trồng này không?';
+	@override late final _StringsUpsertMyCropStartDateVi startDate = _StringsUpsertMyCropStartDateVi._(_root);
 }
 
 // Path: myCropDetail
@@ -1113,6 +1127,18 @@ class _StringsUpsertMyCropCropVi implements _StringsUpsertMyCropCropEn {
 	@override String get required => 'Cây trồng là bắt buộc!';
 }
 
+// Path: upsertMyCrop.startDate
+class _StringsUpsertMyCropStartDateVi implements _StringsUpsertMyCropStartDateEn {
+	_StringsUpsertMyCropStartDateVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'Ngày bắt đầu';
+	@override String get hint => 'Chọn ngày bắt đầu để thực hiện';
+	@override String get required => 'Chưa chọn ngày bắt đầu';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -1269,6 +1295,9 @@ extension on _StringsEn {
 			case 'upsertMyCrop.carryOutPlantingDes': return 'Are you sure want to carry out planting this crop?';
 			case 'upsertMyCrop.createCropDes': return 'Are you sure you want to create this crop profile?';
 			case 'upsertMyCrop.updateCropDes': return 'Are you sure you want to update this crop?';
+			case 'upsertMyCrop.startDate.label': return 'Start date';
+			case 'upsertMyCrop.startDate.hint': return 'Choose start date to do';
+			case 'upsertMyCrop.startDate.required': return 'Haven\'t choosen start date';
 			case 'myCropDetail.title': return 'My crop profile';
 			default: return null;
 		}
@@ -1428,6 +1457,9 @@ extension on _StringsVi {
 			case 'upsertMyCrop.carryOutPlantingDes': return 'Bạn có chắc chắn muốn tiến hành trồng cây trồng này không?';
 			case 'upsertMyCrop.createCropDes': return 'Bạn có chắc chắn muốn tạo hồ sơ cây trồng này không?';
 			case 'upsertMyCrop.updateCropDes': return 'Bạn có chắc chắn muốn cập nhật hồ sơ cây trồng này không?';
+			case 'upsertMyCrop.startDate.label': return 'Ngày bắt đầu';
+			case 'upsertMyCrop.startDate.hint': return 'Chọn ngày bắt đầu để thực hiện';
+			case 'upsertMyCrop.startDate.required': return 'Chưa chọn ngày bắt đầu';
 			case 'myCropDetail.title': return 'Hồ sơ cây trồng của tôi';
 			default: return null;
 		}

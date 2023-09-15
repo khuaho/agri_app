@@ -213,7 +213,12 @@
     "cancelDes": "Bạn có chắc muốn huỷ bỏ cây trồng này không?",
     "carryOutPlantingDes": "Bạn có chắc chắn muốn tiến hành trồng cây trồng này không?",
     "createCropDes": "Bạn có chắc chắn muốn tạo hồ sơ cây trồng này không?",
-    "updateCropDes": "Bạn có chắc chắn muốn cập nhật hồ sơ cây trồng này không?"
+    "updateCropDes": "Bạn có chắc chắn muốn cập nhật hồ sơ cây trồng này không?",
+    "startDate": {
+      "label": "Ngày bắt đầu",
+      "hint": "Chọn ngày bắt đầu để thực hiện",
+      "required": "Chưa chọn ngày bắt đầu"
+    }
   },
   "myCropDetail": {
     "title": "Hồ sơ cây trồng của tôi"

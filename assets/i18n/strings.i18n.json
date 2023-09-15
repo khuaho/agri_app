@@ -213,7 +213,12 @@
     "cancelDes": "Are you sure want to cancel this crop?",
     "carryOutPlantingDes": "Are you sure want to carry out planting this crop?",
     "createCropDes": "Are you sure you want to create this crop profile?",
-    "updateCropDes": "Are you sure you want to update this crop?"
+    "updateCropDes": "Are you sure you want to update this crop?",
+    "startDate": {
+      "label": "Start date",
+      "hint": "Choose start date to do",
+      "required": "Haven't choosen start date"
+    }
   },
   "myCropDetail": {
     "title": "My crop profile"

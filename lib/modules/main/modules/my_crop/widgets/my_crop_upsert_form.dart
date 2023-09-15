@@ -170,10 +170,26 @@ class _MyCropUpsertFormState extends ConsumerState<MyCropUpsertForm> {
                         error: (err, __) => Text('${transl.error.error}: $err'),
                         loading: () => const ShimmerTextField(),
                       ),
+                const SizedBox(height: 8),
+                Textlabel(label: transl.upsertMyCrop.startDate.label),
+                const SizedBox(height: 6),
+                FormBuilderDateTimePicker(
+                  name: 'startDate',
+                  initialValue: widget.initial?.startDate,
+                  enabled: FormBuilder.of(context)!.enabled,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  decoration: InputDecoration(
+                    hintText: transl.upsertMyCrop.startDate.hint,
+                    suffixIcon: const Icon(Icons.date_range),
+                  ),
+                  validator: FormBuilderValidators.required(
+                    errorText: transl.upsertMyCrop.startDate.required,
+                  ),
+                ),
+                const SizedBox(height: 16)
               ],
             ),
           ),
-        if (widget.initial == null) const SizedBox(height: 16),
         TaskForm(initial: widget.initial),
       ],
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 
 import '../../../../../global/data/models/crop_task/preparation.dart';
 import '../../../../../global/data/models/crop_task/suggestion_task.dart';
@@ -79,27 +78,6 @@ class _TaskFormState extends ConsumerState<TaskForm> {
             transl.upsertMyCrop.allTask,
             style: textTheme.titleSmall?.copyWith(
               color: AppColors.primary,
-            ),
-          ),
-          const SizedBox(height: 8),
-          const Text(
-            'Ngày bắt đầu',
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          const SizedBox(height: 6),
-          FormBuilderDateTimePicker(
-            name: 'startDate',
-            initialValue: widget.initial?.startDate,
-            enabled: FormBuilder.of(context)!.enabled,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            decoration: const InputDecoration(
-              hintText: 'Chọn ngày bắt đầu thực hiện',
-              suffixIcon: Icon(Icons.date_range),
-            ),
-            validator: FormBuilderValidators.required(
-              errorText: 'Chưa chọn ngày bắt đầu!',
             ),
           ),
           const SizedBox(height: 8),
