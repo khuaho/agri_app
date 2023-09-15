@@ -128,3 +128,27 @@ Navigate to the firebase/functions folder to run the command
   # Prod
   npm run deploy-prod
 ```
+
+
+```
+ @override
+  void initState() {
+    final currentUser = FirebaseAuth.instance.currentUser;
+    final cropStream = FirebaseFirestore.instance
+        .collection('myCrops')
+        .doc(currentUser?.uid ?? '')
+        .collection('crops')
+        .snapshots();
+
+    cropStream.listen((querySnapshot) {
+      for (var change in querySnapshot.docChanges) {
+        setState(() {
+          key = GlobalKey();
+        });
+        print('change: $change');
+      }
+    });
+
+    super.initState();
+  }
+```

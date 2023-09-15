@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 290 (145 per locale)
+/// Strings: 302 (151 per locale)
 ///
-/// Built on 2023-09-11 at 09:58 UTC
+/// Built on 2023-09-14 at 09:09 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -346,6 +346,7 @@ class _StringsMyCropsEn {
 	String get perform => 'Perform';
 	String get cancel => 'Cancel';
 	String get haveNotCreateCrop => 'You haven\'t created a crop profile yet!';
+	String get now => 'Now';
 }
 
 // Path: upsertMyCrop
@@ -363,6 +364,11 @@ class _StringsUpsertMyCropEn {
 	String get allTask => 'ALL TASKS';
 	String get yourPreparation => 'Your preparation (optional):';
 	String get suggestionTask => 'Some suggestion tasks, you choose:';
+	String get updateCropProfile => 'Update crop profile';
+	String get cancelDes => 'Are you sure want to cancel this crop?';
+	String get carryOutPlantingDes => 'Are you sure want to carry out planting this crop?';
+	String get createCropDes => 'Are you sure you want to create this crop profile?';
+	String get updateCropDes => 'Are you sure you want to update this crop?';
 }
 
 // Path: myCropDetail
@@ -834,6 +840,7 @@ class _StringsMyCropsVi implements _StringsMyCropsEn {
 	@override String get perform => 'Thực hiện';
 	@override String get cancel => 'Xoá bỏ';
 	@override String get haveNotCreateCrop => 'Bạn chưa tạo hồ sơ cây trồng!';
+	@override String get now => 'Nay';
 }
 
 // Path: upsertMyCrop
@@ -851,6 +858,11 @@ class _StringsUpsertMyCropVi implements _StringsUpsertMyCropEn {
 	@override String get allTask => 'CÁC NHIỆM VỤ';
 	@override String get yourPreparation => 'Sự chuẩn bị của bạn:';
 	@override String get suggestionTask => 'Một số nhiệm vụ được gợi ý, bạn có thể chọn:';
+	@override String get updateCropProfile => 'Cập nhật hồ sơ cây trồng';
+	@override String get cancelDes => 'Bạn có chắc muốn huỷ bỏ cây trồng này không?';
+	@override String get carryOutPlantingDes => 'Bạn có chắc chắn muốn tiến hành trồng cây trồng này không?';
+	@override String get createCropDes => 'Bạn có chắc chắn muốn tạo hồ sơ cây trồng này không?';
+	@override String get updateCropDes => 'Bạn có chắc chắn muốn cập nhật hồ sơ cây trồng này không?';
 }
 
 // Path: myCropDetail
@@ -1238,6 +1250,7 @@ extension on _StringsEn {
 			case 'myCrops.perform': return 'Perform';
 			case 'myCrops.cancel': return 'Cancel';
 			case 'myCrops.haveNotCreateCrop': return 'You haven\'t created a crop profile yet!';
+			case 'myCrops.now': return 'Now';
 			case 'upsertMyCrop.title': return 'Create crop profile';
 			case 'upsertMyCrop.cropType.other': return 'Other';
 			case 'upsertMyCrop.cropType.otherHint': return 'Enter crop name (optional)';
@@ -1251,6 +1264,11 @@ extension on _StringsEn {
 			case 'upsertMyCrop.allTask': return 'ALL TASKS';
 			case 'upsertMyCrop.yourPreparation': return 'Your preparation (optional):';
 			case 'upsertMyCrop.suggestionTask': return 'Some suggestion tasks, you choose:';
+			case 'upsertMyCrop.updateCropProfile': return 'Update crop profile';
+			case 'upsertMyCrop.cancelDes': return 'Are you sure want to cancel this crop?';
+			case 'upsertMyCrop.carryOutPlantingDes': return 'Are you sure want to carry out planting this crop?';
+			case 'upsertMyCrop.createCropDes': return 'Are you sure you want to create this crop profile?';
+			case 'upsertMyCrop.updateCropDes': return 'Are you sure you want to update this crop?';
 			case 'myCropDetail.title': return 'My crop profile';
 			default: return null;
 		}
@@ -1391,6 +1409,7 @@ extension on _StringsVi {
 			case 'myCrops.perform': return 'Thực hiện';
 			case 'myCrops.cancel': return 'Xoá bỏ';
 			case 'myCrops.haveNotCreateCrop': return 'Bạn chưa tạo hồ sơ cây trồng!';
+			case 'myCrops.now': return 'Nay';
 			case 'upsertMyCrop.title': return 'Tạo hồ sơ cây trồng';
 			case 'upsertMyCrop.cropType.other': return 'Khác';
 			case 'upsertMyCrop.cropType.otherHint': return 'Nhập loại cây trồng (không bắt buộc)';
@@ -1404,6 +1423,11 @@ extension on _StringsVi {
 			case 'upsertMyCrop.allTask': return 'CÁC NHIỆM VỤ';
 			case 'upsertMyCrop.yourPreparation': return 'Sự chuẩn bị của bạn:';
 			case 'upsertMyCrop.suggestionTask': return 'Một số nhiệm vụ được gợi ý, bạn có thể chọn:';
+			case 'upsertMyCrop.updateCropProfile': return 'Cập nhật hồ sơ cây trồng';
+			case 'upsertMyCrop.cancelDes': return 'Bạn có chắc muốn huỷ bỏ cây trồng này không?';
+			case 'upsertMyCrop.carryOutPlantingDes': return 'Bạn có chắc chắn muốn tiến hành trồng cây trồng này không?';
+			case 'upsertMyCrop.createCropDes': return 'Bạn có chắc chắn muốn tạo hồ sơ cây trồng này không?';
+			case 'upsertMyCrop.updateCropDes': return 'Bạn có chắc chắn muốn cập nhật hồ sơ cây trồng này không?';
 			case 'myCropDetail.title': return 'Hồ sơ cây trồng của tôi';
 			default: return null;
 		}

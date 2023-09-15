@@ -188,7 +188,8 @@
     "complete": "Hoàn thành",
     "perform": "Thực hiện",
     "cancel": "Xoá bỏ",
-    "haveNotCreateCrop": "Bạn chưa tạo hồ sơ cây trồng!"
+    "haveNotCreateCrop": "Bạn chưa tạo hồ sơ cây trồng!",
+    "now": "Nay"
   },
   "upsertMyCrop": {
     "title": "Tạo hồ sơ cây trồng",
@@ -207,7 +208,12 @@
     "status": "Trạng thái",
     "allTask": "CÁC NHIỆM VỤ",
     "yourPreparation": "Sự chuẩn bị của bạn:",
-    "suggestionTask": "Một số nhiệm vụ được gợi ý, bạn có thể chọn:"
+    "suggestionTask": "Một số nhiệm vụ được gợi ý, bạn có thể chọn:",
+    "updateCropProfile": "Cập nhật hồ sơ cây trồng",
+    "cancelDes": "Bạn có chắc muốn huỷ bỏ cây trồng này không?",
+    "carryOutPlantingDes": "Bạn có chắc chắn muốn tiến hành trồng cây trồng này không?",
+    "createCropDes": "Bạn có chắc chắn muốn tạo hồ sơ cây trồng này không?",
+    "updateCropDes": "Bạn có chắc chắn muốn cập nhật hồ sơ cây trồng này không?"
   },
   "myCropDetail": {
     "title": "Hồ sơ cây trồng của tôi"

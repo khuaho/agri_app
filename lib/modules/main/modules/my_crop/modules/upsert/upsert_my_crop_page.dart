@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../../../global/data/models/app_event/app_event.dart';
 import '../../../../../../global/data/models/crop/crop.dart';
 import '../../../../../../global/data/models/crop_task/preparation.dart';
 import '../../../../../../global/data/models/crop_task/suggestion_task.dart';
@@ -14,7 +13,6 @@ import '../../../../../../global/enum/crop_status.dart';
 import '../../../../../../global/gen/strings.g.dart';
 import '../../../../../../global/themes/app_colors.dart';
 import '../../../../../../global/utils/app_mixin.dart';
-import '../../../../../../global/utils/riverpod/app_state.dart';
 import '../../../../../../global/widgets/dialogs/confirmation_dialog.dart';
 import '../../widgets/my_crop_overview.dart';
 import '../../widgets/my_crop_upsert_form.dart';
@@ -86,23 +84,22 @@ class _UpsertMyCropPageState extends ConsumerState<UpsertMyCropPage>
   }
 
   void handleCancelOrCompleted(CropStatus? status) {
+    final transl = Translations.of(context);
     if (formKey.currentState!.saveAndValidate()) {
-      final data = myCrop?.copyWith(cropStatus: status);
+      final data = myCrop?.copyWith(
+        cropStatus: status,
+        endDate: status == CropStatus.completed ? DateTime.now() : null,
+      );
       // ignore: unused_result
       showAlertDialog(
         context: context,
         builder: (ctx, child) => ConfirmationDialog(
-          title: 'Cập nhật hồ sơ cây trồng',
-          content:
-              'Bạn có chắc chắn muốn huỷ bỏ thực hiện cây trồng này không?',
+          title: transl.upsertMyCrop.updateCropProfile,
+          content: transl.upsertMyCrop.cancelDes,
           onTapOk: () async {
             await upsertProvider.upsertMyCrop(data!);
-            final state = ref.watch(upsertMyCropProvider(widget.id));
-            if (state.data != null) {
-              if (mounted) {
-                eventBus.fire(const CreateMyCropEvent());
-                context.popRoute();
-              }
+            if (mounted) {
+              context.popRoute();
             }
           },
         ),
@@ -111,26 +108,23 @@ class _UpsertMyCropPageState extends ConsumerState<UpsertMyCropPage>
   }
 
   void handleSubmit(CropStatus? status) {
+    final transl = Translations.of(context);
     if (formKey.currentState!.saveAndValidate()) {
       // ignore: unused_result
       showAlertDialog(
         context: context,
         builder: (ctx, child) => ConfirmationDialog(
           title: widget.id != null
-              ? 'Cập nhật hồ sơ cây trồng'
-              : 'Tạo hồ sơ cây trồng',
+              ? transl.upsertMyCrop.updateCropProfile
+              : transl.upsertMyCrop.title,
           content: widget.id != null
-              ? 'Bạn có chắc chắn muốn tiến hành thực hiện cây trồng này không?'
-              : 'Bạn có chắc chắn muốn tạo hồ sơ cây trồng này không?',
+              ? transl.upsertMyCrop.carryOutPlantingDes
+              : transl.upsertMyCrop.createCropDes,
           onTapOk: () async {
             final data = status == CropStatus.todo ? formData2 : formData;
             await upsertProvider.upsertMyCrop(data);
-            final state = ref.watch(upsertMyCropProvider(widget.id));
-            if (state.data != null) {
-              if (mounted) {
-                eventBus.fire(const CreateMyCropEvent());
-                context.popRoute();
-              }
+            if (mounted) {
+              context.popRoute();
             }
           },
         ),

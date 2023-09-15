@@ -188,7 +188,8 @@
     "complete": "Complete",
     "perform": "Perform",
     "cancel": "Cancel",
-    "haveNotCreateCrop": "You haven't created a crop profile yet!"
+    "haveNotCreateCrop": "You haven't created a crop profile yet!",
+    "now": "Now"
   },
   "upsertMyCrop": {
     "title": "Create crop profile",
@@ -207,7 +208,12 @@
     "status": "Status",
     "allTask": "ALL TASKS",
     "yourPreparation": "Your preparation (optional):",
-    "suggestionTask": "Some suggestion tasks, you choose:"
+    "suggestionTask": "Some suggestion tasks, you choose:",
+    "updateCropProfile": "Update crop profile",
+    "cancelDes": "Are you sure want to cancel this crop?",
+    "carryOutPlantingDes": "Are you sure want to carry out planting this crop?",
+    "createCropDes": "Are you sure you want to create this crop profile?",
+    "updateCropDes": "Are you sure you want to update this crop?"
   },
   "myCropDetail": {
     "title": "My crop profile"

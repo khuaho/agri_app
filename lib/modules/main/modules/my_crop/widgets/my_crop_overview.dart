@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../global/app_router/app_router.dart';
 import '../../../../../global/data/models/my_crop/my_crop.dart';
-import '../../../../../global/enum/crop_status.dart';
 import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
 import '../../../../../global/utils/app_icons.dart';
@@ -56,7 +55,7 @@ class MyCropOverview extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const CropStatusTile(cropStatus: CropStatus.todo),
+                    CropStatusTile(cropStatus: myCrop?.cropStatus),
                   ],
                 ),
                 Padding(
@@ -84,27 +83,6 @@ class MyCropOverview extends StatelessWidget {
                     ],
                   ),
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.only(top: 10),
-                //   child: Row(
-                //     children: [
-                //       const Icon(
-                //         AppIcons.leaf,
-                //         size: 14,
-                //         color: AppColors.primary,
-                //       ),
-                //       const SizedBox(width: 4),
-                //       Text(
-                //         transl.myCrops.type,
-                //         style: const TextStyle(
-                //           fontWeight: FontWeight.w500,
-                //         ),
-                //       ),
-                //       const SizedBox(width: 6),
-                //       const Text('Rau củ quả'),
-                //     ],
-                //   ),
-                // ),
                 ElevatedButton.icon(
                   onPressed: () {
                     if (myCrop?.otherCropType == false) {

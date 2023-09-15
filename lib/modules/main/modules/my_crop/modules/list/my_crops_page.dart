@@ -21,11 +21,18 @@ class MyCropsPage extends ConsumerStatefulWidget {
 }
 
 class _MyCropsPageState extends ConsumerState<MyCropsPage>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   late final tabController = TabController(length: 4, vsync: this);
 
   @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     final transl = Translations.of(context);
     final myCropExist = ref.watch(checkMyCropExistProvider);
 
@@ -110,7 +117,7 @@ class _MyCropsPageState extends ConsumerState<MyCropsPage>
         error: (err, _) => Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text('Error: $err'),
+            child: Text('${transl.error.error}: $err'),
           ),
         ),
         loading: () => const Center(
@@ -119,4 +126,7 @@ class _MyCropsPageState extends ConsumerState<MyCropsPage>
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

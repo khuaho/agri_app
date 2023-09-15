@@ -1,7 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../../../../global/data/models/app_event/app_event.dart';
 import '../../../../../../../global/data/models/my_crop/my_crop.dart';
 import '../../../../../../../global/data/repositories/my_crop_repository.dart';
+import '../../../../../../../global/utils/app_mixin.dart';
 import '../../../../../../../global/utils/riverpod/app_state.dart';
 
 final upsertMyCropProvider = StateNotifierProvider.family<UpsertMyCropProvider,
@@ -9,7 +11,8 @@ final upsertMyCropProvider = StateNotifierProvider.family<UpsertMyCropProvider,
   UpsertMyCropProvider.new,
 );
 
-class UpsertMyCropProvider extends StateNotifier<AppState<MyCrop?>> {
+class UpsertMyCropProvider extends StateNotifier<AppState<MyCrop?>>
+    with AppMixin {
   UpsertMyCropProvider(this.ref, this.id) : super(AppState.loading()) {
     fetchMyCrop();
   }
@@ -28,7 +31,6 @@ class UpsertMyCropProvider extends StateNotifier<AppState<MyCrop?>> {
   }
 
   Future<void> upsertMyCrop(MyCrop data) async {
-    state = AppState.loading();
     final functionRepository = data.uid != null
         ? myCropRepository.updateMyCrop(data)
         : myCropRepository.addMyCrop(data);
@@ -37,6 +39,7 @@ class UpsertMyCropProvider extends StateNotifier<AppState<MyCrop?>> {
       (either) => either.fold(
         (l) => AppState.error(l),
         (r) {
+          eventBus.fire(const CreateMyCropEvent());
           return AppState.data(r);
         },
       ),

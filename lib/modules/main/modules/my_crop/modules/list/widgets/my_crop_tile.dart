@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../../../global/app_router/app_router.dart';
-import '../../../../../../../global/data/models/app_event/app_event.dart';
 import '../../../../../../../global/data/models/my_crop/my_crop.dart';
 import '../../../../../../../global/enum/crop_status.dart';
 import '../../../../../../../global/extensions/date_time_ext.dart';
@@ -13,7 +12,6 @@ import '../../../../../../../global/themes/app_colors.dart';
 import '../../../../../../../global/utils/app_icons.dart';
 import '../../../../../../../global/utils/app_mixin.dart';
 import '../../../../../../../global/utils/constants.dart';
-import '../../../../../../../global/utils/riverpod/app_state.dart';
 import '../../../../../../../global/widgets/crop_status_tile.dart';
 import '../../../../../../../global/widgets/dialogs/confirmation_dialog.dart';
 import '../../../../../../../global/widgets/shadow_wrapper.dart';
@@ -37,21 +35,19 @@ class _MyCropTileState extends ConsumerState<MyCropTile> with AppMixin {
       ref.read(upsertMyCropProvider(widget.myCrop.uid).notifier);
 
   void handleSubmit(CropStatus? status) {
-    final data = widget.myCrop.copyWith(cropStatus: status);
+    final transl = Translations.of(context);
+    final data = widget.myCrop.copyWith(
+      cropStatus: status,
+      endDate: status == CropStatus.completed ? DateTime.now() : null,
+    );
     // ignore: unused_result
     showAlertDialog(
       context: context,
       builder: (ctx, child) => ConfirmationDialog(
-        title: 'Cập nhật hồ sơ cây trồng',
-        content: 'Bạn có chắc chắn muốn cập nhật cây trồng này không?',
+        title: transl.upsertMyCrop.updateCropProfile,
+        content: transl.upsertMyCrop.updateCropDes,
         onTapOk: () async {
           await upsertProvider.upsertMyCrop(data);
-          final state = ref.watch(upsertMyCropProvider(widget.myCrop.uid));
-          if (state.data != null) {
-            if (mounted) {
-              eventBus.fire(const CreateMyCropEvent());
-            }
-          }
         },
       ),
     );
@@ -64,8 +60,9 @@ class _MyCropTileState extends ConsumerState<MyCropTile> with AppMixin {
     bool isEn = LocaleSettings.currentLocale == AppLocale.en;
 
     return GestureDetector(
-      onTap: () {
-        context.pushRoute(UpsertMyCropRoute(id: widget.myCrop.uid!));
+      onTap: () async {
+        await context.pushRoute(UpsertMyCropRoute(id: widget.myCrop.uid!));
+        if (!mounted) return;
       },
       child: ShadowWrapper(
         margin: const EdgeInsets.symmetric(vertical: 8),
@@ -131,8 +128,7 @@ class _MyCropTileState extends ConsumerState<MyCropTile> with AppMixin {
                         ],
                       ),
                     ),
-                    if (widget.myCrop.cropStatus == CropStatus.inprogress)
-                      const SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     if (widget.myCrop.cropStatus != CropStatus.todo)
                       Expanded(
                         child: Row(
@@ -146,7 +142,7 @@ class _MyCropTileState extends ConsumerState<MyCropTile> with AppMixin {
                             Text(transl.myCrops.date),
                             const SizedBox(width: 6),
                             Text(
-                              '${widget.myCrop.startDate?.formatDate()} - ${widget.myCrop.endDate?.formatDate()} ',
+                              '${widget.myCrop.startDate?.formatDate()} - ${widget.myCrop.endDate?.formatDate() ?? transl.myCrops.now}',
                             ),
                           ],
                         ),
