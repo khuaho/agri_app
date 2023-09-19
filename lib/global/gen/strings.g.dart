@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 308 (154 per locale)
+/// Strings: 316 (158 per locale)
 ///
-/// Built on 2023-09-15 at 07:28 UTC
+/// Built on 2023-09-18 at 08:22 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -313,6 +313,8 @@ class _StringsSettingsEn {
 	// Translations
 	String get title => 'Settings';
 	String get logout => 'Logout';
+	late final _StringsSettingsLanguageEn language = _StringsSettingsLanguageEn._(_root);
+	String get generalAmenities => 'General amenities';
 }
 
 // Path: profile
@@ -569,6 +571,18 @@ class _StringsAuthConfirmPasswordEn {
 	String get notMatch => 'Password is not match';
 }
 
+// Path: settings.language
+class _StringsSettingsLanguageEn {
+	_StringsSettingsLanguageEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Language';
+	String get english => 'English';
+	String get vietnamese => 'Vietnamese';
+}
+
 // Path: profile.gender
 class _StringsProfileGenderEn {
 	_StringsProfileGenderEn._(this._root);
@@ -820,6 +834,8 @@ class _StringsSettingsVi implements _StringsSettingsEn {
 	// Translations
 	@override String get title => 'Cài đặt';
 	@override String get logout => 'Đăng xuất';
+	@override late final _StringsSettingsLanguageVi language = _StringsSettingsLanguageVi._(_root);
+	@override String get generalAmenities => 'Tiện ích chung';
 }
 
 // Path: profile
@@ -1076,6 +1092,18 @@ class _StringsAuthConfirmPasswordVi implements _StringsAuthConfirmPasswordEn {
 	@override String get notMatch => 'Mật khẩu không khớp';
 }
 
+// Path: settings.language
+class _StringsSettingsLanguageVi implements _StringsSettingsLanguageEn {
+	_StringsSettingsLanguageVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Ngôn ngữ';
+	@override String get english => 'Tiếng Anh';
+	@override String get vietnamese => 'Tiếng Việt';
+}
+
 // Path: profile.gender
 class _StringsProfileGenderVi implements _StringsProfileGenderEn {
 	_StringsProfileGenderVi._(this._root);
@@ -1257,6 +1285,10 @@ extension on _StringsEn {
 			case 'auth.confirmPassword.notMatch': return 'Password is not match';
 			case 'settings.title': return 'Settings';
 			case 'settings.logout': return 'Logout';
+			case 'settings.language.title': return 'Language';
+			case 'settings.language.english': return 'English';
+			case 'settings.language.vietnamese': return 'Vietnamese';
+			case 'settings.generalAmenities': return 'General amenities';
 			case 'profile.title': return 'Profile';
 			case 'profile.gender.label': return 'Gender';
 			case 'profile.gender.hint': return 'Select gender';
@@ -1419,6 +1451,10 @@ extension on _StringsVi {
 			case 'auth.confirmPassword.notMatch': return 'Mật khẩu không khớp';
 			case 'settings.title': return 'Cài đặt';
 			case 'settings.logout': return 'Đăng xuất';
+			case 'settings.language.title': return 'Ngôn ngữ';
+			case 'settings.language.english': return 'Tiếng Anh';
+			case 'settings.language.vietnamese': return 'Tiếng Việt';
+			case 'settings.generalAmenities': return 'Tiện ích chung';
 			case 'profile.title': return 'Thông tin cá nhân';
 			case 'profile.gender.label': return 'Giới tính';
 			case 'profile.gender.hint': return 'Chọn giới tính';

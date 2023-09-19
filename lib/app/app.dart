@@ -1,25 +1,35 @@
+import 'providers/app_settings_provider.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../flavors.dart';
 import '../global/app_router/app_router.dart';
+import '../global/extensions/app_locale_ext.dart';
 import '../global/gen/strings.g.dart';
 import '../global/themes/app_themes.dart';
 
-class MyApp extends StatefulWidget {
+class MyApp extends ConsumerStatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  ConsumerState<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
+class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
   final appRouter = AppRouter();
+
   @override
   void initState() {
-    // TODO: implement initState
+    initLocale();
     super.initState();
+  }
+
+  void initLocale() {
+    final appSettingsController = ref.read(appSettingProvider.notifier);
+    final currentLocale = ref.read(appSettingProvider).locale;
+    appSettingsController.changeLocale(currentLocale);
   }
 
   // @override
@@ -43,10 +53,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     return MaterialApp.router(
       title: F.title,
       debugShowCheckedModeBanner: false,
-      // routerDelegate: appRouter.delegate(),
-      // routeInformationParser: appRouter.defaultRouteParser(),
       routerConfig: appRouter.config(),
-      locale: TranslationProvider.of(context).flutterLocale, // use provider
+      locale: ref.watch(appSettingProvider).locale.toLocale(),
       supportedLocales: AppLocaleUtils.supportedLocales,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,

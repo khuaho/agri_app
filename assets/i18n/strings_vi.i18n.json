@@ -159,7 +159,13 @@
   },
   "settings": {
     "title": "Cài đặt",
-    "logout": "Đăng xuất"
+    "logout": "Đăng xuất",
+    "language": {
+      "title": "Ngôn ngữ",
+      "english": "Tiếng Anh",
+      "vietnamese": "Tiếng Việt"
+    },
+    "generalAmenities": "Tiện ích chung"
   },
   "profile": {
     "title": "Thông tin cá nhân",

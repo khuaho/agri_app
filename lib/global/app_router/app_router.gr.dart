@@ -67,16 +67,15 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const CropsPage(),
       );
     },
-    LoginRoute.name: (routeData) {
+    UpsertMyCropRoute.name: (routeData) {
+      final args = routeData.argsAs<UpsertMyCropRouteArgs>(
+          orElse: () => const UpsertMyCropRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const LoginPage(),
-      );
-    },
-    OnboardingRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const OnboardingPage(),
+        child: UpsertMyCropPage(
+          key: args.key,
+          id: args.id,
+        ),
       );
     },
     MyCropDetailRoute.name: (routeData) {
@@ -95,15 +94,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MyCropsPage(),
       );
     },
-    UpsertMyCropRoute.name: (routeData) {
-      final args = routeData.argsAs<UpsertMyCropRouteArgs>(
-          orElse: () => const UpsertMyCropRouteArgs());
+    LoginRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: UpsertMyCropPage(
-          key: args.key,
-          id: args.id,
-        ),
+        child: const LoginPage(),
+      );
+    },
+    OnboardingRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const OnboardingPage(),
       );
     },
   };
@@ -246,31 +246,41 @@ class CropsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [LoginPage]
-class LoginRoute extends PageRouteInfo<void> {
-  const LoginRoute({List<PageRouteInfo>? children})
-      : super(
-          LoginRoute.name,
+/// [UpsertMyCropPage]
+class UpsertMyCropRoute extends PageRouteInfo<UpsertMyCropRouteArgs> {
+  UpsertMyCropRoute({
+    Key? key,
+    String? id,
+    List<PageRouteInfo>? children,
+  }) : super(
+          UpsertMyCropRoute.name,
+          args: UpsertMyCropRouteArgs(
+            key: key,
+            id: id,
+          ),
           initialChildren: children,
         );
 
-  static const String name = 'LoginRoute';
+  static const String name = 'UpsertMyCropRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<UpsertMyCropRouteArgs> page =
+      PageInfo<UpsertMyCropRouteArgs>(name);
 }
 
-/// generated route for
-/// [OnboardingPage]
-class OnboardingRoute extends PageRouteInfo<void> {
-  const OnboardingRoute({List<PageRouteInfo>? children})
-      : super(
-          OnboardingRoute.name,
-          initialChildren: children,
-        );
+class UpsertMyCropRouteArgs {
+  const UpsertMyCropRouteArgs({
+    this.key,
+    this.id,
+  });
 
-  static const String name = 'OnboardingRoute';
+  final Key? key;
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  final String? id;
+
+  @override
+  String toString() {
+    return 'UpsertMyCropRouteArgs{key: $key, id: $id}';
+  }
 }
 
 /// generated route for
@@ -326,39 +336,29 @@ class MyCropsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [UpsertMyCropPage]
-class UpsertMyCropRoute extends PageRouteInfo<UpsertMyCropRouteArgs> {
-  UpsertMyCropRoute({
-    Key? key,
-    String? id,
-    List<PageRouteInfo>? children,
-  }) : super(
-          UpsertMyCropRoute.name,
-          args: UpsertMyCropRouteArgs(
-            key: key,
-            id: id,
-          ),
+/// [LoginPage]
+class LoginRoute extends PageRouteInfo<void> {
+  const LoginRoute({List<PageRouteInfo>? children})
+      : super(
+          LoginRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'UpsertMyCropRoute';
+  static const String name = 'LoginRoute';
 
-  static const PageInfo<UpsertMyCropRouteArgs> page =
-      PageInfo<UpsertMyCropRouteArgs>(name);
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
-class UpsertMyCropRouteArgs {
-  const UpsertMyCropRouteArgs({
-    this.key,
-    this.id,
-  });
+/// generated route for
+/// [OnboardingPage]
+class OnboardingRoute extends PageRouteInfo<void> {
+  const OnboardingRoute({List<PageRouteInfo>? children})
+      : super(
+          OnboardingRoute.name,
+          initialChildren: children,
+        );
 
-  final Key? key;
+  static const String name = 'OnboardingRoute';
 
-  final String? id;
-
-  @override
-  String toString() {
-    return 'UpsertMyCropRouteArgs{key: $key, id: $id}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

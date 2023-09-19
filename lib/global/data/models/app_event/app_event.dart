@@ -6,4 +6,5 @@ part 'app_event.freezed.dart';
 class AppEvent with _$AppEvent {
   const factory AppEvent.updateUser() = UpdateUserEvent;
   const factory AppEvent.createMyCrop() = CreateMyCropEvent;
+  const factory AppEvent.changeLanguage() = ChangeLanguageEvent;
 }

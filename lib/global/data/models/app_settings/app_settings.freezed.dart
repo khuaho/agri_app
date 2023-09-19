@@ -20,8 +20,9 @@ AppSettings _$AppSettingsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppSettings {
-// @Default(AppLocale.auto) AppLocale locale,
-// @Default(AppTheme.auto) AppTheme theme,
+  AppLocale get locale => throw _privateConstructorUsedError;
+  AppTheme get theme => throw _privateConstructorUsedError;
+  Language get weatherLanguage => throw _privateConstructorUsedError;
   bool get isFirstLaunch => throw _privateConstructorUsedError;
   double get lat => throw _privateConstructorUsedError;
   double get lon => throw _privateConstructorUsedError;
@@ -38,7 +39,13 @@ abstract class $AppSettingsCopyWith<$Res> {
           AppSettings value, $Res Function(AppSettings) then) =
       _$AppSettingsCopyWithImpl<$Res, AppSettings>;
   @useResult
-  $Res call({bool isFirstLaunch, double lat, double lon});
+  $Res call(
+      {AppLocale locale,
+      AppTheme theme,
+      Language weatherLanguage,
+      bool isFirstLaunch,
+      double lat,
+      double lon});
 }
 
 /// @nodoc
@@ -54,11 +61,26 @@ class _$AppSettingsCopyWithImpl<$Res, $Val extends AppSettings>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? locale = null,
+    Object? theme = null,
+    Object? weatherLanguage = null,
     Object? isFirstLaunch = null,
     Object? lat = null,
     Object? lon = null,
   }) {
     return _then(_value.copyWith(
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as AppLocale,
+      theme: null == theme
+          ? _value.theme
+          : theme // ignore: cast_nullable_to_non_nullable
+              as AppTheme,
+      weatherLanguage: null == weatherLanguage
+          ? _value.weatherLanguage
+          : weatherLanguage // ignore: cast_nullable_to_non_nullable
+              as Language,
       isFirstLaunch: null == isFirstLaunch
           ? _value.isFirstLaunch
           : isFirstLaunch // ignore: cast_nullable_to_non_nullable
@@ -83,7 +105,13 @@ abstract class _$$_AppSettingsCopyWith<$Res>
       __$$_AppSettingsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isFirstLaunch, double lat, double lon});
+  $Res call(
+      {AppLocale locale,
+      AppTheme theme,
+      Language weatherLanguage,
+      bool isFirstLaunch,
+      double lat,
+      double lon});
 }
 
 /// @nodoc
@@ -97,11 +125,26 @@ class __$$_AppSettingsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? locale = null,
+    Object? theme = null,
+    Object? weatherLanguage = null,
     Object? isFirstLaunch = null,
     Object? lat = null,
     Object? lon = null,
   }) {
     return _then(_$_AppSettings(
+      null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as AppLocale,
+      null == theme
+          ? _value.theme
+          : theme // ignore: cast_nullable_to_non_nullable
+              as AppTheme,
+      null == weatherLanguage
+          ? _value.weatherLanguage
+          : weatherLanguage // ignore: cast_nullable_to_non_nullable
+              as Language,
       null == isFirstLaunch
           ? _value.isFirstLaunch
           : isFirstLaunch // ignore: cast_nullable_to_non_nullable
@@ -121,13 +164,26 @@ class __$$_AppSettingsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AppSettings implements _AppSettings {
-  const _$_AppSettings([this.isFirstLaunch = true, this.lat = 0, this.lon = 0]);
+  const _$_AppSettings(
+      [this.locale = AppLocale.vi,
+      this.theme = AppTheme.auto,
+      this.weatherLanguage = Language.VIETNAMESE,
+      this.isFirstLaunch = true,
+      this.lat = 0,
+      this.lon = 0]);
 
   factory _$_AppSettings.fromJson(Map<String, dynamic> json) =>
       _$$_AppSettingsFromJson(json);
 
-// @Default(AppLocale.auto) AppLocale locale,
-// @Default(AppTheme.auto) AppTheme theme,
+  @override
+  @JsonKey()
+  final AppLocale locale;
+  @override
+  @JsonKey()
+  final AppTheme theme;
+  @override
+  @JsonKey()
+  final Language weatherLanguage;
   @override
   @JsonKey()
   final bool isFirstLaunch;
@@ -140,7 +196,7 @@ class _$_AppSettings implements _AppSettings {
 
   @override
   String toString() {
-    return 'AppSettings(isFirstLaunch: $isFirstLaunch, lat: $lat, lon: $lon)';
+    return 'AppSettings(locale: $locale, theme: $theme, weatherLanguage: $weatherLanguage, isFirstLaunch: $isFirstLaunch, lat: $lat, lon: $lon)';
   }
 
   @override
@@ -148,6 +204,10 @@ class _$_AppSettings implements _AppSettings {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AppSettings &&
+            (identical(other.locale, locale) || other.locale == locale) &&
+            (identical(other.theme, theme) || other.theme == theme) &&
+            (identical(other.weatherLanguage, weatherLanguage) ||
+                other.weatherLanguage == weatherLanguage) &&
             (identical(other.isFirstLaunch, isFirstLaunch) ||
                 other.isFirstLaunch == isFirstLaunch) &&
             (identical(other.lat, lat) || other.lat == lat) &&
@@ -156,7 +216,8 @@ class _$_AppSettings implements _AppSettings {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isFirstLaunch, lat, lon);
+  int get hashCode => Object.hash(
+      runtimeType, locale, theme, weatherLanguage, isFirstLaunch, lat, lon);
 
   @JsonKey(ignore: true)
   @override
@@ -174,15 +235,23 @@ class _$_AppSettings implements _AppSettings {
 
 abstract class _AppSettings implements AppSettings {
   const factory _AppSettings(
-      [final bool isFirstLaunch,
+      [final AppLocale locale,
+      final AppTheme theme,
+      final Language weatherLanguage,
+      final bool isFirstLaunch,
       final double lat,
       final double lon]) = _$_AppSettings;
 
   factory _AppSettings.fromJson(Map<String, dynamic> json) =
       _$_AppSettings.fromJson;
 
-  @override // @Default(AppLocale.auto) AppLocale locale,
-// @Default(AppTheme.auto) AppTheme theme,
+  @override
+  AppLocale get locale;
+  @override
+  AppTheme get theme;
+  @override
+  Language get weatherLanguage;
+  @override
   bool get isFirstLaunch;
   @override
   double get lat;

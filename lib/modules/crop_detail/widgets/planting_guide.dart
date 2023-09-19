@@ -45,18 +45,19 @@ class PlantingGuide extends StatelessWidget {
           style: titleStyle,
         ),
         if (landForPlating != null) _contentList(landForPlating),
-        const SizedBox(height: 4),
-        Text(
-          '* ${transl.detailCrop.plantingPot}',
-          style: titleStyle,
-        ),
-        if (crop?.plantingPotEn != null)
+        if (crop?.plantingPotEn != null) ...[
+          const SizedBox(height: 4),
+          Text(
+            '* ${transl.detailCrop.plantingPot}',
+            style: titleStyle,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 4),
             child: Text(
               isEn ? crop?.plantingPotEn ?? '' : crop?.plantingPotVi ?? '',
             ),
           ),
+        ],
         const SizedBox(height: 4),
         Text(
           '* ${transl.detailCrop.seedIncubation}',

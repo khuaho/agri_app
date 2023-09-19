@@ -20,18 +20,21 @@ mixin _$AppEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() updateUser,
     required TResult Function() createMyCrop,
+    required TResult Function() changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? updateUser,
     TResult? Function()? createMyCrop,
+    TResult? Function()? changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? updateUser,
     TResult Function()? createMyCrop,
+    TResult Function()? changeLanguage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$AppEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(UpdateUserEvent value) updateUser,
     required TResult Function(CreateMyCropEvent value) createMyCrop,
+    required TResult Function(ChangeLanguageEvent value) changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdateUserEvent value)? updateUser,
     TResult? Function(CreateMyCropEvent value)? createMyCrop,
+    TResult? Function(ChangeLanguageEvent value)? changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdateUserEvent value)? updateUser,
     TResult Function(CreateMyCropEvent value)? createMyCrop,
+    TResult Function(ChangeLanguageEvent value)? changeLanguage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() updateUser,
     required TResult Function() createMyCrop,
+    required TResult Function() changeLanguage,
   }) {
     return updateUser();
   }
@@ -122,6 +129,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? updateUser,
     TResult? Function()? createMyCrop,
+    TResult? Function()? changeLanguage,
   }) {
     return updateUser?.call();
   }
@@ -131,6 +139,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? updateUser,
     TResult Function()? createMyCrop,
+    TResult Function()? changeLanguage,
     required TResult orElse(),
   }) {
     if (updateUser != null) {
@@ -144,6 +153,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(UpdateUserEvent value) updateUser,
     required TResult Function(CreateMyCropEvent value) createMyCrop,
+    required TResult Function(ChangeLanguageEvent value) changeLanguage,
   }) {
     return updateUser(this);
   }
@@ -153,6 +163,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdateUserEvent value)? updateUser,
     TResult? Function(CreateMyCropEvent value)? createMyCrop,
+    TResult? Function(ChangeLanguageEvent value)? changeLanguage,
   }) {
     return updateUser?.call(this);
   }
@@ -162,6 +173,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdateUserEvent value)? updateUser,
     TResult Function(CreateMyCropEvent value)? createMyCrop,
+    TResult Function(ChangeLanguageEvent value)? changeLanguage,
     required TResult orElse(),
   }) {
     if (updateUser != null) {
@@ -215,6 +227,7 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() updateUser,
     required TResult Function() createMyCrop,
+    required TResult Function() changeLanguage,
   }) {
     return createMyCrop();
   }
@@ -224,6 +237,7 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? updateUser,
     TResult? Function()? createMyCrop,
+    TResult? Function()? changeLanguage,
   }) {
     return createMyCrop?.call();
   }
@@ -233,6 +247,7 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? updateUser,
     TResult Function()? createMyCrop,
+    TResult Function()? changeLanguage,
     required TResult orElse(),
   }) {
     if (createMyCrop != null) {
@@ -246,6 +261,7 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(UpdateUserEvent value) updateUser,
     required TResult Function(CreateMyCropEvent value) createMyCrop,
+    required TResult Function(ChangeLanguageEvent value) changeLanguage,
   }) {
     return createMyCrop(this);
   }
@@ -255,6 +271,7 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdateUserEvent value)? updateUser,
     TResult? Function(CreateMyCropEvent value)? createMyCrop,
+    TResult? Function(ChangeLanguageEvent value)? changeLanguage,
   }) {
     return createMyCrop?.call(this);
   }
@@ -264,6 +281,7 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdateUserEvent value)? updateUser,
     TResult Function(CreateMyCropEvent value)? createMyCrop,
+    TResult Function(ChangeLanguageEvent value)? changeLanguage,
     required TResult orElse(),
   }) {
     if (createMyCrop != null) {
@@ -275,4 +293,112 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
 
 abstract class CreateMyCropEvent implements AppEvent {
   const factory CreateMyCropEvent() = _$CreateMyCropEvent;
+}
+
+/// @nodoc
+abstract class _$$ChangeLanguageEventCopyWith<$Res> {
+  factory _$$ChangeLanguageEventCopyWith(_$ChangeLanguageEvent value,
+          $Res Function(_$ChangeLanguageEvent) then) =
+      __$$ChangeLanguageEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeLanguageEventCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$ChangeLanguageEvent>
+    implements _$$ChangeLanguageEventCopyWith<$Res> {
+  __$$ChangeLanguageEventCopyWithImpl(
+      _$ChangeLanguageEvent _value, $Res Function(_$ChangeLanguageEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ChangeLanguageEvent implements ChangeLanguageEvent {
+  const _$ChangeLanguageEvent();
+
+  @override
+  String toString() {
+    return 'AppEvent.changeLanguage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ChangeLanguageEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updateUser,
+    required TResult Function() createMyCrop,
+    required TResult Function() changeLanguage,
+  }) {
+    return changeLanguage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updateUser,
+    TResult? Function()? createMyCrop,
+    TResult? Function()? changeLanguage,
+  }) {
+    return changeLanguage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updateUser,
+    TResult Function()? createMyCrop,
+    TResult Function()? changeLanguage,
+    required TResult orElse(),
+  }) {
+    if (changeLanguage != null) {
+      return changeLanguage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdateUserEvent value) updateUser,
+    required TResult Function(CreateMyCropEvent value) createMyCrop,
+    required TResult Function(ChangeLanguageEvent value) changeLanguage,
+  }) {
+    return changeLanguage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdateUserEvent value)? updateUser,
+    TResult? Function(CreateMyCropEvent value)? createMyCrop,
+    TResult? Function(ChangeLanguageEvent value)? changeLanguage,
+  }) {
+    return changeLanguage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdateUserEvent value)? updateUser,
+    TResult Function(CreateMyCropEvent value)? createMyCrop,
+    TResult Function(ChangeLanguageEvent value)? changeLanguage,
+    required TResult orElse(),
+  }) {
+    if (changeLanguage != null) {
+      return changeLanguage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeLanguageEvent implements AppEvent {
+  const factory ChangeLanguageEvent() = _$ChangeLanguageEvent;
 }
