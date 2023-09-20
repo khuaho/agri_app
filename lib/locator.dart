@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'firebase_options.dart';
+import 'firebase/firebase_options.dart';
 import 'global/utils/constants.dart';
 
 GetIt locator = GetIt.instance;

@@ -1,3 +1,7 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
+
+import '../firebase/firebase_config.dart';
 import 'providers/app_settings_provider.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -23,6 +27,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
   @override
   void initState() {
     initLocale();
+    initFirebaseMessaging();
     super.initState();
   }
 
@@ -32,21 +37,26 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
     appSettingsController.changeLocale(currentLocale);
   }
 
-  // @override
-  // void didChangeAppLifecycleState(AppLifecycleState state) async {
-  //   super.didChangeAppLifecycleState(state);
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    switch (state) {
+      case AppLifecycleState.resumed:
+        print('resumed');
+        // context.read<AppSettingsProvider>().fetch();
+        // if (authProvider.isAuth) {
+        //   handleUpsertInstallation();
+        // }
+        break;
+      default:
+    }
+  }
 
-  //   switch (state) {
-  //     case AppLifecycleState.resumed:
-  //       print('resumed');
-  //       if (await Permission.location.serviceStatus.isDisabled) {
-  //         if (!mounted) return;
-  //         await GeolocatorService.checkPermission(context);
-  //       }
-  //       break;
-  //     default:
-  //   }
-  // }
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,5 +77,69 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
         child: child ?? const SizedBox(),
       ),
     );
+  }
+
+  void initFirebaseMessaging() async {
+    final settingFirebase = await FirebaseConfig.requestPermission();
+    if (settingFirebase.authorizationStatus == AuthorizationStatus.authorized) {
+      final token = await FirebaseConfig.getFirebaseMessagingToken();
+      print('token: $token');
+
+      if (!!kIsWeb) {
+        await FirebaseConfig.initLocalNotifications();
+      }
+
+      FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+        RemoteNotification? notification = message.notification;
+        if (notification != null && !kIsWeb) {
+          // print('notification: $notification');
+          FirebaseConfig.showFlutterNotification(message);
+          // refreshTotalNotifyUnRead();
+        }
+      });
+
+      FirebaseMessaging.onBackgroundMessage(
+        handleNotifyOnBackgroundAndQuitApp,
+      );
+
+      // handle message open app when app is running in background
+      FirebaseMessaging.onMessageOpenedApp.listen(
+        handleNotifyOnBackgroundAndQuitApp,
+      );
+
+      // handle message open app when app terminated
+      FirebaseMessaging.instance
+          .getInitialMessage()
+          .then((RemoteMessage? remoteMessage) {
+        if (remoteMessage != null) {
+          handleNotifyOnBackgroundAndQuitApp(remoteMessage);
+        }
+      });
+    } else if (settingFirebase.authorizationStatus ==
+        AuthorizationStatus.provisional) {
+      debugPrint('User granted provisional permission');
+    } else {
+      debugPrint('User declined or has not accepted permission');
+    }
+  }
+
+  Future<void> handleNotifyOnBackgroundAndQuitApp(RemoteMessage message) async {
+    if (message.data.isNotEmpty && !kIsWeb) {
+      final data = message.data;
+      print('data: $data');
+      print('Title: ${message.notification?.title}');
+      print('Body: ${message.notification?.body}');
+
+      // final notify = jsonDecode(data['notify']);
+      // * Handle others Cases with "typeName";
+      // _appRouter.push(HomeRoute(children: [
+      //   RemotesRoute(
+      //     children: [
+      //       RemoteDetailsRoute(id: notify['remoteId']),
+      //     ],
+      //   ),
+      // ]));
+      // handleReadNotifications(data['notifyId'] as String);
+    }
   }
 }

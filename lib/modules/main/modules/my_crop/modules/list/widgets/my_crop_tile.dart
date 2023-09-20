@@ -141,8 +141,11 @@ class _MyCropTileState extends ConsumerState<MyCropTile> with AppMixin {
                             const SizedBox(width: 4),
                             Text(transl.myCrops.date),
                             const SizedBox(width: 6),
-                            Text(
-                              '${widget.myCrop.startDate?.formatDate()} - ${widget.myCrop.endDate?.formatDate() ?? transl.myCrops.now}',
+                            Expanded(
+                              child: Text(
+                                '${widget.myCrop.startDate?.formatDate()} - ${widget.myCrop.endDate?.formatDate() ?? transl.myCrops.now}',
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
                           ],
                         ),
@@ -177,8 +180,10 @@ class _MyCropTileState extends ConsumerState<MyCropTile> with AppMixin {
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                          minimumSize:
-                                              const Size(double.infinity, 30),
+                                          minimumSize: const Size(
+                                            double.infinity,
+                                            30,
+                                          ),
                                         ),
                                         onPressed: () =>
                                             handleSubmit(CropStatus.cancel),

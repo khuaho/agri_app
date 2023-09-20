@@ -67,6 +67,8 @@ dependencies:
   shared_preferences: ^2.2.0
   adaptive_dialog: ^1.9.0+2
   liquid_pull_to_refresh: ^3.0.1
+  firebase_messaging: ^14.6.7
+  flutter_local_notifications: ^15.1.1
 
 
 dev_dependencies:

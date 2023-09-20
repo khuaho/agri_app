@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 
 import 'app/app.dart';
 import 'app/providers/app_dir_provider.dart';
+import 'firebase/firebase_config.dart';
 import 'flavors.dart';
 import 'global/gen/strings.g.dart';
 import 'locator.dart';
@@ -19,7 +20,7 @@ void buildFlavor(Flavor flavor) async {
   await setupLocator();
   // await dotenv.loadEnvVariables(flavor);
   LocaleSettings.useDeviceLocale();
-
+  FirebaseConfig.setupFlutterNotifications();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]).then(
