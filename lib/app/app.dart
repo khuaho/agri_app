@@ -1,3 +1,4 @@
+import 'package:app_settings/app_settings.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 
@@ -43,10 +44,6 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
     switch (state) {
       case AppLifecycleState.resumed:
         print('resumed');
-        // context.read<AppSettingsProvider>().fetch();
-        // if (authProvider.isAuth) {
-        //   handleUpsertInstallation();
-        // }
         break;
       default:
     }
@@ -82,20 +79,24 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
   void initFirebaseMessaging() async {
     final settingFirebase = await FirebaseConfig.requestPermission();
     if (settingFirebase.authorizationStatus == AuthorizationStatus.authorized) {
-      final token = await FirebaseConfig.getFirebaseMessagingToken();
-      print('token: $token');
+      // final token = await FirebaseConfig.getFirebaseMessagingToken();
+      // print('token: $token');
 
-      if (!!kIsWeb) {
+      if (!kIsWeb) {
         await FirebaseConfig.initLocalNotifications();
       }
 
       FirebaseMessaging.onMessage.listen((RemoteMessage message) {
         RemoteNotification? notification = message.notification;
-        if (notification != null && !kIsWeb) {
-          // print('notification: $notification');
-          FirebaseConfig.showFlutterNotification(message);
-          // refreshTotalNotifyUnRead();
-        }
+        print('data: ${message.data}');
+        print(notification?.title);
+        print(notification?.body);
+        // if (Platform.isAndroid) {
+        //   // FirebaseConfig.localNotifications(context, message);
+        //   FirebaseConfig.showFlutterNotification(message);
+        // } else {
+        FirebaseConfig.showFlutterNotification(message);
+        // }
       });
 
       FirebaseMessaging.onBackgroundMessage(
@@ -112,6 +113,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
           .getInitialMessage()
           .then((RemoteMessage? remoteMessage) {
         if (remoteMessage != null) {
+          print('hello');
           handleNotifyOnBackgroundAndQuitApp(remoteMessage);
         }
       });
@@ -120,6 +122,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
       debugPrint('User granted provisional permission');
     } else {
       debugPrint('User declined or has not accepted permission');
+      AppSettings.openAppSettings(type: AppSettingsType.notification);
     }
   }
 

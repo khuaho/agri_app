@@ -12,6 +12,7 @@ import '../../modules/register/register_page.dart';
 import '../../modules/splash/splash_page.dart';
 import '../../modules/crop_detail/crop_detail_page.dart';
 import '../../modules/profile/profile_page.dart';
+import '../../modules/notifications/notifications_page.dart';
 import '../../modules/main/modules/my_crop/modules/upsert/upsert_my_crop_page.dart';
 import '../../modules/main/modules/my_crop/modules/detail/my_crop_detail_page.dart';
 import 'auth_guard.dart';
@@ -64,5 +65,12 @@ class AppRouter extends _$AppRouter {
           page: MyCropDetailRoute.page,
           guards: [AuthGuard()],
         ),
+        AutoRoute(
+          path: '/notifications',
+          page: NotificationRoute.page,
+          guards: [
+            AuthGuard(),
+          ],
+        )
       ];
 }

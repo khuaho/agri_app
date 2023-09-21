@@ -12,6 +12,7 @@ import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
 import '../../../../../global/utils/app_mixin.dart';
 import '../../../../../global/widgets/avatar.dart';
+import '../providers/notification_count_provider.dart';
 
 class HomeHeader extends ConsumerStatefulWidget {
   const HomeHeader({super.key, this.weather});
@@ -25,6 +26,7 @@ class HomeHeader extends ConsumerStatefulWidget {
 class _HomeHeaderState extends ConsumerState<HomeHeader> with AppMixin {
   late StreamSubscription updateUserSub;
   User? currentUser = FirebaseAuth.instance.currentUser;
+
   @override
   void initState() {
     updateUserSub = eventBus.on<UpdateUserEvent>().listen((_) {
@@ -32,7 +34,6 @@ class _HomeHeaderState extends ConsumerState<HomeHeader> with AppMixin {
         currentUser = FirebaseAuth.instance.currentUser;
       });
     });
-
     super.initState();
   }
 
@@ -46,6 +47,7 @@ class _HomeHeaderState extends ConsumerState<HomeHeader> with AppMixin {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final transl = Translations.of(context);
+    final unreadCount = ref.watch(notificationUnreadCount).value ?? 0;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -80,16 +82,42 @@ class _HomeHeaderState extends ConsumerState<HomeHeader> with AppMixin {
               ],
             ),
           ),
+          const SizedBox(width: 6),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              GestureDetector(
-                onTap: () => context.pushRoute(const ProfileRoute()),
-                child: Avatar(
-                  name: currentUser?.displayName,
-                  imageUrl: currentUser?.photoURL,
-                ),
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      context.pushRoute(const NotificationRoute());
+                    },
+                    splashRadius: 30,
+                    icon: Badge(
+                      isLabelVisible: unreadCount > 0,
+                      backgroundColor: AppColors.errorDefault,
+                      label: Text(
+                        unreadCount.toString(),
+                      ),
+                      textStyle: const TextStyle(
+                        fontSize: 12,
+                        color: AppColors.white,
+                      ),
+                      child: const Icon(
+                        Icons.notifications,
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => context.pushRoute(const ProfileRoute()),
+                    child: Avatar(
+                      name: currentUser?.displayName,
+                      imageUrl: currentUser?.photoURL,
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 6),
               Container(

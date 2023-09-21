@@ -9,18 +9,19 @@ class EmptyData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final transl = Translations.of(context);
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return ListView(
+      primary: false,
       children: [
         Assets.images.noData.image(
           fit: BoxFit.contain,
-          width: 250,
+          height: 160,
         ),
-        Text(
-          transl.common.dataNotFound,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
+        Center(
+          child: Text(
+            transl.common.dataNotFound,
+            style: const TextStyle(
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ],
