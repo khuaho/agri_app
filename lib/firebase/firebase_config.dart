@@ -46,8 +46,8 @@ class FirebaseConfig {
     RemoteMessage remoteMessage,
   ) async {
     await Firebase.initializeApp();
-    await FirebaseConfig.initLocalNotifications();
-    FirebaseConfig.showFlutterNotification(remoteMessage);
+    // await FirebaseConfig.initLocalNotifications();
+    // FirebaseConfig.showFlutterNotification(remoteMessage);
   }
 
   static Future<String?> getFirebaseMessagingToken() async {
@@ -136,11 +136,9 @@ class FirebaseConfig {
     await flutterLocalNotificationsPlugin.initialize(
       initializationSetting,
       onDidReceiveNotificationResponse: (payload) {
-        print('hello');
         handleMessage(context, message);
       },
       onDidReceiveBackgroundNotificationResponse: (payload) {
-        print('hello');
         handleMessage(context, message);
       },
     );
@@ -155,19 +153,6 @@ class FirebaseConfig {
       print('data: $data');
       print('Title: ${message.notification?.title}');
       print('Body: ${message.notification?.body}');
-
-      // final notify = jsonDecode(data['notify']);
-      // * Handle others Cases with "typeName";
-      // _appRouter.push(HomeRoute(children: [
-      //   RemotesRoute(
-      //     children: [
-      //       RemoteDetailsRoute(id: notify['remoteId']),
-      //     ],
-      //   ),
-      // ]));
-      // handleReadNotifications(data['notifyId'] as String);
     }
   }
-
-  void sendNotification() {}
 }

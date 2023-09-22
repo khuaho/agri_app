@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 316 (158 per locale)
+/// Strings: 318 (159 per locale)
 ///
-/// Built on 2023-09-20 at 07:58 UTC
+/// Built on 2023-09-22 at 03:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -164,6 +164,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsMyCropsEn myCrops = _StringsMyCropsEn._(_root);
 	late final _StringsUpsertMyCropEn upsertMyCrop = _StringsUpsertMyCropEn._(_root);
 	late final _StringsMyCropDetailEn myCropDetail = _StringsMyCropDetailEn._(_root);
+	late final _StringsNotificationEn notification = _StringsNotificationEn._(_root);
 }
 
 // Path: main
@@ -382,6 +383,16 @@ class _StringsMyCropDetailEn {
 
 	// Translations
 	String get title => 'My crop profile';
+}
+
+// Path: notification
+class _StringsNotificationEn {
+	_StringsNotificationEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Notifications';
 }
 
 // Path: common.button
@@ -685,6 +696,7 @@ class _StringsVi implements _StringsEn {
 	@override late final _StringsMyCropsVi myCrops = _StringsMyCropsVi._(_root);
 	@override late final _StringsUpsertMyCropVi upsertMyCrop = _StringsUpsertMyCropVi._(_root);
 	@override late final _StringsMyCropDetailVi myCropDetail = _StringsMyCropDetailVi._(_root);
+	@override late final _StringsNotificationVi notification = _StringsNotificationVi._(_root);
 }
 
 // Path: main
@@ -903,6 +915,16 @@ class _StringsMyCropDetailVi implements _StringsMyCropDetailEn {
 
 	// Translations
 	@override String get title => 'Hồ sơ cây trồng của tôi';
+}
+
+// Path: notification
+class _StringsNotificationVi implements _StringsNotificationEn {
+	_StringsNotificationVi._(this._root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Thông báo';
 }
 
 // Path: common.button
@@ -1331,6 +1353,7 @@ extension on _StringsEn {
 			case 'upsertMyCrop.startDate.hint': return 'Choose start date to do';
 			case 'upsertMyCrop.startDate.required': return 'Haven\'t choosen start date';
 			case 'myCropDetail.title': return 'My crop profile';
+			case 'notification.title': return 'Notifications';
 			default: return null;
 		}
 	}
@@ -1497,6 +1520,7 @@ extension on _StringsVi {
 			case 'upsertMyCrop.startDate.hint': return 'Chọn ngày bắt đầu để thực hiện';
 			case 'upsertMyCrop.startDate.required': return 'Chưa chọn ngày bắt đầu';
 			case 'myCropDetail.title': return 'Hồ sơ cây trồng của tôi';
+			case 'notification.title': return 'Thông báo';
 			default: return null;
 		}
 	}

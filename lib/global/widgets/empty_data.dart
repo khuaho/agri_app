@@ -9,8 +9,8 @@ class EmptyData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final transl = Translations.of(context);
-    return ListView(
-      primary: false,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Assets.images.noData.image(
           fit: BoxFit.contain,

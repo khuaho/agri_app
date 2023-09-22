@@ -228,5 +228,8 @@
   },
   "myCropDetail": {
     "title": "Hồ sơ cây trồng của tôi"
+  },
+  "notification": {
+    "title": "Thông báo"
   }
 }

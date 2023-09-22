@@ -1,7 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../global/data/models/discuss/discuss.dart';
+import '../../../global/data/models/notification/notification.dart';
 import '../../../global/data/repositories/discuss_repository.dart';
+import '../../../global/data/repositories/installation_repository.dart';
+import '../../../global/data/repositories/notification_repository.dart';
 import '../../../global/utils/riverpod/app_state.dart';
 
 final discussProvider = StateNotifierProvider.family
@@ -68,5 +71,30 @@ class DiscussProvider extends StateNotifier<AppState<List<Discuss>?>> {
     }
 
     return fetchDiscuss();
+  }
+
+  Future<void> sendNotificationWhenReact(Notification data) async {
+    final notiRepository = ref.read(notificationRepositoryProvider);
+    final installationRepository = ref.read(installationRepositoryProvider);
+    final userInstallation = await installationRepository
+        .getUserInstallation(data.userId ?? '')
+        .then(
+          (either) => either.fold(
+            (l) => null,
+            (r) => r,
+          ),
+        );
+    if (userInstallation != null) {
+      await notiRepository.upsertNotification(
+        data: data.copyWith(
+          isRead: false,
+          content: {
+            'en': 'expressed his feelings about your comment',
+            'vi': 'bày tỏ cảm xúc về bình luận của bạn'
+          },
+        ),
+        token: userInstallation.token ?? '',
+      );
+    }
   }
 }

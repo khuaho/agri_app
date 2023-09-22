@@ -228,5 +228,8 @@
   },
   "myCropDetail": {
     "title": "My crop profile"
+  },
+  "notification": {
+    "title": "Notifications"
   }
 }

@@ -25,6 +25,7 @@ class HomeHeader extends ConsumerStatefulWidget {
 
 class _HomeHeaderState extends ConsumerState<HomeHeader> with AppMixin {
   late StreamSubscription updateUserSub;
+  late StreamSubscription unreadCountSub;
   User? currentUser = FirebaseAuth.instance.currentUser;
 
   @override
@@ -34,12 +35,25 @@ class _HomeHeaderState extends ConsumerState<HomeHeader> with AppMixin {
         currentUser = FirebaseAuth.instance.currentUser;
       });
     });
+
+    unreadCountSub = eventBus.on<UpsertNotificationEvent>().listen((_) {
+      // ignore: unused_result
+      ref.refresh(notificationUnreadCount);
+    });
     super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant HomeHeader oldWidget) {
+    // ignore: unused_result
+    ref.refresh(notificationUnreadCount);
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
   void dispose() {
     updateUserSub.cancel();
+    unreadCountSub.cancel();
     super.dispose();
   }
 
@@ -141,7 +155,7 @@ class _HomeHeaderState extends ConsumerState<HomeHeader> with AppMixin {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../converters/timestamp_converter.dart';
+
 part 'notification.freezed.dart';
 part 'notification.g.dart';
 
@@ -17,6 +19,7 @@ class Notification with _$Notification {
     String? userReactedId,
     String? userReactedName,
     @Default(false) isRead,
+    @TimestampOrNullConverter() DateTime? createdAt,
   }) = _Notification;
 
   factory Notification.fromJson(Map<String, dynamic> json) =>

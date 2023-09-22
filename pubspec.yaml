@@ -69,6 +69,7 @@ dependencies:
   liquid_pull_to_refresh: ^3.0.1
   firebase_messaging: ^14.6.7
   flutter_local_notifications: ^15.1.1
+  android_id: ^0.3.5
 
 
 dev_dependencies:

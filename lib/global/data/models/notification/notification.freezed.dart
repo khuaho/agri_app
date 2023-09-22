@@ -28,6 +28,8 @@ mixin _$Notification {
   String? get userReactedId => throw _privateConstructorUsedError;
   String? get userReactedName => throw _privateConstructorUsedError;
   dynamic get isRead => throw _privateConstructorUsedError;
+  @TimestampOrNullConverter()
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +51,8 @@ abstract class $NotificationCopyWith<$Res> {
       String? userId,
       String? userReactedId,
       String? userReactedName,
-      dynamic isRead});
+      dynamic isRead,
+      @TimestampOrNullConverter() DateTime? createdAt});
 }
 
 /// @nodoc
@@ -73,6 +76,7 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
     Object? userReactedId = freezed,
     Object? userReactedName = freezed,
     Object? isRead = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
       uid: freezed == uid
@@ -107,6 +111,10 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
           ? _value.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -127,7 +135,8 @@ abstract class _$$_NotificationCopyWith<$Res>
       String? userId,
       String? userReactedId,
       String? userReactedName,
-      dynamic isRead});
+      dynamic isRead,
+      @TimestampOrNullConverter() DateTime? createdAt});
 }
 
 /// @nodoc
@@ -149,6 +158,7 @@ class __$$_NotificationCopyWithImpl<$Res>
     Object? userReactedId = freezed,
     Object? userReactedName = freezed,
     Object? isRead = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_$_Notification(
       uid: freezed == uid
@@ -180,6 +190,10 @@ class __$$_NotificationCopyWithImpl<$Res>
           : userReactedName // ignore: cast_nullable_to_non_nullable
               as String?,
       isRead: freezed == isRead ? _value.isRead! : isRead,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -195,7 +209,8 @@ class _$_Notification extends _Notification {
       this.userId,
       this.userReactedId,
       this.userReactedName,
-      this.isRead = false})
+      this.isRead = false,
+      @TimestampOrNullConverter() this.createdAt})
       : _content = content,
         super._();
 
@@ -226,10 +241,13 @@ class _$_Notification extends _Notification {
   @override
   @JsonKey()
   final dynamic isRead;
+  @override
+  @TimestampOrNullConverter()
+  final DateTime? createdAt;
 
   @override
   String toString() {
-    return 'Notification(uid: $uid, type: $type, cropId: $cropId, content: $content, userId: $userId, userReactedId: $userReactedId, userReactedName: $userReactedName, isRead: $isRead)';
+    return 'Notification(uid: $uid, type: $type, cropId: $cropId, content: $content, userId: $userId, userReactedId: $userReactedId, userReactedName: $userReactedName, isRead: $isRead, createdAt: $createdAt)';
   }
 
   @override
@@ -246,7 +264,9 @@ class _$_Notification extends _Notification {
                 other.userReactedId == userReactedId) &&
             (identical(other.userReactedName, userReactedName) ||
                 other.userReactedName == userReactedName) &&
-            const DeepCollectionEquality().equals(other.isRead, isRead));
+            const DeepCollectionEquality().equals(other.isRead, isRead) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
@@ -260,7 +280,8 @@ class _$_Notification extends _Notification {
       userId,
       userReactedId,
       userReactedName,
-      const DeepCollectionEquality().hash(isRead));
+      const DeepCollectionEquality().hash(isRead),
+      createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -285,7 +306,8 @@ abstract class _Notification extends Notification {
       final String? userId,
       final String? userReactedId,
       final String? userReactedName,
-      final dynamic isRead}) = _$_Notification;
+      final dynamic isRead,
+      @TimestampOrNullConverter() final DateTime? createdAt}) = _$_Notification;
   _Notification._() : super._();
 
   factory _Notification.fromJson(Map<String, dynamic> json) =
@@ -307,6 +329,9 @@ abstract class _Notification extends Notification {
   String? get userReactedName;
   @override
   dynamic get isRead;
+  @override
+  @TimestampOrNullConverter()
+  DateTime? get createdAt;
   @override
   @JsonKey(ignore: true)
   _$$_NotificationCopyWith<_$_Notification> get copyWith =>

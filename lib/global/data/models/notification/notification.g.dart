@@ -19,6 +19,7 @@ _$_Notification _$$_NotificationFromJson(Map<String, dynamic> json) =>
       userReactedId: json['userReactedId'] as String?,
       userReactedName: json['userReactedName'] as String?,
       isRead: json['isRead'] ?? false,
+      createdAt: const TimestampOrNullConverter().fromJson(json['createdAt']),
     );
 
 Map<String, dynamic> _$$_NotificationToJson(_$_Notification instance) =>
@@ -31,4 +32,5 @@ Map<String, dynamic> _$$_NotificationToJson(_$_Notification instance) =>
       'userReactedId': instance.userReactedId,
       'userReactedName': instance.userReactedName,
       'isRead': instance.isRead,
+      'createdAt': const TimestampOrNullConverter().toJson(instance.createdAt),
     };

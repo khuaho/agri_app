@@ -1,12 +1,13 @@
 import 'dart:collection';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Notification;
 import 'package:flutter_reaction_button/flutter_reaction_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/providers/user_provider.dart';
 import '../../../global/data/models/discuss/discuss.dart';
+import '../../../global/data/models/notification/notification.dart';
 import '../../../global/enum/reaction_enum.dart';
 import '../../../global/enum/role_enum.dart';
 import '../../../global/extensions/date_time_ext.dart';
@@ -91,6 +92,14 @@ class _DiscussTileState extends ConsumerState<DiscussTile> {
         reactions[reactionId] = reactions[reactionId].copyWith(
           amount: data.reactions[reactionId] + 1,
         );
+        final notifyData = Notification(
+          type: 'crop',
+          cropId: widget.cropId,
+          userId: data.userId,
+        );
+        ref
+            .read(discussProvider(widget.cropId).notifier)
+            .sendNotificationWhenReact(notifyData);
       }
       ref.read(discussProvider(widget.cropId).notifier).changedReact(
             widget.data.copyWith(

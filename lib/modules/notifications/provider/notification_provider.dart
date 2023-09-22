@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../global/data/models/app_event/app_event.dart';
 import '../../../global/data/models/notification/notification.dart';
 import '../../../global/data/repositories/notification_repository.dart';
 import '../../../global/utils/app_mixin.dart';
@@ -28,5 +29,16 @@ class AsyncNotificationNotifier extends AsyncNotifier<List<Notification>>
   @override
   FutureOr<List<Notification>> build() {
     return _fetchNotifications();
+  }
+
+  Future<void> upsertNotification(Notification data) async {
+    final notificationRepository = ref.read(notificationRepositoryProvider);
+    await notificationRepository.upsertNotification(data: data).then(
+          (either) => either.fold(
+            (l) => l,
+            (r) => r,
+          ),
+        );
+    eventBus.fire(const UpsertNotificationEvent());
   }
 }

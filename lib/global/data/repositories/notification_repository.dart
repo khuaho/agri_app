@@ -21,7 +21,10 @@ abstract class NotificationRepository {
 
   Future<Either<Failure, int>> getNotificationsUnreadCount();
 
-  Future<Either<Failure, Unit>> upsertNotification(Notification data);
+  Future<Either<Failure, Unit>> upsertNotification({
+    required Notification data,
+    String? token,
+  });
 }
 
 class _NotificationRepositoryImpl extends BaseRepository
@@ -61,23 +64,35 @@ class _NotificationRepositoryImpl extends BaseRepository
   }
 
   @override
-  Future<Either<Failure, Unit>> upsertNotification(Notification data) {
+  Future<Either<Failure, Unit>> upsertNotification({
+    required Notification data,
+    String? token,
+  }) {
     final currentUser = FirebaseAuth.instance.currentUser;
     return guardFuture(() async {
       await Future.delayed(const Duration(seconds: 1));
       if (data.uid != null) {
         await notificationRef.doc(data.uid).update(data.toJson());
       } else {
-        final res =
-            await notificationRef.add(data.copyWith(userId: currentUser?.uid));
-        sendNotification(data, res.id);
+        final res = await notificationRef.add(
+          data.copyWith(
+            userReactedId: currentUser?.uid,
+            userReactedName: currentUser?.displayName,
+            createdAt: DateTime.now(),
+          ),
+        );
+        sendNotification(data, res.id, token ?? '');
       }
 
       return unit;
     });
   }
 
-  Future<void> sendNotification(Notification data, String notifyId) async {
+  Future<void> sendNotification(
+    Notification data,
+    String notifyId,
+    String token,
+  ) async {
     try {
       await http.post(
         Uri.parse('https://fcm.googleapis.com/fcm/send'),
@@ -86,9 +101,17 @@ class _NotificationRepositoryImpl extends BaseRepository
             'to': 'userToken',
             'priority': 'high',
             'data': {
-              'type': data.type,
-              'id': notifyId,
-              'cropId': data.cropId,
+              'notify': {
+                'uid': notifyId,
+                'type': data.type,
+                'cropId': data.cropId,
+                'content': data.content,
+                'userId': data.userId,
+                'userReactedId': data.userReactedId,
+                'userReactedName': data.userReactedName,
+                'isRead': data.isRead,
+                'createdAt': data.createdAt,
+              },
             },
             'notification': {
               'title': 'Agri App',
@@ -101,7 +124,6 @@ class _NotificationRepositoryImpl extends BaseRepository
           'Authorization': Constants.serverMessageKey,
         },
       );
-      print('FCM request for device sent!');
     } catch (e) {
       debugPrint(e.toString());
     }

@@ -62,7 +62,9 @@ class _DiscussesState extends ConsumerState<Discusses> {
               final discuss = data ?? [];
 
               if (discuss.isEmpty) {
-                return const EmptyData();
+                return const SingleChildScrollView(
+                  child: EmptyData(),
+                );
               }
               return ListView.builder(
                 padding: const EdgeInsets.only(top: 10),

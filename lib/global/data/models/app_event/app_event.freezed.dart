@@ -21,6 +21,7 @@ mixin _$AppEvent {
     required TResult Function() updateUser,
     required TResult Function() createMyCrop,
     required TResult Function() changeLanguage,
+    required TResult Function() upsertNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$AppEvent {
     TResult? Function()? updateUser,
     TResult? Function()? createMyCrop,
     TResult? Function()? changeLanguage,
+    TResult? Function()? upsertNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$AppEvent {
     TResult Function()? updateUser,
     TResult Function()? createMyCrop,
     TResult Function()? changeLanguage,
+    TResult Function()? upsertNotification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$AppEvent {
     required TResult Function(UpdateUserEvent value) updateUser,
     required TResult Function(CreateMyCropEvent value) createMyCrop,
     required TResult Function(ChangeLanguageEvent value) changeLanguage,
+    required TResult Function(UpsertNotificationEvent value) upsertNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$AppEvent {
     TResult? Function(UpdateUserEvent value)? updateUser,
     TResult? Function(CreateMyCropEvent value)? createMyCrop,
     TResult? Function(ChangeLanguageEvent value)? changeLanguage,
+    TResult? Function(UpsertNotificationEvent value)? upsertNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$AppEvent {
     TResult Function(UpdateUserEvent value)? updateUser,
     TResult Function(CreateMyCropEvent value)? createMyCrop,
     TResult Function(ChangeLanguageEvent value)? changeLanguage,
+    TResult Function(UpsertNotificationEvent value)? upsertNotification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +126,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
     required TResult Function() updateUser,
     required TResult Function() createMyCrop,
     required TResult Function() changeLanguage,
+    required TResult Function() upsertNotification,
   }) {
     return updateUser();
   }
@@ -130,6 +137,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
     TResult? Function()? updateUser,
     TResult? Function()? createMyCrop,
     TResult? Function()? changeLanguage,
+    TResult? Function()? upsertNotification,
   }) {
     return updateUser?.call();
   }
@@ -140,6 +148,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
     TResult Function()? updateUser,
     TResult Function()? createMyCrop,
     TResult Function()? changeLanguage,
+    TResult Function()? upsertNotification,
     required TResult orElse(),
   }) {
     if (updateUser != null) {
@@ -154,6 +163,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
     required TResult Function(UpdateUserEvent value) updateUser,
     required TResult Function(CreateMyCropEvent value) createMyCrop,
     required TResult Function(ChangeLanguageEvent value) changeLanguage,
+    required TResult Function(UpsertNotificationEvent value) upsertNotification,
   }) {
     return updateUser(this);
   }
@@ -164,6 +174,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
     TResult? Function(UpdateUserEvent value)? updateUser,
     TResult? Function(CreateMyCropEvent value)? createMyCrop,
     TResult? Function(ChangeLanguageEvent value)? changeLanguage,
+    TResult? Function(UpsertNotificationEvent value)? upsertNotification,
   }) {
     return updateUser?.call(this);
   }
@@ -174,6 +185,7 @@ class _$UpdateUserEvent implements UpdateUserEvent {
     TResult Function(UpdateUserEvent value)? updateUser,
     TResult Function(CreateMyCropEvent value)? createMyCrop,
     TResult Function(ChangeLanguageEvent value)? changeLanguage,
+    TResult Function(UpsertNotificationEvent value)? upsertNotification,
     required TResult orElse(),
   }) {
     if (updateUser != null) {
@@ -228,6 +240,7 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
     required TResult Function() updateUser,
     required TResult Function() createMyCrop,
     required TResult Function() changeLanguage,
+    required TResult Function() upsertNotification,
   }) {
     return createMyCrop();
   }
@@ -238,6 +251,7 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
     TResult? Function()? updateUser,
     TResult? Function()? createMyCrop,
     TResult? Function()? changeLanguage,
+    TResult? Function()? upsertNotification,
   }) {
     return createMyCrop?.call();
   }
@@ -248,6 +262,7 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
     TResult Function()? updateUser,
     TResult Function()? createMyCrop,
     TResult Function()? changeLanguage,
+    TResult Function()? upsertNotification,
     required TResult orElse(),
   }) {
     if (createMyCrop != null) {
@@ -262,6 +277,7 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
     required TResult Function(UpdateUserEvent value) updateUser,
     required TResult Function(CreateMyCropEvent value) createMyCrop,
     required TResult Function(ChangeLanguageEvent value) changeLanguage,
+    required TResult Function(UpsertNotificationEvent value) upsertNotification,
   }) {
     return createMyCrop(this);
   }
@@ -272,6 +288,7 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
     TResult? Function(UpdateUserEvent value)? updateUser,
     TResult? Function(CreateMyCropEvent value)? createMyCrop,
     TResult? Function(ChangeLanguageEvent value)? changeLanguage,
+    TResult? Function(UpsertNotificationEvent value)? upsertNotification,
   }) {
     return createMyCrop?.call(this);
   }
@@ -282,6 +299,7 @@ class _$CreateMyCropEvent implements CreateMyCropEvent {
     TResult Function(UpdateUserEvent value)? updateUser,
     TResult Function(CreateMyCropEvent value)? createMyCrop,
     TResult Function(ChangeLanguageEvent value)? changeLanguage,
+    TResult Function(UpsertNotificationEvent value)? upsertNotification,
     required TResult orElse(),
   }) {
     if (createMyCrop != null) {
@@ -336,6 +354,7 @@ class _$ChangeLanguageEvent implements ChangeLanguageEvent {
     required TResult Function() updateUser,
     required TResult Function() createMyCrop,
     required TResult Function() changeLanguage,
+    required TResult Function() upsertNotification,
   }) {
     return changeLanguage();
   }
@@ -346,6 +365,7 @@ class _$ChangeLanguageEvent implements ChangeLanguageEvent {
     TResult? Function()? updateUser,
     TResult? Function()? createMyCrop,
     TResult? Function()? changeLanguage,
+    TResult? Function()? upsertNotification,
   }) {
     return changeLanguage?.call();
   }
@@ -356,6 +376,7 @@ class _$ChangeLanguageEvent implements ChangeLanguageEvent {
     TResult Function()? updateUser,
     TResult Function()? createMyCrop,
     TResult Function()? changeLanguage,
+    TResult Function()? upsertNotification,
     required TResult orElse(),
   }) {
     if (changeLanguage != null) {
@@ -370,6 +391,7 @@ class _$ChangeLanguageEvent implements ChangeLanguageEvent {
     required TResult Function(UpdateUserEvent value) updateUser,
     required TResult Function(CreateMyCropEvent value) createMyCrop,
     required TResult Function(ChangeLanguageEvent value) changeLanguage,
+    required TResult Function(UpsertNotificationEvent value) upsertNotification,
   }) {
     return changeLanguage(this);
   }
@@ -380,6 +402,7 @@ class _$ChangeLanguageEvent implements ChangeLanguageEvent {
     TResult? Function(UpdateUserEvent value)? updateUser,
     TResult? Function(CreateMyCropEvent value)? createMyCrop,
     TResult? Function(ChangeLanguageEvent value)? changeLanguage,
+    TResult? Function(UpsertNotificationEvent value)? upsertNotification,
   }) {
     return changeLanguage?.call(this);
   }
@@ -390,6 +413,7 @@ class _$ChangeLanguageEvent implements ChangeLanguageEvent {
     TResult Function(UpdateUserEvent value)? updateUser,
     TResult Function(CreateMyCropEvent value)? createMyCrop,
     TResult Function(ChangeLanguageEvent value)? changeLanguage,
+    TResult Function(UpsertNotificationEvent value)? upsertNotification,
     required TResult orElse(),
   }) {
     if (changeLanguage != null) {
@@ -401,4 +425,119 @@ class _$ChangeLanguageEvent implements ChangeLanguageEvent {
 
 abstract class ChangeLanguageEvent implements AppEvent {
   const factory ChangeLanguageEvent() = _$ChangeLanguageEvent;
+}
+
+/// @nodoc
+abstract class _$$UpsertNotificationEventCopyWith<$Res> {
+  factory _$$UpsertNotificationEventCopyWith(_$UpsertNotificationEvent value,
+          $Res Function(_$UpsertNotificationEvent) then) =
+      __$$UpsertNotificationEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpsertNotificationEventCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$UpsertNotificationEvent>
+    implements _$$UpsertNotificationEventCopyWith<$Res> {
+  __$$UpsertNotificationEventCopyWithImpl(_$UpsertNotificationEvent _value,
+      $Res Function(_$UpsertNotificationEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpsertNotificationEvent implements UpsertNotificationEvent {
+  const _$UpsertNotificationEvent();
+
+  @override
+  String toString() {
+    return 'AppEvent.upsertNotification()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpsertNotificationEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updateUser,
+    required TResult Function() createMyCrop,
+    required TResult Function() changeLanguage,
+    required TResult Function() upsertNotification,
+  }) {
+    return upsertNotification();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updateUser,
+    TResult? Function()? createMyCrop,
+    TResult? Function()? changeLanguage,
+    TResult? Function()? upsertNotification,
+  }) {
+    return upsertNotification?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updateUser,
+    TResult Function()? createMyCrop,
+    TResult Function()? changeLanguage,
+    TResult Function()? upsertNotification,
+    required TResult orElse(),
+  }) {
+    if (upsertNotification != null) {
+      return upsertNotification();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdateUserEvent value) updateUser,
+    required TResult Function(CreateMyCropEvent value) createMyCrop,
+    required TResult Function(ChangeLanguageEvent value) changeLanguage,
+    required TResult Function(UpsertNotificationEvent value) upsertNotification,
+  }) {
+    return upsertNotification(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdateUserEvent value)? updateUser,
+    TResult? Function(CreateMyCropEvent value)? createMyCrop,
+    TResult? Function(ChangeLanguageEvent value)? changeLanguage,
+    TResult? Function(UpsertNotificationEvent value)? upsertNotification,
+  }) {
+    return upsertNotification?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdateUserEvent value)? updateUser,
+    TResult Function(CreateMyCropEvent value)? createMyCrop,
+    TResult Function(ChangeLanguageEvent value)? changeLanguage,
+    TResult Function(UpsertNotificationEvent value)? upsertNotification,
+    required TResult orElse(),
+  }) {
+    if (upsertNotification != null) {
+      return upsertNotification(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpsertNotificationEvent implements AppEvent {
+  const factory UpsertNotificationEvent() = _$UpsertNotificationEvent;
 }
