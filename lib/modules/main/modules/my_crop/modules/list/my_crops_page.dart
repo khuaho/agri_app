@@ -1,13 +1,17 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../../global/app_router/app_router.dart';
+import '../../../../../../global/data/models/app_event/app_event.dart';
 import '../../../../../../global/enum/crop_status.dart';
 import '../../../../../../global/gen/assets.gen.dart';
 import '../../../../../../global/gen/strings.g.dart';
 import '../../../../../../global/themes/app_colors.dart';
 import '../../../../../../global/utils/app_icons.dart';
+import '../../../../../../global/utils/app_mixin.dart';
 import '../../../../../../global/widgets/shadow_wrapper.dart';
 import 'providers/check_my_crop_provider.dart';
 import 'widgets/my_crops_view.dart';
@@ -21,11 +25,25 @@ class MyCropsPage extends ConsumerStatefulWidget {
 }
 
 class _MyCropsPageState extends ConsumerState<MyCropsPage>
-    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+    with
+        SingleTickerProviderStateMixin,
+        AutomaticKeepAliveClientMixin,
+        AppMixin {
   late final tabController = TabController(length: 4, vsync: this);
+  late StreamSubscription myCropSub;
+
+  @override
+  void initState() {
+    myCropSub = eventBus.on<CreateMyCropEvent>().listen((_) {
+      // ignore: unused_result
+      ref.refresh(checkMyCropExistProvider);
+    });
+    super.initState();
+  }
 
   @override
   void dispose() {
+    myCropSub.cancel();
     tabController.dispose();
     super.dispose();
   }

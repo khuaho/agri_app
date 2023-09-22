@@ -67,7 +67,12 @@ class _MyCropsViewState extends ConsumerState<MyCropsView> with AppMixin {
         data: (crops, _) {
           final cropsData = crops ?? [];
           if (cropsData.isEmpty) {
-            return const EmptyData();
+            return EmptyData(
+              onTap: () {
+                // ignore: unused_result
+                ref.refresh(myCropProvider(widget.cropStatus));
+              },
+            );
           }
           return ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

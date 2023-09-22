@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../global/app_router/app_router.dart';
-import '../../../../../global/data/models/my_crop/my_crop.dart';
+import '../../../../../global/data/models/user_crop/user_crop.dart';
 import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
 import '../../../../../global/utils/app_icons.dart';
@@ -14,7 +14,7 @@ import '../../../../../global/widgets/shimmer/shimmer_image.dart';
 class MyCropOverview extends StatelessWidget {
   const MyCropOverview({super.key, this.myCrop});
 
-  final MyCrop? myCrop;
+  final UserCrop? myCrop;
 
   @override
   Widget build(BuildContext context) {

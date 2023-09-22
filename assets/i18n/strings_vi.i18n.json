@@ -53,7 +53,8 @@
       "permissionGranted": "Đã được cho phép.",
       "locationNotAvailable": "Vị trí không có sẵn",
       "unableToDetermine": "Không thể xác định"
-    }
+    },
+    "loadData": "Tải dữ liệu"
   },
   "error": {
     "error": "Lỗi rồi!!!",

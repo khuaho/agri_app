@@ -74,8 +74,8 @@ class _MyAppState extends ConsumerState<MyApp>
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
     userChangeSub.cancel();
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 

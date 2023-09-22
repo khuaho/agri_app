@@ -1,5 +1,6 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,7 +9,7 @@ import '../../../../../../global/data/models/crop/crop.dart';
 import '../../../../../../global/data/models/crop_task/preparation.dart';
 import '../../../../../../global/data/models/crop_task/suggestion_task.dart';
 import '../../../../../../global/data/models/crop_type/crop_type.dart';
-import '../../../../../../global/data/models/my_crop/my_crop.dart';
+import '../../../../../../global/data/models/user_crop/user_crop.dart';
 import '../../../../../../global/enum/crop_status.dart';
 import '../../../../../../global/gen/strings.g.dart';
 import '../../../../../../global/themes/app_colors.dart';
@@ -31,11 +32,12 @@ class UpsertMyCropPage extends ConsumerStatefulWidget {
 class _UpsertMyCropPageState extends ConsumerState<UpsertMyCropPage>
     with AppMixin {
   var formKey = GlobalKey<FormBuilderState>();
-  MyCrop? myCrop;
+  UserCrop? myCrop;
   late final upsertProvider =
       ref.read(upsertMyCropProvider(widget.id).notifier);
+  final currentUser = FirebaseAuth.instance.currentUser;
 
-  MyCrop get formData {
+  UserCrop get formData {
     final formValue = formKey.currentState!.value;
     final cropType = formValue['cropType'] != null
         ? formValue['cropType'] as CropType
@@ -49,30 +51,42 @@ class _UpsertMyCropPageState extends ConsumerState<UpsertMyCropPage>
         ? formValue['suggestionTasks'] as List<SuggestionTask>
         : <SuggestionTask>[];
 
-    return MyCrop(
-      uid: widget.id,
-      otherCropType: formValue['other'],
-      nameEn: other ? crop?.nameEn : formValue['otherCropName'],
-      nameVi: other ? crop?.nameVi : formValue['otherCropName'],
-      thumbnail: crop?.thumbnail,
-      cropId: crop?.uid,
-      cropTypeId: cropType?.uid,
-      cropTypeVi: other ? cropType?.nameVi : formValue['otherCropType'],
-      cropTypeEn: other ? cropType?.nameEn : formValue['otherCropType'],
-      cropStatus: CropStatus.todo,
-      startDate: formValue['startDate'],
-      preparation: preparation.map((e) => e.uid).toList(),
-      tasks: suggestionTasks.map((e) => e.uid).toList(),
-    );
+    return UserCrop(
+        uid: widget.id,
+        otherCropType: formValue['other'],
+        nameEn: other ? crop?.nameEn : formValue['otherCropName'],
+        nameVi: other ? crop?.nameVi : formValue['otherCropName'],
+        thumbnail: crop?.thumbnail,
+        cropId: crop?.uid,
+        cropTypeId: cropType?.uid,
+        cropTypeVi: other ? cropType?.nameVi : formValue['otherCropType'],
+        cropTypeEn: other ? cropType?.nameEn : formValue['otherCropType'],
+        cropStatus: CropStatus.todo,
+        startDate: formValue['startDate'],
+        preparation: preparation.map((e) => e.uid).toList(),
+        tasks: suggestionTasks.map((e) => e.uid).toList(),
+        userId: currentUser?.uid);
   }
 
-  MyCrop get formData2 {
+  UserCrop get formData2 {
+    final formValue = formKey.currentState!.value;
+    final preparation = formValue['preparation'] != null
+        ? (formValue['preparation'] as List<Preparation>)
+            .map((e) => e.uid)
+            .toList()
+        : myCrop?.preparation;
+    final suggestionTasks = formValue['suggestionTasks'] != null
+        ? (formValue['suggestionTasks'] as List<SuggestionTask>)
+            .map((e) => e.uid)
+            .toList()
+        : myCrop?.tasks;
+
     final data = myCrop?.copyWith(
       uid: widget.id,
+      userId: currentUser?.uid,
       cropStatus: CropStatus.inprogress,
-      startDate: formData.startDate,
-      preparation: formData.preparation,
-      tasks: formData.tasks,
+      preparation: preparation,
+      tasks: suggestionTasks,
     );
     return data!;
   }

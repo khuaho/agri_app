@@ -4,15 +4,16 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../enum/crop_status.dart';
 import '../../converters/timestamp_converter.dart';
 
-part 'my_crop.freezed.dart';
-part 'my_crop.g.dart';
+part 'user_crop.freezed.dart';
+part 'user_crop.g.dart';
 
 @freezed
-class MyCrop with _$MyCrop {
-  const MyCrop._();
+class UserCrop with _$UserCrop {
+  const UserCrop._();
 
-  factory MyCrop({
+  factory UserCrop({
     String? uid,
+    String? userId,
     String? nameEn,
     String? nameVi,
     String? thumbnail,
@@ -26,16 +27,17 @@ class MyCrop with _$MyCrop {
     @Default([]) tasks,
     @TimestampOrNullConverter() DateTime? startDate,
     @TimestampOrNullConverter() DateTime? endDate,
-  }) = _MyCrop;
+  }) = _UserCrop;
 
-  factory MyCrop.fromJson(Map<String, dynamic> json) => _$MyCropFromJson(json);
+  factory UserCrop.fromJson(Map<String, dynamic> json) =>
+      _$UserCropFromJson(json);
 }
 
-extension MyCropConverter on CollectionReference {
-  CollectionReference<MyCrop> withMyCropConverter() {
+extension UserCropConverter on CollectionReference {
+  CollectionReference<UserCrop> withUserCropConverter() {
     return withConverter(
-      fromFirestore: (snapshot, _) => MyCrop.fromJson(snapshot.data()!),
-      toFirestore: (myCrop, _) => myCrop.toJson(),
+      fromFirestore: (snapshot, _) => UserCrop.fromJson(snapshot.data()!),
+      toFirestore: (userCrop, _) => userCrop.toJson(),
     );
   }
 }

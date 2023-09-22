@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'my_crop.dart';
+part of 'user_crop.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,13 +14,14 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-MyCrop _$MyCropFromJson(Map<String, dynamic> json) {
-  return _MyCrop.fromJson(json);
+UserCrop _$UserCropFromJson(Map<String, dynamic> json) {
+  return _UserCrop.fromJson(json);
 }
 
 /// @nodoc
-mixin _$MyCrop {
+mixin _$UserCrop {
   String? get uid => throw _privateConstructorUsedError;
+  String? get userId => throw _privateConstructorUsedError;
   String? get nameEn => throw _privateConstructorUsedError;
   String? get nameVi => throw _privateConstructorUsedError;
   String? get thumbnail => throw _privateConstructorUsedError;
@@ -39,16 +40,18 @@ mixin _$MyCrop {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MyCropCopyWith<MyCrop> get copyWith => throw _privateConstructorUsedError;
+  $UserCropCopyWith<UserCrop> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MyCropCopyWith<$Res> {
-  factory $MyCropCopyWith(MyCrop value, $Res Function(MyCrop) then) =
-      _$MyCropCopyWithImpl<$Res, MyCrop>;
+abstract class $UserCropCopyWith<$Res> {
+  factory $UserCropCopyWith(UserCrop value, $Res Function(UserCrop) then) =
+      _$UserCropCopyWithImpl<$Res, UserCrop>;
   @useResult
   $Res call(
       {String? uid,
+      String? userId,
       String? nameEn,
       String? nameVi,
       String? thumbnail,
@@ -65,9 +68,9 @@ abstract class $MyCropCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MyCropCopyWithImpl<$Res, $Val extends MyCrop>
-    implements $MyCropCopyWith<$Res> {
-  _$MyCropCopyWithImpl(this._value, this._then);
+class _$UserCropCopyWithImpl<$Res, $Val extends UserCrop>
+    implements $UserCropCopyWith<$Res> {
+  _$UserCropCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -78,6 +81,7 @@ class _$MyCropCopyWithImpl<$Res, $Val extends MyCrop>
   @override
   $Res call({
     Object? uid = freezed,
+    Object? userId = freezed,
     Object? nameEn = freezed,
     Object? nameVi = freezed,
     Object? thumbnail = freezed,
@@ -96,6 +100,10 @@ class _$MyCropCopyWithImpl<$Res, $Val extends MyCrop>
       uid: freezed == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
               as String?,
       nameEn: freezed == nameEn
           ? _value.nameEn
@@ -154,13 +162,15 @@ class _$MyCropCopyWithImpl<$Res, $Val extends MyCrop>
 }
 
 /// @nodoc
-abstract class _$$_MyCropCopyWith<$Res> implements $MyCropCopyWith<$Res> {
-  factory _$$_MyCropCopyWith(_$_MyCrop value, $Res Function(_$_MyCrop) then) =
-      __$$_MyCropCopyWithImpl<$Res>;
+abstract class _$$_UserCropCopyWith<$Res> implements $UserCropCopyWith<$Res> {
+  factory _$$_UserCropCopyWith(
+          _$_UserCrop value, $Res Function(_$_UserCrop) then) =
+      __$$_UserCropCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String? uid,
+      String? userId,
       String? nameEn,
       String? nameVi,
       String? thumbnail,
@@ -177,16 +187,18 @@ abstract class _$$_MyCropCopyWith<$Res> implements $MyCropCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MyCropCopyWithImpl<$Res>
-    extends _$MyCropCopyWithImpl<$Res, _$_MyCrop>
-    implements _$$_MyCropCopyWith<$Res> {
-  __$$_MyCropCopyWithImpl(_$_MyCrop _value, $Res Function(_$_MyCrop) _then)
+class __$$_UserCropCopyWithImpl<$Res>
+    extends _$UserCropCopyWithImpl<$Res, _$_UserCrop>
+    implements _$$_UserCropCopyWith<$Res> {
+  __$$_UserCropCopyWithImpl(
+      _$_UserCrop _value, $Res Function(_$_UserCrop) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? uid = freezed,
+    Object? userId = freezed,
     Object? nameEn = freezed,
     Object? nameVi = freezed,
     Object? thumbnail = freezed,
@@ -201,10 +213,14 @@ class __$$_MyCropCopyWithImpl<$Res>
     Object? startDate = freezed,
     Object? endDate = freezed,
   }) {
-    return _then(_$_MyCrop(
+    return _then(_$_UserCrop(
       uid: freezed == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
               as String?,
       nameEn: freezed == nameEn
           ? _value.nameEn
@@ -256,9 +272,10 @@ class __$$_MyCropCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MyCrop extends _MyCrop {
-  _$_MyCrop(
+class _$_UserCrop extends _UserCrop {
+  _$_UserCrop(
       {this.uid,
+      this.userId,
       this.nameEn,
       this.nameVi,
       this.thumbnail,
@@ -274,11 +291,13 @@ class _$_MyCrop extends _MyCrop {
       @TimestampOrNullConverter() this.endDate})
       : super._();
 
-  factory _$_MyCrop.fromJson(Map<String, dynamic> json) =>
-      _$$_MyCropFromJson(json);
+  factory _$_UserCrop.fromJson(Map<String, dynamic> json) =>
+      _$$_UserCropFromJson(json);
 
   @override
   final String? uid;
+  @override
+  final String? userId;
   @override
   final String? nameEn;
   @override
@@ -313,15 +332,16 @@ class _$_MyCrop extends _MyCrop {
 
   @override
   String toString() {
-    return 'MyCrop(uid: $uid, nameEn: $nameEn, nameVi: $nameVi, thumbnail: $thumbnail, cropId: $cropId, otherCropType: $otherCropType, cropTypeId: $cropTypeId, cropTypeVi: $cropTypeVi, cropTypeEn: $cropTypeEn, cropStatus: $cropStatus, preparation: $preparation, tasks: $tasks, startDate: $startDate, endDate: $endDate)';
+    return 'UserCrop(uid: $uid, userId: $userId, nameEn: $nameEn, nameVi: $nameVi, thumbnail: $thumbnail, cropId: $cropId, otherCropType: $otherCropType, cropTypeId: $cropTypeId, cropTypeVi: $cropTypeVi, cropTypeEn: $cropTypeEn, cropStatus: $cropStatus, preparation: $preparation, tasks: $tasks, startDate: $startDate, endDate: $endDate)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MyCrop &&
+            other is _$_UserCrop &&
             (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.nameEn, nameEn) || other.nameEn == nameEn) &&
             (identical(other.nameVi, nameVi) || other.nameVi == nameVi) &&
             (identical(other.thumbnail, thumbnail) ||
@@ -350,6 +370,7 @@ class _$_MyCrop extends _MyCrop {
   int get hashCode => Object.hash(
       runtimeType,
       uid,
+      userId,
       nameEn,
       nameVi,
       thumbnail,
@@ -367,20 +388,21 @@ class _$_MyCrop extends _MyCrop {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MyCropCopyWith<_$_MyCrop> get copyWith =>
-      __$$_MyCropCopyWithImpl<_$_MyCrop>(this, _$identity);
+  _$$_UserCropCopyWith<_$_UserCrop> get copyWith =>
+      __$$_UserCropCopyWithImpl<_$_UserCrop>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MyCropToJson(
+    return _$$_UserCropToJson(
       this,
     );
   }
 }
 
-abstract class _MyCrop extends MyCrop {
-  factory _MyCrop(
+abstract class _UserCrop extends UserCrop {
+  factory _UserCrop(
       {final String? uid,
+      final String? userId,
       final String? nameEn,
       final String? nameVi,
       final String? thumbnail,
@@ -393,13 +415,15 @@ abstract class _MyCrop extends MyCrop {
       final dynamic preparation,
       final dynamic tasks,
       @TimestampOrNullConverter() final DateTime? startDate,
-      @TimestampOrNullConverter() final DateTime? endDate}) = _$_MyCrop;
-  _MyCrop._() : super._();
+      @TimestampOrNullConverter() final DateTime? endDate}) = _$_UserCrop;
+  _UserCrop._() : super._();
 
-  factory _MyCrop.fromJson(Map<String, dynamic> json) = _$_MyCrop.fromJson;
+  factory _UserCrop.fromJson(Map<String, dynamic> json) = _$_UserCrop.fromJson;
 
   @override
   String? get uid;
+  @override
+  String? get userId;
   @override
   String? get nameEn;
   @override
@@ -430,6 +454,6 @@ abstract class _MyCrop extends MyCrop {
   DateTime? get endDate;
   @override
   @JsonKey(ignore: true)
-  _$$_MyCropCopyWith<_$_MyCrop> get copyWith =>
+  _$$_UserCropCopyWith<_$_UserCrop> get copyWith =>
       throw _privateConstructorUsedError;
 }

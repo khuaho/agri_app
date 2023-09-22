@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../global/data/models/crop_task/preparation.dart';
 import '../../../../../global/data/models/crop_task/suggestion_task.dart';
-import '../../../../../global/data/models/my_crop/my_crop.dart';
+import '../../../../../global/data/models/user_crop/user_crop.dart';
 import '../../../../../global/data/repositories/crop_task_repository.dart';
 import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
@@ -14,7 +14,7 @@ import '../modules/upsert/providers/crop_task_provider.dart';
 class TaskForm extends ConsumerStatefulWidget {
   const TaskForm({this.initial, super.key});
 
-  final MyCrop? initial;
+  final UserCrop? initial;
 
   @override
   ConsumerState<TaskForm> createState() => _TaskFormState();

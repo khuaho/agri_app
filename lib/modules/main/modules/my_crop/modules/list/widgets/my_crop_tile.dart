@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../../../global/app_router/app_router.dart';
-import '../../../../../../../global/data/models/my_crop/my_crop.dart';
+import '../../../../../../../global/data/models/user_crop/user_crop.dart';
 import '../../../../../../../global/enum/crop_status.dart';
 import '../../../../../../../global/extensions/date_time_ext.dart';
 import '../../../../../../../global/gen/strings.g.dart';
@@ -24,7 +24,7 @@ class MyCropTile extends ConsumerStatefulWidget {
     required this.myCrop,
   });
 
-  final MyCrop myCrop;
+  final UserCrop myCrop;
 
   @override
   ConsumerState<MyCropTile> createState() => _MyCropTileState();

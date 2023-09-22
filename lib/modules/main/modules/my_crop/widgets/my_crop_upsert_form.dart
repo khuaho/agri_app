@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
 import '../../../../../global/data/models/crop_type/crop_type.dart';
-import '../../../../../global/data/models/my_crop/my_crop.dart';
+import '../../../../../global/data/models/user_crop/user_crop.dart';
 import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
 import '../../../../../global/widgets/shimmer/shimmer_text_field.dart';
@@ -19,7 +19,7 @@ import 'task_form.dart';
 class MyCropUpsertForm extends ConsumerStatefulWidget {
   const MyCropUpsertForm({super.key, this.initial});
 
-  final MyCrop? initial;
+  final UserCrop? initial;
 
   @override
   ConsumerState<MyCropUpsertForm> createState() => _MyCropUpsertFormState();

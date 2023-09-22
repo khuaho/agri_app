@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 318 (159 per locale)
+/// Strings: 320 (160 per locale)
 ///
-/// Built on 2023-09-22 at 03:00 UTC
+/// Built on 2023-09-22 at 08:35 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -197,6 +197,7 @@ class _StringsCommonEn {
 	String get gallery => 'Gallery';
 	String get oops => 'Oops!';
 	late final _StringsCommonPermissionEn permission_ = _StringsCommonPermissionEn._(_root);
+	String get loadData => 'Load data';
 }
 
 // Path: error
@@ -729,6 +730,7 @@ class _StringsCommonVi implements _StringsCommonEn {
 	@override String get gallery => 'Thư viện';
 	@override String get oops => 'Oops!';
 	@override late final _StringsCommonPermissionVi permission_ = _StringsCommonPermissionVi._(_root);
+	@override String get loadData => 'Tải dữ liệu';
 }
 
 // Path: error
@@ -1239,6 +1241,7 @@ extension on _StringsEn {
 			case 'common.permission_.permissionGranted': return 'Permission granted.';
 			case 'common.permission_.locationNotAvailable': return 'Location Not Available';
 			case 'common.permission_.unableToDetermine': return 'Unable to determine';
+			case 'common.loadData': return 'Load data';
 			case 'error.error': return 'Error!!!';
 			case 'error.illegalData': return 'Wrong data format';
 			case 'error.noNetwork': return 'No internet connection';
@@ -1406,6 +1409,7 @@ extension on _StringsVi {
 			case 'common.permission_.permissionGranted': return 'Đã được cho phép.';
 			case 'common.permission_.locationNotAvailable': return 'Vị trí không có sẵn';
 			case 'common.permission_.unableToDetermine': return 'Không thể xác định';
+			case 'common.loadData': return 'Tải dữ liệu';
 			case 'error.error': return 'Lỗi rồi!!!';
 			case 'error.illegalData': return 'Dữ liệu không hợp lệ';
 			case 'error.noNetwork': return 'Không có kết nối internet';

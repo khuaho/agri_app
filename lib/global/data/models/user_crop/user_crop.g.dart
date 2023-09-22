@@ -1,13 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'my_crop.dart';
+part of 'user_crop.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MyCrop _$$_MyCropFromJson(Map<String, dynamic> json) => _$_MyCrop(
+_$_UserCrop _$$_UserCropFromJson(Map<String, dynamic> json) => _$_UserCrop(
       uid: json['uid'] as String?,
+      userId: json['userId'] as String?,
       nameEn: json['nameEn'] as String?,
       nameVi: json['nameVi'] as String?,
       thumbnail: json['thumbnail'] as String?,
@@ -23,8 +24,10 @@ _$_MyCrop _$$_MyCropFromJson(Map<String, dynamic> json) => _$_MyCrop(
       endDate: const TimestampOrNullConverter().fromJson(json['endDate']),
     );
 
-Map<String, dynamic> _$$_MyCropToJson(_$_MyCrop instance) => <String, dynamic>{
+Map<String, dynamic> _$$_UserCropToJson(_$_UserCrop instance) =>
+    <String, dynamic>{
       'uid': instance.uid,
+      'userId': instance.userId,
       'nameEn': instance.nameEn,
       'nameVi': instance.nameVi,
       'thumbnail': instance.thumbnail,

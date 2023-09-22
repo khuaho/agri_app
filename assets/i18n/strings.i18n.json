@@ -53,7 +53,8 @@
       "permissionGranted": "Permission granted.",
       "locationNotAvailable": "Location Not Available",
       "unableToDetermine": "Unable to determine"
-    }
+    },
+    "loadData": "Load data"
   },
   "error": {
     "error": "Error!!!",
