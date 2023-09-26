@@ -19,9 +19,12 @@ class CropsPage extends ConsumerStatefulWidget {
 
 class _CropsPageState extends ConsumerState<CropsPage> {
   late final keywordProvider = ref.read(searchKeywordProvider.notifier);
-  final initialFilter = const CropFilterData();
-  void handleFilterChange(String value) {
-    keywordProvider.update((state) => value);
+  CropFilterData initialFilter = const CropFilterData();
+  void handleFilterChange(CropFilterData data) {
+    setState(() {
+      initialFilter = data;
+    });
+    keywordProvider.update((state) => data.keyword ?? '');
   }
 
   @override

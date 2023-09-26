@@ -34,7 +34,7 @@ class _CropFilterSheetState extends ConsumerState<CropFilterSheet> {
 
   void onCropTypeSelectionComplete(
       List<AdaptiveSelectorOption<CropType>> cropType) {
-    if (cropType.isNotEmpty) return;
+    if (cropType.isEmpty) return;
     setState(() {
       filter = filter.copyWith(
         cropType: cropType.first.id,

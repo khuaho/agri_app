@@ -135,8 +135,8 @@ class _MainPageState extends ConsumerState<MainPage> {
               ),
               BottomNavigationBarItem(
                 label: transl.main.myCrops,
-                icon: const Icon(AppIcons.nature_people),
-                activeIcon: const Icon(AppIcons.nature_people),
+                icon: const Icon(AppIcons.opacity),
+                activeIcon: const Icon(AppIcons.opacity),
               ),
               BottomNavigationBarItem(
                 label: transl.main.settings,

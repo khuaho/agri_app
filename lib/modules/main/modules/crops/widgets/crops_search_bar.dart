@@ -13,7 +13,7 @@ class CropsSearchBar extends StatefulWidget {
     required this.initialFilter,
   });
 
-  final ValueChanged<String> onChanged;
+  final ValueChanged<CropFilterData> onChanged;
   final CropFilterData initialFilter;
 
   @override
@@ -23,14 +23,7 @@ class CropsSearchBar extends StatefulWidget {
 class _CropsSearchBarState extends State<CropsSearchBar> {
   late CropFilterData filter = widget.initialFilter;
   void handleFilter(CropFilterData filterData) {
-    filter = filterData;
-    final newFilters = [];
-    // filter by keyboard
-    if (filterData.keyword?.isNotEmpty ?? false) {
-      newFilters.add(filterData.keyword);
-    }
-
-    widget.onChanged(filterData.keyword ?? '');
+    widget.onChanged(filterData);
   }
 
   @override
@@ -55,7 +48,7 @@ class _CropsSearchBarState extends State<CropsSearchBar> {
           color: Theme.of(context).canvasColor,
           child: IconButton(
             onPressed: () async {
-              await showDialog(
+              final newFilter = await showDialog(
                 context: context,
                 builder: (context) => Padding(
                   padding: const EdgeInsets.all(16),
@@ -69,9 +62,9 @@ class _CropsSearchBarState extends State<CropsSearchBar> {
                 ),
               );
 
-              // if (newFilter is CropFilterData) {
-              //   handleFilter(newFilter);
-              // }
+              if (newFilter is CropFilterData) {
+                handleFilter(newFilter);
+              }
             },
             icon: const Icon(
               Icons.filter_list,
