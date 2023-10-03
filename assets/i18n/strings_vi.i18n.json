@@ -97,7 +97,10 @@
     "windSpeed": {
       "label": "Tốc độ gió",
       "value": "${value}m/s"
-    }
+    },
+    "totalCrop": "Tổng số cây trồng",
+    "allCrops": "Tất cả cây trồng",
+    "myCrops": "Cây trồng của tôi"
   },
   "crops": {
     "title": "Cây trồng",

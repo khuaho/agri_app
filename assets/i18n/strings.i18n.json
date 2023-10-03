@@ -97,7 +97,10 @@
     "windSpeed": {
       "label": "WindSpeed",
       "value": "${value}m/s"
-    }
+    },
+    "totalCrop": "Total crop",
+    "allCrops": "All crops",
+    "myCrops": "My crops"
   },
   "crops": {
     "title": "Crops",

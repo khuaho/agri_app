@@ -13,7 +13,7 @@ import 'global/gen/strings.g.dart';
 import 'locator.dart';
 
 void buildFlavor(Flavor flavor) async {
-  F.appFlavor = flavor;
+  FlavorConfigs.appFlavor = flavor;
   WidgetsFlutterBinding.ensureInitialized();
   Directory appDir = await getApplicationDocumentsDirectory();
   Directory appTempDir = await getTemporaryDirectory();

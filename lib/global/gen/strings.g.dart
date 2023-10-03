@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 320 (160 per locale)
+/// Strings: 326 (163 per locale)
 ///
-/// Built on 2023-09-22 at 08:35 UTC
+/// Built on 2023-09-26 at 02:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -247,6 +247,9 @@ class _StringsHomeEn {
 	late final _StringsHomeHumidityEn humidity = _StringsHomeHumidityEn._(_root);
 	late final _StringsHomeRainfallEn rainfall = _StringsHomeRainfallEn._(_root);
 	late final _StringsHomeWindSpeedEn windSpeed = _StringsHomeWindSpeedEn._(_root);
+	String get totalCrop => 'Total crop';
+	String get allCrops => 'All crops';
+	String get myCrops => 'My crops';
 }
 
 // Path: crops
@@ -780,6 +783,9 @@ class _StringsHomeVi implements _StringsHomeEn {
 	@override late final _StringsHomeHumidityVi humidity = _StringsHomeHumidityVi._(_root);
 	@override late final _StringsHomeRainfallVi rainfall = _StringsHomeRainfallVi._(_root);
 	@override late final _StringsHomeWindSpeedVi windSpeed = _StringsHomeWindSpeedVi._(_root);
+	@override String get totalCrop => 'Tổng số cây trồng';
+	@override String get allCrops => 'Tất cả cây trồng';
+	@override String get myCrops => 'Cây trồng của tôi';
 }
 
 // Path: crops
@@ -1265,6 +1271,9 @@ extension on _StringsEn {
 			case 'home.rainfall.value': return ({required Object value}) => '${value}mm';
 			case 'home.windSpeed.label': return 'WindSpeed';
 			case 'home.windSpeed.value': return ({required Object value}) => '${value}m/s';
+			case 'home.totalCrop': return 'Total crop';
+			case 'home.allCrops': return 'All crops';
+			case 'home.myCrops': return 'My crops';
 			case 'crops.title': return 'Crops';
 			case 'crops.searchCrop': return 'Search crop by name';
 			case 'crops.cropTypes': return 'Crop types';
@@ -1433,6 +1442,9 @@ extension on _StringsVi {
 			case 'home.rainfall.value': return ({required Object value}) => '${value}mm';
 			case 'home.windSpeed.label': return 'Tốc độ gió';
 			case 'home.windSpeed.value': return ({required Object value}) => '${value}m/s';
+			case 'home.totalCrop': return 'Tổng số cây trồng';
+			case 'home.allCrops': return 'Tất cả cây trồng';
+			case 'home.myCrops': return 'Cây trồng của tôi';
 			case 'crops.title': return 'Cây trồng';
 			case 'crops.searchCrop': return 'Tìm kiếm tên cây trồng ...';
 			case 'crops.cropTypes': return 'Các loại cây trồng';

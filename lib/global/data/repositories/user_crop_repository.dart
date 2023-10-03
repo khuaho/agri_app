@@ -23,6 +23,8 @@ abstract class UserCropRepository {
   Future<Either<Failure, Unit>> addUserCrop(UserCrop data);
 
   Future<Either<Failure, Unit>> updateUserCrop(UserCrop data);
+
+  Future<Either<Failure, int>> getUserCropCount();
 }
 
 class _UserCropRepositoryImpl extends BaseRepository
@@ -33,7 +35,8 @@ class _UserCropRepositoryImpl extends BaseRepository
 
   @override
   Future<Either<Failure, List<UserCrop>>> getUserCropsByStatus(
-      CropStatus status) {
+    CropStatus status,
+  ) {
     final currentUser = FirebaseAuth.instance.currentUser;
 
     return guardFuture(() async {
@@ -100,6 +103,21 @@ class _UserCropRepositoryImpl extends BaseRepository
             data.toJson(),
           );
       return unit;
+    });
+  }
+
+  @override
+  Future<Either<Failure, int>> getUserCropCount() {
+    final currentUser = FirebaseAuth.instance.currentUser;
+
+    return guardFuture(() async {
+      await Future.delayed(const Duration(seconds: 1));
+      final query = await userCropRef
+          .where('userId', isEqualTo: currentUser?.uid ?? '')
+          .count()
+          .get();
+
+      return query.count;
     });
   }
 }

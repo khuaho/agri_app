@@ -12,7 +12,7 @@ import '../../../../../global/gen/strings.g.dart';
 import '../../../../../global/themes/app_colors.dart';
 import '../../../../../global/utils/app_mixin.dart';
 import '../../../../../global/widgets/avatar.dart';
-import '../providers/notification_count_provider.dart';
+import '../providers/count_provider.dart';
 
 class HomeHeader extends ConsumerStatefulWidget {
   const HomeHeader({super.key, this.weather});

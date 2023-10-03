@@ -20,6 +20,7 @@ class WeatherOverview extends StatelessWidget {
     final transl = Translations.of(context);
 
     return Card(
+      margin: const EdgeInsets.only(top: 16),
       color: AppColors.white,
       child: Padding(
         padding: const EdgeInsets.all(20),

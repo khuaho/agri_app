@@ -9,6 +9,7 @@ import '../../../../app/providers/app_settings_provider.dart';
 import '../../../../global/data/models/app_event/app_event.dart';
 import '../../../../global/utils/app_mixin.dart';
 import '../../../../global/utils/constants.dart';
+import 'widgets/crop_overview.dart';
 import 'widgets/home_header.dart';
 import 'widgets/weather_overview.dart';
 
@@ -62,7 +63,8 @@ class _HomePageState extends ConsumerState<HomePage> with AppMixin {
             child: Column(
               children: [
                 WeatherOverview(weather: weather),
-                const SizedBox(height: 10),
+                const SizedBox(height: 16),
+                const CropOverview(),
               ],
             ),
           )
