@@ -84,6 +84,13 @@ dev_dependencies:
   json_serializable: ^6.7.1
   auto_route_generator: ^7.2.0
   slang_build_runner: ^3.22.0
+  # Unit test
+  mocktail: ^1.0.1
+  path_provider_platform_interface: ^2.1.1
+  plugin_platform_interface: ^2.1.6
+  fake_cloud_firestore: ^2.4.1+1
+  firebase_storage_mocks: ^0.6.1
+  firebase_auth_mocks: ^0.12.0
 
 flutter:
   uses-material-design: true
@@ -91,6 +98,7 @@ flutter:
     - assets/images/
     - assets/app_icons/
     - assets/i18n/
+    - .env
     - .env.dev
     - .env.prod
 

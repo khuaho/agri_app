@@ -10,7 +10,7 @@ import '../models/user/user.dart';
 import '_base_repository.dart';
 
 final userRepositoryProvider = Provider(
-  (ref) => _UserRepositoryImpl(),
+  (ref) => UserRepositoryImpl(),
 );
 
 abstract class UserRepository {
@@ -21,7 +21,7 @@ abstract class UserRepository {
   Future<Either<Failure, Unit>> updateUser(User data);
 }
 
-class _UserRepositoryImpl extends BaseRepository implements UserRepository {
+class UserRepositoryImpl extends BaseRepository implements UserRepository {
   final userRef =
       FirebaseFirestore.instance.collection('users').withUserConverter();
 

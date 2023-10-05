@@ -8,7 +8,7 @@ import '../../services/hive_service.dart';
 import '../models/failures/failure.dart';
 import '_base_repository.dart';
 
-final authRepositoryProvider = Provider(_AuthRepositoryImpl.new);
+final authRepositoryProvider = Provider(AuthRepositoryImpl.new);
 
 abstract class AuthRepository {
   Future<Either<Failure, Unit>> signInWithEmailPassword({
@@ -38,8 +38,8 @@ abstract class AuthRepository {
   Either<Failure, bool> checkSocialLogin();
 }
 
-class _AuthRepositoryImpl extends BaseRepository implements AuthRepository {
-  _AuthRepositoryImpl(this.ref);
+class AuthRepositoryImpl extends BaseRepository implements AuthRepository {
+  AuthRepositoryImpl(this.ref);
 
   Ref ref;
 

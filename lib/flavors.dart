@@ -1,6 +1,8 @@
+import 'package:flutter_config/flutter_config.dart';
+
 enum Flavor {
-  dev,
-  prod,
+  DEV,
+  PROD,
 }
 
 class FlavorConfigs {
@@ -8,14 +10,13 @@ class FlavorConfigs {
 
   static String get name => appFlavor?.name ?? '';
 
-  static String get title {
+  static String get appName {
+    final name = '${FlutterConfig.get('APP_NAME')}';
     switch (appFlavor) {
-      case Flavor.dev:
-        return 'Agri App DEV';
-      case Flavor.prod:
-        return 'Agri App';
+      case Flavor.PROD:
+        return name;
       default:
-        return 'title';
+        return '$name ${FlutterConfig.get('APP_ENVIRONMENT')}';
     }
   }
 }

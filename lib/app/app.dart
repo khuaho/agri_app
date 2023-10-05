@@ -82,7 +82,7 @@ class _MyAppState extends ConsumerState<MyApp>
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: FlavorConfigs.title,
+      title: FlavorConfigs.appName,
       debugShowCheckedModeBanner: false,
       routerConfig: appRouter.config(),
       locale: ref.watch(appSettingProvider).locale.toLocale(),

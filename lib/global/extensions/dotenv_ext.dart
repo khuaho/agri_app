@@ -5,10 +5,10 @@ import '../../flavors.dart';
 extension DotEnvExt on DotEnv {
   Future loadEnvVariables(Flavor flavor) async {
     switch (flavor) {
-      case Flavor.dev:
+      case Flavor.DEV:
         await dotenv.load(fileName: '.env.dev');
         break;
-      case Flavor.prod:
+      case Flavor.PROD:
         await dotenv.load(fileName: '.env.prod');
         break;
     }
