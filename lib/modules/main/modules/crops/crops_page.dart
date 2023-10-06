@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../global/app_router/app_router.dart';
 import '../../../../global/gen/strings.g.dart';
 import 'model/crop_filter_data.dart';
 import 'providers/search_crop_provider.dart';
@@ -34,6 +35,14 @@ class _CropsPageState extends ConsumerState<CropsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(transl.crops.title),
+        actions: [
+          IconButton(
+            onPressed: () {
+              context.pushRoute(const TestPaginationRoute());
+            },
+            icon: const Icon(Icons.list_alt),
+          )
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

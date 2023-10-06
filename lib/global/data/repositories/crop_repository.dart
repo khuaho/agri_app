@@ -7,11 +7,18 @@ import '../models/failures/failure.dart';
 import '_base_repository.dart';
 
 final cropRepositoryProvider = Provider(
-  (ref) => _CropRepositoryImpl(),
+  (ref) => _CropRepositoryImpl(ref),
 );
 
 abstract class CropRepository {
   Future<Either<Failure, List<Crop>>> getCrops();
+
+  // Future<Either<Failure, List<Crop>>> getCropsPagination(Crop? item);
+
+  Future<List<Crop>> fetchCrops(Crop? item);
+
+  // Future<Either<Failure, QuerySnapshot<Crop>>> getCropsPagination2(
+  //     {DocumentSnapshot<Crop>? lastDocument});
 
   Future<Either<Failure, Crop?>> getCrop(String? id);
 
@@ -23,6 +30,8 @@ abstract class CropRepository {
 }
 
 class _CropRepositoryImpl extends BaseRepository implements CropRepository {
+  _CropRepositoryImpl(this.ref);
+  final Ref ref;
   final cropRef =
       FirebaseFirestore.instance.collection('crops').withCropConverter();
 
@@ -35,6 +44,37 @@ class _CropRepositoryImpl extends BaseRepository implements CropRepository {
       return data;
     });
   }
+
+  // @override
+  // Future<Either<Failure, List<Crop>>> getCropsPagination(Crop? item) {
+  //   return guardFuture(() async {
+  //     await Future.delayed(const Duration(seconds: 1));
+  //     Query<Crop> querySnapshot =
+  //         cropRef.limit(2).orderBy('createdAt', descending: true);
+  //     if (item != null) {
+  //       querySnapshot = querySnapshot.startAfter([item.createdAt]);
+  //     }
+  //     final res = await querySnapshot.get();
+  //     final data = res.docs.map((e) => e.data().copyWith(uid: e.id)).toList();
+  //     return data;
+  //   });
+  // }
+
+  // @override
+  // Future<Either<Failure, QuerySnapshot<Crop>>> getCropsPagination2({
+  //   DocumentSnapshot<Crop>? lastDocument,
+  // }) {
+  //   return guardFuture(() async {
+  //     await Future.delayed(const Duration(seconds: 1));
+  //     Query<Crop> cropsQuery = cropRef.limit(2);
+  //     if (lastDocument != null) {
+  //       cropsQuery = cropsQuery.startAfterDocument(lastDocument);
+  //     }
+  //     final querySnapShot = await cropsQuery.get();
+
+  //     return querySnapShot;
+  //   });
+  // }
 
   @override
   Future<Either<Failure, Crop?>> getCrop(String? id) {
@@ -91,5 +131,19 @@ class _CropRepositoryImpl extends BaseRepository implements CropRepository {
 
       return query.count;
     });
+  }
+
+  @override
+  Future<List<Crop>> fetchCrops(Crop? item) async {
+    Query<Crop> query =
+        cropRef.limit(20).orderBy('createdAt', descending: true);
+    if (item != null) {
+      query = query.startAfter([item.createdAt]);
+    }
+    final documentSnapShot = await query.get();
+
+    final data =
+        documentSnapShot.docs.map((e) => e.data().copyWith(uid: e.id)).toList();
+    return data;
   }
 }

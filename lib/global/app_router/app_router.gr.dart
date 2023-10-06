@@ -112,6 +112,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const OnboardingPage(),
       );
     },
+    TestPaginationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TestPaginationPage(),
+      );
+    },
   };
 }
 
@@ -379,6 +385,20 @@ class OnboardingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'OnboardingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TestPaginationPage]
+class TestPaginationRoute extends PageRouteInfo<void> {
+  const TestPaginationRoute({List<PageRouteInfo>? children})
+      : super(
+          TestPaginationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TestPaginationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

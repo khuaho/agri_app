@@ -15,6 +15,7 @@ import '../../modules/profile/profile_page.dart';
 import '../../modules/notifications/notifications_page.dart';
 import '../../modules/main/modules/my_crop/modules/upsert/upsert_my_crop_page.dart';
 import '../../modules/main/modules/my_crop/modules/detail/my_crop_detail_page.dart';
+import '../../modules/main/modules/test_pagination/test_pagination_page.dart';
 import 'auth_guard.dart';
 
 part 'app_router.gr.dart';
@@ -68,6 +69,13 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: '/notifications',
           page: NotificationRoute.page,
+          guards: [
+            AuthGuard(),
+          ],
+        ),
+        AutoRoute(
+          path: '/crops_pagination',
+          page: TestPaginationRoute.page,
           guards: [
             AuthGuard(),
           ],
